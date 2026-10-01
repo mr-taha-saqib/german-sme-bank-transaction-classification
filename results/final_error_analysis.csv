@@ -1,0 +1,34 @@
+﻿group_id,text,true_category,true_parent,n_test_rows,germanfinbert_n_correct,germanfinbert_modal_prediction,finbert_n_correct,finbert_modal_prediction,always_wrong_both,always_right_both,german_better,finbert_better
+9,hardware einkauf maschine a12,IT / Hardware,Investitionen (Ausgaben),6,4,IT / Hardware,5,IT / Hardware,False,False,False,True
+12,linkedin ads b2b leadgen,Marketing & Vertrieb,Betriebliche Aufwendungen,38,3,Marketing & Vertrieb,2,Marketing & Vertrieb,False,False,True,False
+14,verkauf anlagevermögen asset büroausbau,Verkauf von Anlagevermögen,Investitionen (Einnahmen),4,5,Verkauf von Anlagevermögen,5,Verkauf von Anlagevermögen,False,True,False,False
+20,anschaffung maschine netzwerk,Maschinen & Anlagen,Investitionen (Ausgaben),1,5,Maschinen & Anlagen,5,Maschinen & Anlagen,False,True,False,False
+22,firmenwagen leasing anzahlung,Fahrzeuge,Investitionen (Ausgaben),6,5,Fahrzeuge,1,Kapitalerhöhungen,False,False,True,False
+24,ausschüttung gesellschafter,Dividenden / Ausschüttungen,Finanzierung (Ausgaben),7,0,Gesellschaftereinlagen,0,Gesellschaftereinlagen,True,False,False,False
+34,büroumbau b2b portal,Immobilien / Umbauten,Investitionen (Ausgaben),2,5,Immobilien / Umbauten,5,Immobilien / Umbauten,False,True,False,False
+48,beratung projekt website relaunch,Beratung & Dienstleistungen,Betriebliche Aufwendungen,3,5,Beratung & Dienstleistungen,5,Beratung & Dienstleistungen,False,True,False,False
+53,rechnung produktverkauf bestellung,Produktverkäufe,Umsatzerlöse,39,2,Handelswaren,5,Produktverkäufe,False,False,False,True
+55,gas wärme betrieb,Energie,Betriebliche Aufwendungen,24,1,Rohstoffe,0,Immobilien / Umbauten,False,False,True,False
+57,betriebskosten bürofläche,Miete & Nebenkosten,Betriebliche Aufwendungen,25,1,Immobilien / Umbauten,0,Immobilien / Umbauten,False,False,True,False
+58,bonuszahlung channel sales,Boni / Provisionen,Sonstige operative Einnahmen,2,5,Boni / Provisionen,5,Boni / Provisionen,False,True,False,False
+59,bonuszahlung mitarbeitende,Boni / Prämien,Personal,7,0,Boni / Provisionen,0,Immobilien / Umbauten,True,False,False,False
+71,förderung projekt cashflow dashboard zuschussbescheid,Zuschüsse / Förderungen für Investitionen,Investitionen (Einnahmen),2,5,Zuschüsse / Förderungen für Investitionen,5,Zuschüsse / Förderungen für Investitionen,False,True,False,False
+74,cloud hosting,IT & Software,Betriebliche Aufwendungen,53,0,Abonnements,0,Abonnements,True,False,False,False
+78,refund vendor credit,Rückvergütungen,Sonstige operative Einnahmen,15,0,Tilgungen,0,Dienstleistungen,True,False,False,False
+87,honorar dienstleistung website relaunch,Dienstleistungen,Umsatzerlöse,3,5,Dienstleistungen,5,Dienstleistungen,False,True,False,False
+89,dienstreise erp migration,Reisekosten,Sonstige operative Kosten,5,5,Reisekosten,5,Reisekosten,False,True,False,False
+98,software einführung forecasting,Software (CapEx),Investitionen (Ausgaben),6,5,Software (CapEx),5,Software (CapEx),False,True,False,False
+110,subscription fee kunde,Abonnements,Wiederkehrende Erlöse,53,5,Abonnements,5,Abonnements,False,True,False,False
+116,gehaltslauf,Löhne & Gehälter,Personal,78,0,Boni / Provisionen,0,Büromaterial,True,False,False,False
+119,wareneinkauf handelswaren,Handelswaren,Wareneinsatz / Material,36,5,Handelswaren,5,Handelswaren,False,True,False,False
+122,zinsbelastung kredit,Zinsen,Finanzierung (Ausgaben),5,5,Zinsen,5,Zinsen,False,True,False,False
+123,kreditrate tilgung,Tilgungen,Finanzierung (Ausgaben),7,5,Tilgungen,5,Tilgungen,False,True,False,False
+127,leasingrate,Leasingraten,Finanzierung (Ausgaben),29,5,Leasingraten,5,Leasingraten,False,True,False,False
+129,software license revenue,Lizenzen,Wiederkehrende Erlöse,29,0,IT & Software,0,Abonnements,True,False,False,False
+132,lohnabgaben,Sozialabgaben,Personal,51,0,Rohstoffe,0,Büromaterial,True,False,False,False
+134,maintenance support,Wartungsverträge,Wiederkehrende Erlöse,34,5,Wartungsverträge,5,Wartungsverträge,False,True,False,False
+135,materialeinkauf rohstoffe,Rohstoffe,Wareneinsatz / Material,20,5,Rohstoffe,5,Rohstoffe,False,True,False,False
+138,office supplies,Büromaterial,Sonstige operative Kosten,16,5,Büromaterial,1,Beratung & Dienstleistungen,False,False,True,False
+139,werkvertrag onboarding schlussrechnung,Projektumsätze,Umsatzerlöse,3,5,Projektumsätze,5,Projektumsätze,False,True,False,False
+149,serviceeinsatz technik,Instandhaltung,Sonstige operative Kosten,10,1,Wartungsverträge,2,Wartungsverträge,False,False,False,True
+150,versicherungsprämie,Versicherungen,Betriebliche Aufwendungen,28,0,Versicherungsleistungen,0,Versicherungsleistungen,True,False,False,False

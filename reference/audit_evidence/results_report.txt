@@ -1,0 +1,113 @@
+SHEETS: ['�bersicht', 'Modellergebnisse', 'Kategorien', 'Fehlklassifikationen']
+======================================================================
+SHEET: Übersicht (12, 2)
+                                  Kennzahl  Wert
+0                    Gesamte Transaktionen  2000
+1                           Oberkategorien    11
+2                          Unterkategorien    37
+3         Eindeutige Gruppen / Grundmuster   170
+4                Training vor Augmentation  1279
+5          Synthetische Trainingsbeispiele   465
+6               Training nach Augmentation  1744
+7                               Validation   131
+8                                     Test   590
+9   Train/Validation Gruppenüberschneidung     0
+10        Train/Test Gruppenüberschneidung     0
+11   Validation/Test Gruppenüberschneidung     0
+======================================================================
+SHEET: Modellergebnisse (6, 4)
+                                Modell / Experiment  Validation Accuracy  Test Accuracy                                                                     Hinweis
+0             FinBERT – ursprünglicher Random Split                  NaN            1.0  Nicht aussagekräftig: Leakage durch identische/ähnliche Transaktionsmuster
+1                          FinBERT V2 – Group Split               0.0840            NaN                           Sauberer Group Split; keine Gruppenüberschneidung
+2  FinBERT V3 – Group Split, korrigierte Focal Loss               0.4809            NaN       Bester beobachteter Lauf; Ergebnis stark von Initialisierung abhängig
+3        TF-IDF + Logistic Regression – Group Split               0.0992            NaN                                        Baseline auf identischem Group Split
+4              FinBERT Final – Group Split, Seed 42               0.0916            NaN                                    Reproduzierbarer Lauf mit festem Seed 42
+5                       GermanFinBERT – Group Split               0.0992            NaN                           Deutsches Finanz-BERT; bester Checkpoint Epoche 2
+======================================================================
+SHEET: Kategorien (37, 3)
+                                 categoryName  Training_Transaktionen  Training_Grundmuster
+0                                 Abonnements                      53                     1
+1                          Boni / Provisionen                       7                     1
+2                              Boni / Prämien                       7                     1
+3                                Büromaterial                      16                     1
+4                 Dividenden / Ausschüttungen                       7                     1
+5                          Darlehensaufnahmen                       9                     1
+6                      Gesellschaftereinlagen                       9                     1
+7                                     Energie                      29                     1
+8                                Handelswaren                      48                     1
+9                             Produktverkäufe                      40                     1
+10                        Miete & Nebenkosten                      25                     1
+11                       Marketing & Vertrieb                      43                     1
+12                           Löhne & Gehälter                      79                     1
+13                                   Lizenzen                      36                     1
+14                               Leasingraten                      34                     1
+15                          Kapitalerhöhungen                      15                     1
+16                                  Tilgungen                       8                     1
+17                                  Rohstoffe                      20                     1
+18                              Sozialabgaben                      51                     1
+19                            Rückvergütungen                      19                     1
+20                                     Zinsen                       8                     1
+21                           Wartungsverträge                      40                     1
+22                    Versicherungsleistungen                      10                     1
+23                             Versicherungen                      28                     1
+24                                  Fahrzeuge                       9                     2
+25                              IT & Software                     139                     2
+26                      Immobilien / Umbauten                       7                     3
+27                 Verkauf von Anlagevermögen                       7                     3
+28                        Maschinen & Anlagen                      11                     4
+29  Zuschüsse / Förderungen für Investitionen                      11                     5
+30                             Instandhaltung                      36                     6
+31                              IT / Hardware                      31                     6
+32                           Software (CapEx)                      16                     7
+33                                Reisekosten                      49                     9
+34                           Dienstleistungen                     147                    10
+35                Beratung & Dienstleistungen                      79                    11
+36                             Projektumsätze                      96                    29
+======================================================================
+SHEET: Fehlklassifikationen (118, 4)
+      Transaktionsbeschreibung Tatsächliche Kategorie             Vorhersage  Korrekt
+0            domain und server          IT & Software          IT / Hardware    False
+1                   miete büro    Miete & Nebenkosten         Instandhaltung    False
+2            strom und energie                Energie              Rohstoffe    False
+3            strom und energie                Energie              Rohstoffe    False
+4                   miete büro    Miete & Nebenkosten         Instandhaltung    False
+5    online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+6            domain und server          IT & Software          IT / Hardware    False
+7    online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+8            strom und energie                Energie              Rohstoffe    False
+9            domain und server          IT & Software          IT / Hardware    False
+10           strom und energie                Energie              Rohstoffe    False
+11   online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+12   online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+13           domain und server          IT & Software          IT / Hardware    False
+14                  miete büro    Miete & Nebenkosten         Instandhaltung    False
+15           domain und server          IT & Software          IT / Hardware    False
+16           domain und server          IT & Software          IT / Hardware    False
+17           strom und energie                Energie              Rohstoffe    False
+18           strom und energie                Energie              Rohstoffe    False
+19   online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+20           domain und server          IT & Software          IT / Hardware    False
+21                  miete büro    Miete & Nebenkosten         Instandhaltung    False
+..                         ...                    ...                    ...      ...
+96           domain und server          IT & Software          IT / Hardware    False
+97           domain und server          IT & Software          IT / Hardware    False
+98           strom und energie                Energie              Rohstoffe    False
+99           domain und server          IT & Software          IT / Hardware    False
+100          domain und server          IT & Software          IT / Hardware    False
+101                 miete büro    Miete & Nebenkosten         Instandhaltung    False
+102                 miete büro    Miete & Nebenkosten         Instandhaltung    False
+103          domain und server          IT & Software          IT / Hardware    False
+104  online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+105          domain und server          IT & Software          IT / Hardware    False
+106          domain und server          IT & Software          IT / Hardware    False
+107          domain und server          IT & Software          IT / Hardware    False
+108  online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+109          domain und server          IT & Software          IT / Hardware    False
+110                 miete büro    Miete & Nebenkosten         Instandhaltung    False
+111                 miete büro    Miete & Nebenkosten         Instandhaltung    False
+112          strom und energie                Energie              Rohstoffe    False
+113          strom und energie                Energie              Rohstoffe    False
+114  online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+115  online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+116  online marketing kampagne   Marketing & Vertrieb  Immobilien / Umbauten    False
+117          strom und energie                Energie              Rohstoffe    False

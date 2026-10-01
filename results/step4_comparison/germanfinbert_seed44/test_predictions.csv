@@ -1,0 +1,648 @@
+﻿text,group_id,true_label_id,true_category,pred_id_uncal,pred_category_uncal,confidence_uncal,correct_uncal,decision
+hardware einkauf maschine a12,9,13,IT / Hardware,21,Maschinen & Anlagen,0.6802837,False,manual_review
+hardware einkauf maschine a12,9,13,IT / Hardware,21,Maschinen & Anlagen,0.6802837,False,manual_review
+hardware einkauf maschine a12,9,13,IT / Hardware,21,Maschinen & Anlagen,0.6802837,False,manual_review
+hardware einkauf maschine a12,9,13,IT / Hardware,21,Maschinen & Anlagen,0.6802837,False,manual_review
+hardware einkauf maschine a12,9,13,IT / Hardware,21,Maschinen & Anlagen,0.6802837,False,manual_review
+hardware einkauf maschine a12,9,13,IT / Hardware,21,Maschinen & Anlagen,0.6802837,False,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+linkedin ads b2b leadgen,12,20,Marketing & Vertrieb,20,Marketing & Vertrieb,0.27247068,True,manual_review
+verkauf anlagevermögen asset büroausbau,14,31,Verkauf von Anlagevermögen,31,Verkauf von Anlagevermögen,0.89952165,True,automatic
+verkauf anlagevermögen asset server,14,31,Verkauf von Anlagevermögen,31,Verkauf von Anlagevermögen,0.90391076,True,automatic
+verkauf anlagevermögen asset server,14,31,Verkauf von Anlagevermögen,31,Verkauf von Anlagevermögen,0.90391076,True,automatic
+verkauf anlagevermögen asset büroausbau,14,31,Verkauf von Anlagevermögen,31,Verkauf von Anlagevermögen,0.89952165,True,automatic
+anschaffung maschine netzwerk,20,21,Maschinen & Anlagen,21,Maschinen & Anlagen,0.91368294,True,automatic
+firmenwagen leasing anzahlung,22,9,Fahrzeuge,9,Fahrzeuge,0.77329725,True,manual_review
+firmenwagen leasing anzahlung,22,9,Fahrzeuge,9,Fahrzeuge,0.77329725,True,manual_review
+firmenwagen leasing anzahlung,22,9,Fahrzeuge,9,Fahrzeuge,0.77329725,True,manual_review
+firmenwagen leasing anzahlung,22,9,Fahrzeuge,9,Fahrzeuge,0.77329725,True,manual_review
+firmenwagen leasing anzahlung,22,9,Fahrzeuge,9,Fahrzeuge,0.77329725,True,manual_review
+firmenwagen leasing anzahlung,22,9,Fahrzeuge,9,Fahrzeuge,0.77329725,True,manual_review
+ausschüttung gesellschafter,24,7,Dividenden / Ausschüttungen,10,Gesellschaftereinlagen,0.85654217,False,automatic
+ausschüttung gesellschafter,24,7,Dividenden / Ausschüttungen,10,Gesellschaftereinlagen,0.85654217,False,automatic
+ausschüttung gesellschafter,24,7,Dividenden / Ausschüttungen,10,Gesellschaftereinlagen,0.85654217,False,automatic
+ausschüttung gesellschafter,24,7,Dividenden / Ausschüttungen,10,Gesellschaftereinlagen,0.85654217,False,automatic
+ausschüttung gesellschafter,24,7,Dividenden / Ausschüttungen,10,Gesellschaftereinlagen,0.85654217,False,automatic
+ausschüttung gesellschafter,24,7,Dividenden / Ausschüttungen,10,Gesellschaftereinlagen,0.85654217,False,automatic
+ausschüttung gesellschafter,24,7,Dividenden / Ausschüttungen,10,Gesellschaftereinlagen,0.85654217,False,automatic
+büroumbau b2b portal,34,14,Immobilien / Umbauten,14,Immobilien / Umbauten,0.910605,True,automatic
+büroumbau b2b portal,34,14,Immobilien / Umbauten,14,Immobilien / Umbauten,0.910605,True,automatic
+beratung projekt website relaunch,48,1,Beratung & Dienstleistungen,1,Beratung & Dienstleistungen,0.90201336,True,automatic
+beratung projekt website relaunch,48,1,Beratung & Dienstleistungen,1,Beratung & Dienstleistungen,0.90201336,True,automatic
+beratung projekt website relaunch,48,1,Beratung & Dienstleistungen,1,Beratung & Dienstleistungen,0.90201336,True,automatic
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+rechnung produktverkauf bestellung,53,23,Produktverkäufe,11,Handelswaren,0.5785962,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+gas wärme betrieb,55,8,Energie,26,Rohstoffe,0.2814687,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+betriebskosten bürofläche,57,22,Miete & Nebenkosten,14,Immobilien / Umbauten,0.2864486,False,manual_review
+bonuszahlung channel sales,58,2,Boni / Provisionen,2,Boni / Provisionen,0.84514326,True,automatic
+bonuszahlung channel sales,58,2,Boni / Provisionen,2,Boni / Provisionen,0.84514326,True,automatic
+bonuszahlung mitarbeitende,59,3,Boni / Prämien,2,Boni / Provisionen,0.86228603,False,automatic
+bonuszahlung mitarbeitende,59,3,Boni / Prämien,2,Boni / Provisionen,0.86228603,False,automatic
+bonuszahlung mitarbeitende,59,3,Boni / Prämien,2,Boni / Provisionen,0.86228603,False,automatic
+bonuszahlung mitarbeitende,59,3,Boni / Prämien,2,Boni / Provisionen,0.86228603,False,automatic
+bonuszahlung mitarbeitende,59,3,Boni / Prämien,2,Boni / Provisionen,0.86228603,False,automatic
+bonuszahlung mitarbeitende,59,3,Boni / Prämien,2,Boni / Provisionen,0.86228603,False,automatic
+bonuszahlung mitarbeitende,59,3,Boni / Prämien,2,Boni / Provisionen,0.86228603,False,automatic
+förderung projekt cashflow dashboard zuschussbescheid,71,36,Zuschüsse / Förderungen für Investitionen,36,Zuschüsse / Förderungen für Investitionen,0.9106748,True,automatic
+förderung projekt cashflow dashboard zuschussbescheid,71,36,Zuschüsse / Förderungen für Investitionen,36,Zuschüsse / Förderungen für Investitionen,0.9106748,True,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+cloud hosting,74,12,IT & Software,0,Abonnements,0.84911436,False,automatic
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+refund vendor credit,78,27,Rückvergütungen,30,Tilgungen,0.43769178,False,manual_review
+honorar dienstleistung website relaunch,87,6,Dienstleistungen,6,Dienstleistungen,0.8162097,True,automatic
+honorar dienstleistung website relaunch,87,6,Dienstleistungen,6,Dienstleistungen,0.8162097,True,automatic
+honorar dienstleistung website relaunch,87,6,Dienstleistungen,6,Dienstleistungen,0.8162097,True,automatic
+dienstreise erp migration,89,25,Reisekosten,25,Reisekosten,0.90580136,True,automatic
+dienstreise erp migration,89,25,Reisekosten,25,Reisekosten,0.90580136,True,automatic
+dienstreise erp migration,89,25,Reisekosten,25,Reisekosten,0.90580136,True,automatic
+dienstreise erp migration,89,25,Reisekosten,25,Reisekosten,0.90580136,True,automatic
+dienstreise erp migration,89,25,Reisekosten,25,Reisekosten,0.90580136,True,automatic
+software einführung forecasting,98,28,Software (CapEx),28,Software (CapEx),0.90382403,True,automatic
+software einführung forecasting,98,28,Software (CapEx),28,Software (CapEx),0.90382403,True,automatic
+software einführung forecasting,98,28,Software (CapEx),28,Software (CapEx),0.90382403,True,automatic
+software einführung forecasting,98,28,Software (CapEx),28,Software (CapEx),0.90382403,True,automatic
+software einführung forecasting,98,28,Software (CapEx),28,Software (CapEx),0.90382403,True,automatic
+software einführung forecasting,98,28,Software (CapEx),28,Software (CapEx),0.90382403,True,automatic
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+subscription fee kunde,110,0,Abonnements,0,Abonnements,0.7571597,True,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+gehaltslauf,116,19,Löhne & Gehälter,2,Boni / Provisionen,0.17039785,False,manual_review
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+wareneinkauf handelswaren,119,11,Handelswaren,11,Handelswaren,0.897757,True,automatic
+zinsbelastung kredit,122,35,Zinsen,35,Zinsen,0.8983398,True,automatic
+zinsbelastung kredit,122,35,Zinsen,35,Zinsen,0.8983398,True,automatic
+zinsbelastung kredit,122,35,Zinsen,35,Zinsen,0.8983398,True,automatic
+zinsbelastung kredit,122,35,Zinsen,35,Zinsen,0.8983398,True,automatic
+zinsbelastung kredit,122,35,Zinsen,35,Zinsen,0.8983398,True,automatic
+kreditrate tilgung,123,30,Tilgungen,30,Tilgungen,0.9217167,True,automatic
+kreditrate tilgung,123,30,Tilgungen,30,Tilgungen,0.9217167,True,automatic
+kreditrate tilgung,123,30,Tilgungen,30,Tilgungen,0.9217167,True,automatic
+kreditrate tilgung,123,30,Tilgungen,30,Tilgungen,0.9217167,True,automatic
+kreditrate tilgung,123,30,Tilgungen,30,Tilgungen,0.9217167,True,automatic
+kreditrate tilgung,123,30,Tilgungen,30,Tilgungen,0.9217167,True,automatic
+kreditrate tilgung,123,30,Tilgungen,30,Tilgungen,0.9217167,True,automatic
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+leasingrate,127,17,Leasingraten,17,Leasingraten,0.5921464,True,manual_review
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+software license revenue,129,18,Lizenzen,12,IT & Software,0.88037527,False,automatic
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+lohnabgaben,132,29,Sozialabgaben,26,Rohstoffe,0.22690119,False,manual_review
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+maintenance support,134,34,Wartungsverträge,34,Wartungsverträge,0.9085464,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+materialeinkauf rohstoffe,135,26,Rohstoffe,26,Rohstoffe,0.90440685,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+office supplies,138,4,Büromaterial,4,Büromaterial,0.8396389,True,automatic
+werkvertrag onboarding schlussrechnung,139,24,Projektumsätze,24,Projektumsätze,0.917376,True,automatic
+werkvertrag onboarding schlussrechnung,139,24,Projektumsätze,24,Projektumsätze,0.917376,True,automatic
+werkvertrag onboarding schlussrechnung,139,24,Projektumsätze,24,Projektumsätze,0.917376,True,automatic
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+serviceeinsatz technik,149,15,Instandhaltung,34,Wartungsverträge,0.44688028,False,manual_review
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic
+versicherungsprämie,150,32,Versicherungen,33,Versicherungsleistungen,0.8725546,False,automatic

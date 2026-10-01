@@ -1,0 +1,243 @@
+{
+  "model": {
+    "short_name": "finbert",
+    "hf_name": "ProsusAI/finbert",
+    "tokenizer_class": "BertTokenizer",
+    "vocab_size": 30522,
+    "do_lower_case": true,
+    "model_class": "BertForSequenceClassification",
+    "num_labels": 37,
+    "n_parameters": 109510693,
+    "max_position_embeddings": 512
+  },
+  "tokenizer_diagnostics": {
+    "n_texts": 2000,
+    "mean_tokens": 9.37,
+    "max_tokens": 18,
+    "p95_tokens": 15,
+    "n_truncated": 0,
+    "subtokens_per_word": 2.882,
+    "n_unk_tokens": 0
+  },
+  "device": "cuda:0 NVIDIA GeForce RTX 3060 (12.0 GB, torch 2.13.0+cu126)",
+  "training": {
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 2.55857,
+        "train_accuracy": 0.39883,
+        "lr_end_of_epoch": 1.4800838574423482e-05,
+        "dev_loss": 6.23458,
+        "dev_accuracy": 0.14474,
+        "dev_macro_f1": 0.53529
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.85047,
+        "train_accuracy": 0.88765,
+        "lr_end_of_epoch": 7.400419287211741e-06,
+        "dev_loss": 6.59306,
+        "dev_accuracy": 0.14474,
+        "dev_macro_f1": 0.48538
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.35131,
+        "train_accuracy": 0.95882,
+        "lr_end_of_epoch": 0.0,
+        "dev_loss": 6.74044,
+        "dev_accuracy": 0.14474,
+        "dev_macro_f1": 0.46235
+      }
+    ],
+    "total_optimisation_steps": 1059,
+    "warmup_steps": 105,
+    "selected_epoch": 3,
+    "seconds": 121.4,
+    "config": {
+      "epochs": 3,
+      "learning_rate": 2e-05,
+      "batch_size": 16,
+      "gradient_accumulation_steps": 1,
+      "max_length": 128,
+      "weight_decay": 0.01,
+      "max_grad_norm": 1.0,
+      "warmup_mode": "ratio",
+      "warmup_ratio": 0.1,
+      "warmup_steps": 500,
+      "loss": "focal",
+      "focal_gamma": 2.0,
+      "use_class_weights": true,
+      "model_selection": "fixed_epochs",
+      "synthetic_dev_fraction": 0.1,
+      "seed": 43,
+      "use_amp": true,
+      "num_workers": 0
+    },
+    "optimizer": "AdamW",
+    "scheduler": "linear warmup then linear decay",
+    "loss": "class-weighted focal (gamma=2.0)"
+  },
+  "data": {
+    "dataset_dir": "results/dataset",
+    "frozen_split_sha256": "f715f040d8a5daa621164ae8ddfbeae6870ca5fef1a36b06fb5261143233347a",
+    "n_train_rows": 5634,
+    "n_train_real_rows": 1093,
+    "n_train_synthetic_rows": 4541,
+    "n_validation_rows": 228,
+    "n_validation_groups": 16,
+    "n_test_rows": 647,
+    "n_test_groups": 33,
+    "train_class_distribution": {
+      "Projektumsätze": 269,
+      "IT & Software": 265,
+      "Abonnements": 255,
+      "Handelswaren": 240,
+      "Wartungsverträge": 234,
+      "Produktverkäufe": 230,
+      "Rohstoffe": 216,
+      "Lizenzen": 214,
+      "Dienstleistungen": 213,
+      "Kapitalerhöhungen": 210,
+      "Boni / Provisionen": 203,
+      "Tilgungen": 200,
+      "Zinsen": 200,
+      "Versicherungsleistungen": 199,
+      "Darlehensaufnahmen": 198,
+      "Gesellschaftereinlagen": 198,
+      "Büromaterial": 197,
+      "Instandhaltung": 190,
+      "Reisekosten": 184,
+      "Beratung & Dienstleistungen": 182,
+      "IT / Hardware": 166,
+      "Maschinen & Anlagen": 150,
+      "Software (CapEx)": 137,
+      "Zuschüsse / Förderungen für Investitionen": 134,
+      "Immobilien / Umbauten": 126,
+      "Fahrzeuge": 122,
+      "Marketing & Vertrieb": 121,
+      "Miete & Nebenkosten": 99,
+      "Löhne & Gehälter": 78,
+      "Verkauf von Anlagevermögen": 50,
+      "Sozialabgaben": 47,
+      "Leasingraten": 33,
+      "Versicherungen": 27,
+      "Energie": 19,
+      "Rückvergütungen": 18,
+      "Dividenden / Ausschüttungen": 7,
+      "Boni / Prämien": 3
+    },
+    "classes_without_training_data": [],
+    "augmentation": {
+      "n_real_train_rows": 1093,
+      "augmentation_enabled": true,
+      "augmentation_version": "v2",
+      "augmentation_corpus_sha256": "4eb242d9f384041fc5ec67ce19aa5ab67eda09506f68e1c5d2330bbb1e58d02d",
+      "augmentation_gates_applied": [
+        "A_provenance",
+        "B_collision",
+        "C_near_duplicate"
+      ],
+      "augmentation_gate": {
+        "n_input": 7033,
+        "n_dropped_source_unresolved": 0,
+        "n_dropped_source_from_heldout": 2483,
+        "n_dropped_source_not_in_train": 2483,
+        "n_dropped_collision_with_heldout": 0,
+        "near_duplicate_threshold": 0.6,
+        "n_dropped_near_duplicate_of_heldout": 9,
+        "max_similarity_to_heldout_after_gate": 0.5,
+        "near_duplicate_examples_dropped": [
+          {
+            "clean_description": "office supplies kauf",
+            "categoryName": "Büromaterial"
+          },
+          {
+            "clean_description": "abbuchung office supplies",
+            "categoryName": "Büromaterial"
+          },
+          {
+            "clean_description": "office supplies abbuchung",
+            "categoryName": "Büromaterial"
+          },
+          {
+            "clean_description": "maintenance support vertrag",
+            "categoryName": "Wartungsverträge"
+          },
+          {
+            "clean_description": "support maintenance vertrag",
+            "categoryName": "Wartungsverträge"
+          },
+          {
+            "clean_description": "maintenance support service",
+            "categoryName": "Wartungsverträge"
+          },
+          {
+            "clean_description": "maintenance support fee",
+            "categoryName": "Wartungsverträge"
+          },
+          {
+            "clean_description": "maintenance contract support",
+            "categoryName": "Wartungsverträge"
+          },
+          {
+            "clean_description": "sla maintenance support",
+            "categoryName": "Wartungsverträge"
+          }
+        ],
+        "n_dropped_duplicates": 0,
+        "n_output": 4541,
+        "n_classes": 29,
+        "per_class": {
+          "Abonnements": 204,
+          "Rohstoffe": 198,
+          "Produktverkäufe": 198,
+          "Boni / Provisionen": 196,
+          "Kapitalerhöhungen": 195,
+          "Wartungsverträge": 194,
+          "Zinsen": 192,
+          "Tilgungen": 192,
+          "Handelswaren": 192,
+          "Versicherungsleistungen": 190,
+          "Darlehensaufnahmen": 189,
+          "Gesellschaftereinlagen": 189,
+          "Büromaterial": 187,
+          "Projektumsätze": 181,
+          "Lizenzen": 180,
+          "Instandhaltung": 163,
+          "Reisekosten": 152,
+          "IT / Hardware": 140,
+          "Maschinen & Anlagen": 139,
+          "IT & Software": 130,
+          "Software (CapEx)": 127,
+          "Zuschüsse / Förderungen für Investitionen": 126,
+          "Beratung & Dienstleistungen": 125,
+          "Immobilien / Umbauten": 122,
+          "Fahrzeuge": 120,
+          "Dienstleistungen": 117,
+          "Marketing & Vertrieb": 79,
+          "Miete & Nebenkosten": 76,
+          "Verkauf von Anlagevermögen": 48
+        },
+        "n_source_patterns_used": 103
+      },
+      "near_duplicate_threshold": 0.6,
+      "max_similarity_to_heldout": 0.5
+    }
+  },
+  "environment": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 151 Stepping 5, GenuineIntel",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.0",
+    "torch": "2.13.0+cu126",
+    "transformers": "5.16.1",
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3060",
+    "cuda_version": "12.6"
+  },
+  "confidence_threshold": 0.8,
+  "calibration": "NOT APPLIED - Step 3 reports raw softmax probabilities only"
+}

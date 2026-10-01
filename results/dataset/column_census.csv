@@ -1,0 +1,66 @@
+﻿column,non_empty,missing,missing_pct,n_unique,example
+id,2000,0,0.0,2000,76c05eef-35db-5158-9b36-18d4165e8830
+sourceOrder,2000,0,0.0,2000,1
+finApiTransactionId,2000,0,0.0,2000,900000000679
+counterpartCustomerReference,2000,0,0.0,2000,KREF-000679
+fingerprint,2000,0,0.0,1999,6ab6f7e5c67cc184592dc15db8d2ac28ae44ecb120c7de88adbab73c3236
+amount,2000,0,0.0,1806,-303.50
+description,2000,0,0.0,1444,Domain und Server 2024-06
+dedupeCheckedAt,2000,0,0.0,683,2024-06-04T00:00:00Z
+transactionDate,2000,0,0.0,679,2024-06-01
+receiptId,612,1388,69.4,612,7eab7578-8934-5cc1-a687-97bc078f7327
+vendorMatchConfidence,2000,0,0.0,290,1.000
+counterpartCreditorId,318,1682,84.1,286,AT98ZZZ287548631
+vendorId,2000,0,0.0,128,74ca9f6c-2080-5abe-822b-84aac9e1b57b
+vendorIban,2000,0,0.0,128,AT173200075299824975532
+counterpartyNameRaw,2000,0,0.0,128,Google Ireland Ltd.
+vendorName,2000,0,0.0,128,Google Ireland Ltd.
+counterpartIban,2000,0,0.0,128,AT173200075299824975532
+vendorGroupId,2000,0,0.0,115,67a23aea-80bf-5977-82a5-ed0e8cfdf1fc
+vendorGroupName,2000,0,0.0,115,Google Group
+counterpartBic,2000,0,0.0,107,GOOGATWWXXX
+categoryName,2000,0,0.0,37,IT & Software
+categoryId,2000,0,0.0,37,0fea2bd7-fad5-50a5-bc82-d4a8a375b102
+finApiCategoryName,2000,0,0.0,37,IT & Software
+categoryIcon,2000,0,0.0,34,💻
+duplicateOfTransactionId,32,1968,98.4,32,5cc841ac-83a7-5d67-90eb-3dd00485a7a6
+duplicateGroupId,64,1936,96.8,32,371a084e-240e-44de-9b48-efa1d6f75039
+counterpartMandateReference,318,1682,84.1,25,MR-548631
+parentCategoryName,2000,0,0.0,11,Betriebliche Aufwendungen
+parentCategoryId,2000,0,0.0,11,42365538-b0f5-5e0c-84b9-1d75540f97b3
+counterpartBankName,2000,0,0.0,6,Revolut Bank UAB
+vendorMatchMethod,2000,0,0.0,5,MANUAL
+sepaPurposeCode,2000,0,0.0,5,GDDS
+typeCodeSwift,2000,0,0.0,4,PMNT-IDDT-ESDD
+bankTransactionCodeDescription,2000,0,0.0,4,SEPA Lastschrift
+type,2000,0,0.0,4,SEPA Lastschrift
+bankAccountId,2000,0,0.0,3,e1b30ffa-94fa-5b6d-87d0-b00029b537a3
+bankTransactionCode,2000,0,0.0,3,SEPA Direct Debit
+typeCodeZka,2000,0,0.0,3,NDDT
+duplicate,2000,0,0.0,2,false
+ruleProcessed,2000,0,0.0,2,false
+createUser,2000,0,0.0,1,7393e6f0-25e9-57dc-bb5e-9479e6e7e609
+deleted,2000,0,0.0,1,false
+bankConnectionId,2000,0,0.0,1,d5083ecf-bf54-5f5e-8dcd-6f5a14b69fe9
+updateDate,2000,0,0.0,1,2026-06-01T10:00:00+02:00
+updateUser,2000,0,0.0,1,7393e6f0-25e9-57dc-bb5e-9479e6e7e609
+organizationId,2000,0,0.0,1,413c18f7-fb09-5108-9377-0b15ea172bd0
+createDate,2000,0,0.0,1,2026-06-01T10:00:00+02:00
+archived,2000,0,0.0,1,false
+note,2000,0,0.0,1,synthetic_b2b_dataset_v1
+fingerprintVersion,2000,0,0.0,1,1
+isSplit,2000,0,0.0,1,false
+categoryEnrichmentStatus,2000,0,0.0,1,ENRICHED
+counterpartBlz,2000,0,0.0,1,32000
+currency,2000,0,0.0,1,EUR
+synced,2000,0,0.0,1,true
+duplicateReviewStatus,64,1936,96.8,1,UNREVIEWED
+vendorEnrichmentStatus,2000,0,0.0,1,ENRICHED
+counterpartDebitorId,0,2000,100.0,0,
+counterpartAccountNumber,0,2000,100.0,0,
+deleteDate,0,2000,100.0,0,
+vendorAccountNumber,0,2000,100.0,0,
+parentCategoryIcon,0,2000,100.0,0,
+parentTransactionId,0,2000,100.0,0,
+duplicateReviewedBy,0,2000,100.0,0,
+duplicateReviewedAt,0,2000,100.0,0,

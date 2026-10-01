@@ -1,0 +1,42 @@
+                                           precision    recall  f1-score   support
+
+                              Abonnements     0.5000    1.0000    0.6667        53
+              Beratung & Dienstleistungen     0.1579    1.0000    0.2727         3
+                       Boni / Provisionen     1.0000    1.0000    1.0000         2
+                           Boni / Prämien     0.0000    0.0000    0.0000         7
+                             Büromaterial     0.0000    0.0000    0.0000        16
+                         Dienstleistungen     0.0536    1.0000    0.1017         3
+              Dividenden / Ausschüttungen     0.0000    0.0000    0.0000         7
+                                  Energie     0.0000    0.0000    0.0000        24
+                                Fahrzeuge     0.0000    0.0000    0.0000         6
+                   Gesellschaftereinlagen     0.0000    0.0000    0.0000         0
+                             Handelswaren     1.0000    1.0000    1.0000        36
+                            IT & Software     0.0000    0.0000    0.0000        53
+                            IT / Hardware     1.0000    1.0000    1.0000         6
+                    Immobilien / Umbauten     0.0345    1.0000    0.0667         2
+                           Instandhaltung     0.0000    0.0000    0.0000        10
+                        Kapitalerhöhungen     0.0000    0.0000    0.0000         0
+                             Leasingraten     1.0000    1.0000    1.0000        29
+                                 Lizenzen     0.0000    0.0000    0.0000        29
+                         Löhne & Gehälter     0.0000    0.0000    0.0000        78
+                     Marketing & Vertrieb     0.0000    0.0000    0.0000        38
+                      Maschinen & Anlagen     1.0000    1.0000    1.0000         1
+                      Miete & Nebenkosten     0.0000    0.0000    0.0000        25
+                          Produktverkäufe     1.0000    1.0000    1.0000        39
+                           Projektumsätze     1.0000    1.0000    1.0000         3
+                              Reisekosten     1.0000    1.0000    1.0000         5
+                                Rohstoffe     0.2041    1.0000    0.3390        20
+                          Rückvergütungen     0.0000    0.0000    0.0000        15
+                         Software (CapEx)     1.0000    1.0000    1.0000         6
+                            Sozialabgaben     0.0000    0.0000    0.0000        51
+                                Tilgungen     1.0000    1.0000    1.0000         7
+               Verkauf von Anlagevermögen     1.0000    1.0000    1.0000         4
+                           Versicherungen     0.0000    0.0000    0.0000        28
+                  Versicherungsleistungen     0.0000    0.0000    0.0000         0
+                         Wartungsverträge     0.7727    1.0000    0.8718        34
+                                   Zinsen     1.0000    1.0000    1.0000         5
+Zuschüsse / Förderungen für Investitionen     1.0000    1.0000    1.0000         2
+
+                                 accuracy                         0.4019       647
+                                macro avg     0.4090    0.5278    0.4255       647
+                             weighted avg     0.3131    0.4019    0.3370       647

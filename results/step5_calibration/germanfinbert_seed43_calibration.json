@@ -1,0 +1,2055 @@
+{
+  "model": "germanfinbert",
+  "seed": 43,
+  "temperature": 1.111529,
+  "temperature_fit_on_groups": 0.892969,
+  "fit_info": {
+    "method": "temperature",
+    "n_calibration_rows": 228,
+    "n_parameters": 1,
+    "temperature": 1.11153,
+    "nll_before": 1.94077,
+    "nll_after": 1.92524,
+    "nll_improvement": 0.01554
+  },
+  "n_validation_rows": 228,
+  "n_validation_groups": 16,
+  "validation_calibration_uncalibrated": {
+    "ece": 0.41269,
+    "mce": 0.63395,
+    "nll": 1.94077,
+    "brier": 0.76547,
+    "mean_confidence": 0.60192,
+    "median_confidence": 0.82303,
+    "std_confidence": 0.27239,
+    "min_confidence": 0.27844,
+    "max_confidence": 0.92038,
+    "accuracy": 0.49123,
+    "n_bins": 15,
+    "reliability_bins": [
+      {
+        "bin_lower": 0.0,
+        "bin_upper": 0.06666666666666667,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.06666666666666667,
+        "bin_upper": 0.13333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.13333333333333333,
+        "bin_upper": 0.2,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.2,
+        "bin_upper": 0.26666666666666666,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.26666666666666666,
+        "bin_upper": 0.3333333333333333,
+        "count": 66,
+        "accuracy": 0.0,
+        "confidence": 0.28928276896476746,
+        "gap": -0.28928276896476746
+      },
+      {
+        "bin_lower": 0.3333333333333333,
+        "bin_upper": 0.4,
+        "count": 47,
+        "accuracy": 1.0,
+        "confidence": 0.38670575618743896,
+        "gap": 0.613294243812561
+      },
+      {
+        "bin_lower": 0.4,
+        "bin_upper": 0.4666666666666667,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.4666666666666667,
+        "bin_upper": 0.5333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.5333333333333333,
+        "bin_upper": 0.6,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.6,
+        "bin_upper": 0.6666666666666666,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.6666666666666666,
+        "bin_upper": 0.7333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.7333333333333333,
+        "bin_upper": 0.8,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.8,
+        "bin_upper": 0.8666666666666667,
+        "count": 64,
+        "accuracy": 0.21875,
+        "confidence": 0.8527047634124756,
+        "gap": -0.6339547634124756
+      },
+      {
+        "bin_lower": 0.8666666666666667,
+        "bin_upper": 0.9333333333333333,
+        "count": 51,
+        "accuracy": 1.0,
+        "confidence": 0.8901301622390747,
+        "gap": 0.10986983776092529
+      },
+      {
+        "bin_lower": 0.9333333333333333,
+        "bin_upper": 1.0,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      }
+    ]
+  },
+  "validation_calibration_calibrated": {
+    "ece": 0.40605,
+    "mce": 0.66356,
+    "nll": 1.92524,
+    "brier": 0.74622,
+    "mean_confidence": 0.54543,
+    "median_confidence": 0.73957,
+    "std_confidence": 0.26262,
+    "min_confidence": 0.24281,
+    "max_confidence": 0.86446,
+    "accuracy": 0.49123,
+    "n_bins": 15,
+    "reliability_bins": [
+      {
+        "bin_lower": 0.0,
+        "bin_upper": 0.06666666666666667,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.06666666666666667,
+        "bin_upper": 0.13333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.13333333333333333,
+        "bin_upper": 0.2,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.2,
+        "bin_upper": 0.26666666666666666,
+        "count": 66,
+        "accuracy": 0.0,
+        "confidence": 0.245309516787529,
+        "gap": -0.245309516787529
+      },
+      {
+        "bin_lower": 0.26666666666666666,
+        "bin_upper": 0.3333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.3333333333333333,
+        "bin_upper": 0.4,
+        "count": 47,
+        "accuracy": 1.0,
+        "confidence": 0.33643943071365356,
+        "gap": 0.6635605692863464
+      },
+      {
+        "bin_lower": 0.4,
+        "bin_upper": 0.4666666666666667,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.4666666666666667,
+        "bin_upper": 0.5333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.5333333333333333,
+        "bin_upper": 0.6,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.6,
+        "bin_upper": 0.6666666666666666,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.6666666666666666,
+        "bin_upper": 0.7333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.7333333333333333,
+        "bin_upper": 0.8,
+        "count": 64,
+        "accuracy": 0.21875,
+        "confidence": 0.7856014966964722,
+        "gap": -0.5668514966964722
+      },
+      {
+        "bin_lower": 0.8,
+        "bin_upper": 0.8666666666666667,
+        "count": 51,
+        "accuracy": 1.0,
+        "confidence": 0.8250254392623901,
+        "gap": 0.17497456073760986
+      },
+      {
+        "bin_lower": 0.8666666666666667,
+        "bin_upper": 0.9333333333333333,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      },
+      {
+        "bin_lower": 0.9333333333333333,
+        "bin_upper": 1.0,
+        "count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "gap": null
+      }
+    ]
+  },
+  "test_uncalibrated": {
+    "row_level": {
+      "n": 647,
+      "n_classes_present": 33,
+      "accuracy": 0.42813,
+      "macro_f1": 0.5602,
+      "weighted_f1": 0.37599,
+      "top_2_accuracy": 0.62906,
+      "per_class": {
+        "Abonnements": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 53
+        },
+        "Beratung & Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "Boni / Provisionen": {
+          "precision": 0.08333,
+          "recall": 1.0,
+          "f1": 0.15385,
+          "support": 2
+        },
+        "Boni / Prämien": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7
+        },
+        "Büromaterial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16
+        },
+        "Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "Dividenden / Ausschüttungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7
+        },
+        "Energie": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 24
+        },
+        "Fahrzeuge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "Gesellschaftereinlagen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Handelswaren": {
+          "precision": 0.48,
+          "recall": 1.0,
+          "f1": 0.64865,
+          "support": 36
+        },
+        "IT & Software": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 53
+        },
+        "IT / Hardware": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "Immobilien / Umbauten": {
+          "precision": 0.07407,
+          "recall": 1.0,
+          "f1": 0.13793,
+          "support": 2
+        },
+        "Instandhaltung": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "Leasingraten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 29
+        },
+        "Lizenzen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 29
+        },
+        "Löhne & Gehälter": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 78
+        },
+        "Marketing & Vertrieb": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 38
+        },
+        "Maschinen & Anlagen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Miete & Nebenkosten": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 25
+        },
+        "Produktverkäufe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 39
+        },
+        "Projektumsätze": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "Reisekosten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "Rohstoffe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 20
+        },
+        "Rückvergütungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 15
+        },
+        "Software (CapEx)": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "Sozialabgaben": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 51
+        },
+        "Tilgungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "Verkauf von Anlagevermögen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "Versicherungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 28
+        },
+        "Versicherungsleistungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Wartungsverträge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 34
+        },
+        "Zinsen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "Zuschüsse / Förderungen für Investitionen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        }
+      },
+      "confidence_statistics": {
+        "mean": 0.63447,
+        "median": 0.76834,
+        "std": 0.30729,
+        "min": 0.09626,
+        "max": 0.92535
+      },
+      "calibration": {
+        "ece": 0.3318,
+        "mce": 0.71543,
+        "nll": 2.23186,
+        "brier": 0.79652,
+        "mean_confidence": 0.63447,
+        "median_confidence": 0.76834,
+        "std_confidence": 0.30729,
+        "min_confidence": 0.09626,
+        "max_confidence": 0.92535,
+        "accuracy": 0.42813,
+        "n_bins": 15,
+        "reliability_bins": [
+          {
+            "bin_lower": 0.0,
+            "bin_upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.06666666666666667,
+            "bin_upper": 0.13333333333333333,
+            "count": 129,
+            "accuracy": 0.0,
+            "confidence": 0.1149715781211853,
+            "gap": -0.1149715781211853
+          },
+          {
+            "bin_lower": 0.13333333333333333,
+            "bin_upper": 0.2,
+            "count": 15,
+            "accuracy": 0.0,
+            "confidence": 0.18003909289836884,
+            "gap": -0.18003909289836884
+          },
+          {
+            "bin_lower": 0.2,
+            "bin_upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.26666666666666666,
+            "bin_upper": 0.3333333333333333,
+            "count": 24,
+            "accuracy": 1.0,
+            "confidence": 0.28456684947013855,
+            "gap": 0.7154331505298615
+          },
+          {
+            "bin_lower": 0.3333333333333333,
+            "bin_upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.4,
+            "bin_upper": 0.4666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.4666666666666667,
+            "bin_upper": 0.5333333333333333,
+            "count": 10,
+            "accuracy": 1.0,
+            "confidence": 0.5259121656417847,
+            "gap": 0.47408783435821533
+          },
+          {
+            "bin_lower": 0.5333333333333333,
+            "bin_upper": 0.6,
+            "count": 38,
+            "accuracy": 0.0,
+            "confidence": 0.5723913311958313,
+            "gap": -0.5723913311958313
+          },
+          {
+            "bin_lower": 0.6,
+            "bin_upper": 0.6666666666666666,
+            "count": 53,
+            "accuracy": 1.0,
+            "confidence": 0.6592042446136475,
+            "gap": 0.34079575538635254
+          },
+          {
+            "bin_lower": 0.6666666666666666,
+            "bin_upper": 0.7333333333333333,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.6943972706794739,
+            "gap": 0.3056027293205261
+          },
+          {
+            "bin_lower": 0.7333333333333333,
+            "bin_upper": 0.8,
+            "count": 84,
+            "accuracy": 0.07142857142857142,
+            "confidence": 0.7729765772819519,
+            "gap": -0.7015480058533805
+          },
+          {
+            "bin_lower": 0.8,
+            "bin_upper": 0.8666666666666667,
+            "count": 116,
+            "accuracy": 0.3017241379310345,
+            "confidence": 0.8521824479103088,
+            "gap": -0.5504583099792744
+          },
+          {
+            "bin_lower": 0.8666666666666667,
+            "bin_upper": 0.9333333333333333,
+            "count": 176,
+            "accuracy": 0.8352272727272727,
+            "confidence": 0.9035302996635437,
+            "gap": -0.068303026936271
+          },
+          {
+            "bin_lower": 0.9333333333333333,
+            "bin_upper": 1.0,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          }
+        ]
+      },
+      "confidence_workflow": {
+        "threshold": 0.8,
+        "n_total": 647,
+        "n_auto": 292,
+        "pct_auto": 45.131,
+        "accuracy_auto": 0.62329,
+        "n_errors_in_auto": 110,
+        "n_manual_review": 355,
+        "pct_manual_review": 54.869,
+        "accuracy_manual_review": 0.26761,
+        "overall_accuracy": 0.42813,
+        "interpretation": "292/647 predictions (45.1%) reach confidence >= 0.8 and would be auto-processed; of those, 110 are wrong. This is an observed conditional accuracy on this test set, NOT a guarantee for an individual prediction."
+      },
+      "threshold_sweep": [
+        {
+          "threshold": 0.5,
+          "n_auto": 479,
+          "coverage_pct": 74.03,
+          "accuracy_auto": 0.52818,
+          "n_manual_review": 168,
+          "manual_review_pct": 25.97
+        },
+        {
+          "threshold": 0.6,
+          "n_auto": 431,
+          "coverage_pct": 66.62,
+          "accuracy_auto": 0.56381,
+          "n_manual_review": 216,
+          "manual_review_pct": 33.38
+        },
+        {
+          "threshold": 0.7,
+          "n_auto": 376,
+          "coverage_pct": 58.11,
+          "accuracy_auto": 0.5,
+          "n_manual_review": 271,
+          "manual_review_pct": 41.89
+        },
+        {
+          "threshold": 0.75,
+          "n_auto": 376,
+          "coverage_pct": 58.11,
+          "accuracy_auto": 0.5,
+          "n_manual_review": 271,
+          "manual_review_pct": 41.89
+        },
+        {
+          "threshold": 0.8,
+          "n_auto": 292,
+          "coverage_pct": 45.13,
+          "accuracy_auto": 0.62329,
+          "n_manual_review": 355,
+          "manual_review_pct": 54.87
+        },
+        {
+          "threshold": 0.85,
+          "n_auto": 247,
+          "coverage_pct": 38.18,
+          "accuracy_auto": 0.71255,
+          "n_manual_review": 400,
+          "manual_review_pct": 61.82
+        },
+        {
+          "threshold": 0.9,
+          "n_auto": 88,
+          "coverage_pct": 13.6,
+          "accuracy_auto": 1.0,
+          "n_manual_review": 559,
+          "manual_review_pct": 86.4
+        },
+        {
+          "threshold": 0.95,
+          "n_auto": 0,
+          "coverage_pct": 0.0,
+          "accuracy_auto": NaN,
+          "n_manual_review": 647,
+          "manual_review_pct": 100.0
+        }
+      ]
+    },
+    "group_level": {
+      "n": 33,
+      "n_classes_present": 33,
+      "accuracy": 0.66667,
+      "macro_f1": 0.58571,
+      "weighted_f1": 0.62121,
+      "top_2_accuracy": 0.75758,
+      "per_class": {
+        "Abonnements": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 1
+        },
+        "Beratung & Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Boni / Provisionen": {
+          "precision": 0.33333,
+          "recall": 1.0,
+          "f1": 0.5,
+          "support": 1
+        },
+        "Boni / Prämien": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Büromaterial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Dividenden / Ausschüttungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Energie": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Fahrzeuge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Gesellschaftereinlagen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Handelswaren": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 1
+        },
+        "IT & Software": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "IT / Hardware": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Immobilien / Umbauten": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 1
+        },
+        "Instandhaltung": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Leasingraten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Lizenzen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Löhne & Gehälter": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Marketing & Vertrieb": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Maschinen & Anlagen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Miete & Nebenkosten": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Produktverkäufe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Projektumsätze": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Reisekosten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Rohstoffe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Rückvergütungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Software (CapEx)": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Sozialabgaben": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Tilgungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Verkauf von Anlagevermögen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Versicherungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Versicherungsleistungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Wartungsverträge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Zinsen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Zuschüsse / Förderungen für Investitionen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        }
+      },
+      "confidence_statistics": {
+        "mean": 0.75969,
+        "median": 0.8589,
+        "std": 0.23999,
+        "min": 0.09626,
+        "max": 0.92535
+      },
+      "calibration": {
+        "ece": 0.23529,
+        "mce": 0.71543,
+        "nll": 1.52815,
+        "brier": 0.51891,
+        "mean_confidence": 0.75969,
+        "median_confidence": 0.8589,
+        "std_confidence": 0.23999,
+        "min_confidence": 0.09626,
+        "max_confidence": 0.92535,
+        "accuracy": 0.66667,
+        "n_bins": 15,
+        "reliability_bins": [
+          {
+            "bin_lower": 0.0,
+            "bin_upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.06666666666666667,
+            "bin_upper": 0.13333333333333333,
+            "count": 2,
+            "accuracy": 0.0,
+            "confidence": 0.11173269897699356,
+            "gap": -0.11173269897699356
+          },
+          {
+            "bin_lower": 0.13333333333333333,
+            "bin_upper": 0.2,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.18003909289836884,
+            "gap": -0.18003909289836884
+          },
+          {
+            "bin_lower": 0.2,
+            "bin_upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.26666666666666666,
+            "bin_upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.28456684947013855,
+            "gap": 0.7154331505298615
+          },
+          {
+            "bin_lower": 0.3333333333333333,
+            "bin_upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.4,
+            "bin_upper": 0.4666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.4666666666666667,
+            "bin_upper": 0.5333333333333333,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.5259122252464294,
+            "gap": 0.47408777475357056
+          },
+          {
+            "bin_lower": 0.5333333333333333,
+            "bin_upper": 0.6,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.5723914504051208,
+            "gap": -0.5723914504051208
+          },
+          {
+            "bin_lower": 0.6,
+            "bin_upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.6592043042182922,
+            "gap": 0.34079569578170776
+          },
+          {
+            "bin_lower": 0.6666666666666666,
+            "bin_upper": 0.7333333333333333,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.6943972706794739,
+            "gap": 0.3056027293205261
+          },
+          {
+            "bin_lower": 0.7333333333333333,
+            "bin_upper": 0.8,
+            "count": 3,
+            "accuracy": 0.3333333333333333,
+            "confidence": 0.7801569104194641,
+            "gap": -0.4468235770861308
+          },
+          {
+            "bin_lower": 0.8,
+            "bin_upper": 0.8666666666666667,
+            "count": 6,
+            "accuracy": 0.3333333333333333,
+            "confidence": 0.8501489162445068,
+            "gap": -0.5168155829111736
+          },
+          {
+            "bin_lower": 0.8666666666666667,
+            "bin_upper": 0.9333333333333333,
+            "count": 16,
+            "accuracy": 0.9375,
+            "confidence": 0.9055331349372864,
+            "gap": 0.03196686506271362
+          },
+          {
+            "bin_lower": 0.9333333333333333,
+            "bin_upper": 1.0,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          }
+        ]
+      },
+      "confidence_workflow": {
+        "threshold": 0.8,
+        "n_total": 33,
+        "n_auto": 22,
+        "pct_auto": 66.667,
+        "accuracy_auto": 0.77273,
+        "n_errors_in_auto": 5,
+        "n_manual_review": 11,
+        "pct_manual_review": 33.333,
+        "accuracy_manual_review": 0.45455,
+        "overall_accuracy": 0.66667,
+        "interpretation": "22/33 predictions (66.7%) reach confidence >= 0.8 and would be auto-processed; of those, 5 are wrong. This is an observed conditional accuracy on this test set, NOT a guarantee for an individual prediction."
+      },
+      "threshold_sweep": [
+        {
+          "threshold": 0.5,
+          "n_auto": 29,
+          "coverage_pct": 87.88,
+          "accuracy_auto": 0.72414,
+          "n_manual_review": 4,
+          "manual_review_pct": 12.12
+        },
+        {
+          "threshold": 0.6,
+          "n_auto": 27,
+          "coverage_pct": 81.82,
+          "accuracy_auto": 0.74074,
+          "n_manual_review": 6,
+          "manual_review_pct": 18.18
+        },
+        {
+          "threshold": 0.7,
+          "n_auto": 25,
+          "coverage_pct": 75.76,
+          "accuracy_auto": 0.72,
+          "n_manual_review": 8,
+          "manual_review_pct": 24.24
+        },
+        {
+          "threshold": 0.75,
+          "n_auto": 25,
+          "coverage_pct": 75.76,
+          "accuracy_auto": 0.72,
+          "n_manual_review": 8,
+          "manual_review_pct": 24.24
+        },
+        {
+          "threshold": 0.8,
+          "n_auto": 22,
+          "coverage_pct": 66.67,
+          "accuracy_auto": 0.77273,
+          "n_manual_review": 11,
+          "manual_review_pct": 33.33
+        },
+        {
+          "threshold": 0.85,
+          "n_auto": 20,
+          "coverage_pct": 60.61,
+          "accuracy_auto": 0.8,
+          "n_manual_review": 13,
+          "manual_review_pct": 39.39
+        },
+        {
+          "threshold": 0.9,
+          "n_auto": 10,
+          "coverage_pct": 30.3,
+          "accuracy_auto": 1.0,
+          "n_manual_review": 23,
+          "manual_review_pct": 69.7
+        },
+        {
+          "threshold": 0.95,
+          "n_auto": 0,
+          "coverage_pct": 0.0,
+          "accuracy_auto": NaN,
+          "n_manual_review": 33,
+          "manual_review_pct": 100.0
+        }
+      ]
+    }
+  },
+  "test_calibrated": {
+    "row_level": {
+      "n": 647,
+      "n_classes_present": 33,
+      "accuracy": 0.42813,
+      "macro_f1": 0.5602,
+      "weighted_f1": 0.37599,
+      "top_2_accuracy": 0.62906,
+      "per_class": {
+        "Abonnements": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 53
+        },
+        "Beratung & Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "Boni / Provisionen": {
+          "precision": 0.08333,
+          "recall": 1.0,
+          "f1": 0.15385,
+          "support": 2
+        },
+        "Boni / Prämien": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7
+        },
+        "Büromaterial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16
+        },
+        "Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "Dividenden / Ausschüttungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7
+        },
+        "Energie": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 24
+        },
+        "Fahrzeuge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "Gesellschaftereinlagen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Handelswaren": {
+          "precision": 0.48,
+          "recall": 1.0,
+          "f1": 0.64865,
+          "support": 36
+        },
+        "IT & Software": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 53
+        },
+        "IT / Hardware": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "Immobilien / Umbauten": {
+          "precision": 0.07407,
+          "recall": 1.0,
+          "f1": 0.13793,
+          "support": 2
+        },
+        "Instandhaltung": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "Leasingraten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 29
+        },
+        "Lizenzen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 29
+        },
+        "Löhne & Gehälter": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 78
+        },
+        "Marketing & Vertrieb": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 38
+        },
+        "Maschinen & Anlagen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Miete & Nebenkosten": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 25
+        },
+        "Produktverkäufe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 39
+        },
+        "Projektumsätze": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "Reisekosten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "Rohstoffe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 20
+        },
+        "Rückvergütungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 15
+        },
+        "Software (CapEx)": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "Sozialabgaben": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 51
+        },
+        "Tilgungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "Verkauf von Anlagevermögen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "Versicherungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 28
+        },
+        "Versicherungsleistungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Wartungsverträge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 34
+        },
+        "Zinsen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "Zuschüsse / Förderungen für Investitionen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        }
+      },
+      "confidence_statistics": {
+        "mean": 0.57986,
+        "median": 0.70116,
+        "std": 0.28705,
+        "min": 0.08713,
+        "max": 0.87183
+      },
+      "calibration": {
+        "ece": 0.3126,
+        "mce": 0.75404,
+        "nll": 2.17536,
+        "brier": 0.76626,
+        "mean_confidence": 0.57986,
+        "median_confidence": 0.70116,
+        "std_confidence": 0.28705,
+        "min_confidence": 0.08713,
+        "max_confidence": 0.87183,
+        "accuracy": 0.42813,
+        "n_bins": 15,
+        "reliability_bins": [
+          {
+            "bin_lower": 0.0,
+            "bin_upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.06666666666666667,
+            "bin_upper": 0.13333333333333333,
+            "count": 129,
+            "accuracy": 0.0,
+            "confidence": 0.10221529006958008,
+            "gap": -0.10221529006958008
+          },
+          {
+            "bin_lower": 0.13333333333333333,
+            "bin_upper": 0.2,
+            "count": 15,
+            "accuracy": 0.0,
+            "confidence": 0.16156919300556183,
+            "gap": -0.16156919300556183
+          },
+          {
+            "bin_lower": 0.2,
+            "bin_upper": 0.26666666666666666,
+            "count": 24,
+            "accuracy": 1.0,
+            "confidence": 0.2459605485200882,
+            "gap": 0.7540394514799118
+          },
+          {
+            "bin_lower": 0.26666666666666666,
+            "bin_upper": 0.3333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.3333333333333333,
+            "bin_upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.4,
+            "bin_upper": 0.4666666666666667,
+            "count": 10,
+            "accuracy": 1.0,
+            "confidence": 0.46243852376937866,
+            "gap": 0.5375614762306213
+          },
+          {
+            "bin_lower": 0.4666666666666667,
+            "bin_upper": 0.5333333333333333,
+            "count": 38,
+            "accuracy": 0.0,
+            "confidence": 0.4929736256599426,
+            "gap": -0.4929736256599426
+          },
+          {
+            "bin_lower": 0.5333333333333333,
+            "bin_upper": 0.6,
+            "count": 53,
+            "accuracy": 1.0,
+            "confidence": 0.5935603976249695,
+            "gap": 0.4064396023750305
+          },
+          {
+            "bin_lower": 0.6,
+            "bin_upper": 0.6666666666666666,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.6090809106826782,
+            "gap": 0.3909190893173218
+          },
+          {
+            "bin_lower": 0.6666666666666666,
+            "bin_upper": 0.7333333333333333,
+            "count": 84,
+            "accuracy": 0.07142857142857142,
+            "confidence": 0.7012786865234375,
+            "gap": -0.6298501150948661
+          },
+          {
+            "bin_lower": 0.7333333333333333,
+            "bin_upper": 0.8,
+            "count": 116,
+            "accuracy": 0.3017241379310345,
+            "confidence": 0.7776257991790771,
+            "gap": -0.4759016612480427
+          },
+          {
+            "bin_lower": 0.8,
+            "bin_upper": 0.8666666666666667,
+            "count": 128,
+            "accuracy": 0.7734375,
+            "confidence": 0.8340302109718323,
+            "gap": -0.060592710971832275
+          },
+          {
+            "bin_lower": 0.8666666666666667,
+            "bin_upper": 0.9333333333333333,
+            "count": 48,
+            "accuracy": 1.0,
+            "confidence": 0.8699108958244324,
+            "gap": 0.13008910417556763
+          },
+          {
+            "bin_lower": 0.9333333333333333,
+            "bin_upper": 1.0,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          }
+        ]
+      },
+      "confidence_workflow": {
+        "threshold": 0.8,
+        "n_total": 647,
+        "n_auto": 176,
+        "pct_auto": 27.202,
+        "accuracy_auto": 0.83523,
+        "n_errors_in_auto": 29,
+        "n_manual_review": 471,
+        "pct_manual_review": 72.798,
+        "accuracy_manual_review": 0.27601,
+        "overall_accuracy": 0.42813,
+        "interpretation": "176/647 predictions (27.2%) reach confidence >= 0.8 and would be auto-processed; of those, 29 are wrong. This is an observed conditional accuracy on this test set, NOT a guarantee for an individual prediction."
+      },
+      "threshold_sweep": [
+        {
+          "threshold": 0.5,
+          "n_auto": 431,
+          "coverage_pct": 66.62,
+          "accuracy_auto": 0.56381,
+          "n_manual_review": 216,
+          "manual_review_pct": 33.38
+        },
+        {
+          "threshold": 0.6,
+          "n_auto": 378,
+          "coverage_pct": 58.42,
+          "accuracy_auto": 0.50265,
+          "n_manual_review": 269,
+          "manual_review_pct": 41.58
+        },
+        {
+          "threshold": 0.7,
+          "n_auto": 351,
+          "coverage_pct": 54.25,
+          "accuracy_auto": 0.53561,
+          "n_manual_review": 296,
+          "manual_review_pct": 45.75
+        },
+        {
+          "threshold": 0.75,
+          "n_auto": 292,
+          "coverage_pct": 45.13,
+          "accuracy_auto": 0.62329,
+          "n_manual_review": 355,
+          "manual_review_pct": 54.87
+        },
+        {
+          "threshold": 0.8,
+          "n_auto": 176,
+          "coverage_pct": 27.2,
+          "accuracy_auto": 0.83523,
+          "n_manual_review": 471,
+          "manual_review_pct": 72.8
+        },
+        {
+          "threshold": 0.85,
+          "n_auto": 74,
+          "coverage_pct": 11.44,
+          "accuracy_auto": 1.0,
+          "n_manual_review": 573,
+          "manual_review_pct": 88.56
+        },
+        {
+          "threshold": 0.9,
+          "n_auto": 0,
+          "coverage_pct": 0.0,
+          "accuracy_auto": NaN,
+          "n_manual_review": 647,
+          "manual_review_pct": 100.0
+        },
+        {
+          "threshold": 0.95,
+          "n_auto": 0,
+          "coverage_pct": 0.0,
+          "accuracy_auto": NaN,
+          "n_manual_review": 647,
+          "manual_review_pct": 100.0
+        }
+      ]
+    },
+    "group_level": {
+      "n": 33,
+      "n_classes_present": 33,
+      "accuracy": 0.66667,
+      "macro_f1": 0.58571,
+      "weighted_f1": 0.62121,
+      "top_2_accuracy": 0.75758,
+      "per_class": {
+        "Abonnements": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 1
+        },
+        "Beratung & Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Boni / Provisionen": {
+          "precision": 0.33333,
+          "recall": 1.0,
+          "f1": 0.5,
+          "support": 1
+        },
+        "Boni / Prämien": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Büromaterial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Dienstleistungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Dividenden / Ausschüttungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Energie": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Fahrzeuge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Gesellschaftereinlagen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Handelswaren": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 1
+        },
+        "IT & Software": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "IT / Hardware": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Immobilien / Umbauten": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.66667,
+          "support": 1
+        },
+        "Instandhaltung": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Leasingraten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Lizenzen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Löhne & Gehälter": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Marketing & Vertrieb": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Maschinen & Anlagen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Miete & Nebenkosten": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Produktverkäufe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Projektumsätze": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Reisekosten": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Rohstoffe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Rückvergütungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Software (CapEx)": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Sozialabgaben": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Tilgungen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Verkauf von Anlagevermögen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Versicherungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Versicherungsleistungen": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Wartungsverträge": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Zinsen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Zuschüsse / Förderungen für Investitionen": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        }
+      },
+      "confidence_statistics": {
+        "mean": 0.69945,
+        "median": 0.78348,
+        "std": 0.22832,
+        "min": 0.08713,
+        "max": 0.87183
+      },
+      "calibration": {
+        "ece": 0.24756,
+        "mce": 0.75404,
+        "nll": 1.50191,
+        "brier": 0.50578,
+        "mean_confidence": 0.69945,
+        "median_confidence": 0.78348,
+        "std_confidence": 0.22832,
+        "min_confidence": 0.08713,
+        "max_confidence": 0.87183,
+        "accuracy": 0.66667,
+        "n_bins": 15,
+        "reliability_bins": [
+          {
+            "bin_lower": 0.0,
+            "bin_upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.06666666666666667,
+            "bin_upper": 0.13333333333333333,
+            "count": 2,
+            "accuracy": 0.0,
+            "confidence": 0.09960442036390305,
+            "gap": -0.09960442036390305
+          },
+          {
+            "bin_lower": 0.13333333333333333,
+            "bin_upper": 0.2,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.16156919300556183,
+            "gap": -0.16156919300556183
+          },
+          {
+            "bin_lower": 0.2,
+            "bin_upper": 0.26666666666666666,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.24596059322357178,
+            "gap": 0.7540394067764282
+          },
+          {
+            "bin_lower": 0.26666666666666666,
+            "bin_upper": 0.3333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.3333333333333333,
+            "bin_upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          },
+          {
+            "bin_lower": 0.4,
+            "bin_upper": 0.4666666666666667,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.46243852376937866,
+            "gap": 0.5375614762306213
+          },
+          {
+            "bin_lower": 0.4666666666666667,
+            "bin_upper": 0.5333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.49297353625297546,
+            "gap": -0.49297353625297546
+          },
+          {
+            "bin_lower": 0.5333333333333333,
+            "bin_upper": 0.6,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.5935606956481934,
+            "gap": 0.40643930435180664
+          },
+          {
+            "bin_lower": 0.6,
+            "bin_upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.6090809106826782,
+            "gap": 0.3909190893173218
+          },
+          {
+            "bin_lower": 0.6666666666666666,
+            "bin_upper": 0.7333333333333333,
+            "count": 3,
+            "accuracy": 0.3333333333333333,
+            "confidence": 0.7064135670661926,
+            "gap": -0.3730802337328593
+          },
+          {
+            "bin_lower": 0.7333333333333333,
+            "bin_upper": 0.8,
+            "count": 6,
+            "accuracy": 0.3333333333333333,
+            "confidence": 0.7754462361335754,
+            "gap": -0.4421129028002421
+          },
+          {
+            "bin_lower": 0.8,
+            "bin_upper": 0.8666666666666667,
+            "count": 13,
+            "accuracy": 0.9230769230769231,
+            "confidence": 0.8409689664840698,
+            "gap": 0.0821079565928533
+          },
+          {
+            "bin_lower": 0.8666666666666667,
+            "bin_upper": 0.9333333333333333,
+            "count": 3,
+            "accuracy": 1.0,
+            "confidence": 0.8708558678627014,
+            "gap": 0.12914413213729858
+          },
+          {
+            "bin_lower": 0.9333333333333333,
+            "bin_upper": 1.0,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null,
+            "gap": null
+          }
+        ]
+      },
+      "confidence_workflow": {
+        "threshold": 0.8,
+        "n_total": 33,
+        "n_auto": 16,
+        "pct_auto": 48.485,
+        "accuracy_auto": 0.9375,
+        "n_errors_in_auto": 1,
+        "n_manual_review": 17,
+        "pct_manual_review": 51.515,
+        "accuracy_manual_review": 0.41176,
+        "overall_accuracy": 0.66667,
+        "interpretation": "16/33 predictions (48.5%) reach confidence >= 0.8 and would be auto-processed; of those, 1 are wrong. This is an observed conditional accuracy on this test set, NOT a guarantee for an individual prediction."
+      },
+      "threshold_sweep": [
+        {
+          "threshold": 0.5,
+          "n_auto": 27,
+          "coverage_pct": 81.82,
+          "accuracy_auto": 0.74074,
+          "n_manual_review": 6,
+          "manual_review_pct": 18.18
+        },
+        {
+          "threshold": 0.6,
+          "n_auto": 26,
+          "coverage_pct": 78.79,
+          "accuracy_auto": 0.73077,
+          "n_manual_review": 7,
+          "manual_review_pct": 21.21
+        },
+        {
+          "threshold": 0.7,
+          "n_auto": 24,
+          "coverage_pct": 72.73,
+          "accuracy_auto": 0.75,
+          "n_manual_review": 9,
+          "manual_review_pct": 27.27
+        },
+        {
+          "threshold": 0.75,
+          "n_auto": 22,
+          "coverage_pct": 66.67,
+          "accuracy_auto": 0.77273,
+          "n_manual_review": 11,
+          "manual_review_pct": 33.33
+        },
+        {
+          "threshold": 0.8,
+          "n_auto": 16,
+          "coverage_pct": 48.48,
+          "accuracy_auto": 0.9375,
+          "n_manual_review": 17,
+          "manual_review_pct": 51.52
+        },
+        {
+          "threshold": 0.85,
+          "n_auto": 7,
+          "coverage_pct": 21.21,
+          "accuracy_auto": 1.0,
+          "n_manual_review": 26,
+          "manual_review_pct": 78.79
+        },
+        {
+          "threshold": 0.9,
+          "n_auto": 0,
+          "coverage_pct": 0.0,
+          "accuracy_auto": NaN,
+          "n_manual_review": 33,
+          "manual_review_pct": 100.0
+        },
+        {
+          "threshold": 0.95,
+          "n_auto": 0,
+          "coverage_pct": 0.0,
+          "accuracy_auto": NaN,
+          "n_manual_review": 33,
+          "manual_review_pct": 100.0
+        }
+      ]
+    }
+  }
+}

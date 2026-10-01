@@ -1,0 +1,199 @@
+{
+  "raw_corpus": {
+    "rows": 7033,
+    "distinct_source_text": 137,
+    "categories": 37
+  },
+  "gate": {
+    "n_input": 7033,
+    "n_dropped_source_unresolved": 0,
+    "n_dropped_source_from_heldout": 2483,
+    "n_dropped_source_not_in_train": 2483,
+    "n_dropped_collision_with_heldout": 0,
+    "near_duplicate_threshold": 0.6,
+    "n_dropped_near_duplicate_of_heldout": 9,
+    "max_similarity_to_heldout_after_gate": 0.5,
+    "near_duplicate_examples_dropped": [
+      {
+        "clean_description": "office supplies kauf",
+        "categoryName": "Büromaterial"
+      },
+      {
+        "clean_description": "abbuchung office supplies",
+        "categoryName": "Büromaterial"
+      },
+      {
+        "clean_description": "office supplies abbuchung",
+        "categoryName": "Büromaterial"
+      },
+      {
+        "clean_description": "maintenance support vertrag",
+        "categoryName": "Wartungsverträge"
+      },
+      {
+        "clean_description": "support maintenance vertrag",
+        "categoryName": "Wartungsverträge"
+      },
+      {
+        "clean_description": "maintenance support service",
+        "categoryName": "Wartungsverträge"
+      },
+      {
+        "clean_description": "maintenance support fee",
+        "categoryName": "Wartungsverträge"
+      },
+      {
+        "clean_description": "maintenance contract support",
+        "categoryName": "Wartungsverträge"
+      },
+      {
+        "clean_description": "sla maintenance support",
+        "categoryName": "Wartungsverträge"
+      }
+    ],
+    "n_dropped_duplicates": 0,
+    "n_output": 4541,
+    "n_classes": 29,
+    "per_class": {
+      "Abonnements": 204,
+      "Rohstoffe": 198,
+      "Produktverkäufe": 198,
+      "Boni / Provisionen": 196,
+      "Kapitalerhöhungen": 195,
+      "Wartungsverträge": 194,
+      "Zinsen": 192,
+      "Tilgungen": 192,
+      "Handelswaren": 192,
+      "Versicherungsleistungen": 190,
+      "Darlehensaufnahmen": 189,
+      "Gesellschaftereinlagen": 189,
+      "Büromaterial": 187,
+      "Projektumsätze": 181,
+      "Lizenzen": 180,
+      "Instandhaltung": 163,
+      "Reisekosten": 152,
+      "IT / Hardware": 140,
+      "Maschinen & Anlagen": 139,
+      "IT & Software": 130,
+      "Software (CapEx)": 127,
+      "Zuschüsse / Förderungen für Investitionen": 126,
+      "Beratung & Dienstleistungen": 125,
+      "Immobilien / Umbauten": 122,
+      "Fahrzeuge": 120,
+      "Dienstleistungen": 117,
+      "Marketing & Vertrieb": 79,
+      "Miete & Nebenkosten": 76,
+      "Verkauf von Anlagevermögen": 48
+    },
+    "n_source_patterns_used": 103
+  },
+  "rejection_breakdown": {
+    "gate A (source held out)": 2483,
+    "gate B (exact collision)": 0,
+    "gate C (near-duplicate)": 9,
+    "within-corpus duplicates": 0
+  },
+  "rejection_attribution": {
+    "source_in_train": 4550,
+    "source_held_out": 2483,
+    "source_unresolvable": 0
+  },
+  "kept_source_groups": 88,
+  "near_duplicate_to_heldout": {
+    "0.9": 0,
+    "0.8": 0,
+    "0.7": 0,
+    "0.6": 0,
+    "0.5": 27
+  },
+  "closest_pairs": [
+    {
+      "jaccard": 0.5,
+      "synthetic": "zinsbelastung",
+      "heldout": "kredit zinsbelastung",
+      "synthetic_label": "Zinsen",
+      "heldout_label": "Zinsen"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "projekt retail rollout schlusszahlung",
+      "heldout": "förderung projekt retail rollout zuschussbescheid",
+      "synthetic_label": "Projektumsätze",
+      "heldout_label": "Zuschüsse / Förderungen für Investitionen"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "license salesforce software",
+      "heldout": "license revenue software",
+      "synthetic_label": "IT & Software",
+      "heldout_label": "Lizenzen"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "leasingrate servermaschine",
+      "heldout": "leasingrate",
+      "synthetic_label": "Maschinen & Anlagen",
+      "heldout_label": "Leasingraten"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "kreditrate",
+      "heldout": "kreditrate tilgung",
+      "synthetic_label": "Tilgungen",
+      "heldout_label": "Tilgungen"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "honorar projekt retail rollout",
+      "heldout": "förderung projekt retail rollout zuschussbescheid",
+      "synthetic_label": "Dienstleistungen",
+      "heldout_label": "Zuschüsse / Förderungen für Investitionen"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "fuhrpark reparatur und wartung",
+      "heldout": "laptop pool reparatur und wartung",
+      "synthetic_label": "Instandhaltung",
+      "heldout_label": "Instandhaltung"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "fee freshbooks subscription",
+      "heldout": "fee kunde subscription",
+      "synthetic_label": "IT & Software",
+      "heldout_label": "Abonnements"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "fahrzeugmaschine leasingrate",
+      "heldout": "leasingrate",
+      "synthetic_label": "Fahrzeuge",
+      "heldout_label": "Leasingraten"
+    },
+    {
+      "jaccard": 0.5,
+      "synthetic": "erp migration softwareanlage",
+      "heldout": "dienstreise erp migration",
+      "synthetic_label": "Software (CapEx)",
+      "heldout_label": "Reisekosten"
+    }
+  ],
+  "verbatim_training_copies": 0,
+  "counts": {
+    "kept_rows": 4541,
+    "categories_covered": 29,
+    "categories_without_synthetic": [
+      "Boni / Prämien",
+      "Dividenden / Ausschüttungen",
+      "Energie",
+      "Leasingraten",
+      "Löhne & Gehälter",
+      "Rückvergütungen",
+      "Sozialabgaben",
+      "Versicherungen"
+    ],
+    "combined_rows": 5634,
+    "combined_imbalance": 89.67,
+    "real_only_imbalance": 67.5
+  }
+}

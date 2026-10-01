@@ -1,0 +1,178 @@
+{
+  "transformations_applied": [
+    "T0  Unicode NFKC normalisation and whitespace strip",
+    "T1  Protect configured alphanumeric tokens (B2B, 365, Q1 ...) behind placeholders",
+    "T2  Remove ISO-like dates: 2024-06, 2024/06, 2024.06.15",
+    "T3  Remove German dates: 01.06.2024, 1/6/24",
+    "T4  Remove IBAN-like tokens (2 letters + 2 digits + >=10 alphanumerics)",
+    "T5  Remove invoice/reference codes: RE-2024-8096, INV12345, ABC-99887",
+    "T6  Remove standalone digit runs of length >= 3 (account/reference fragments)",
+    "T7  Replace remaining punctuation with a space; keep letters, umlauts, digits",
+    "T8  Expand German banking abbreviations (ueberw -> ueberweisung, ...)",
+    "T9  (optional) Remove legal forms (GmbH, AG, KG ...)         [OFF by default]",
+    "T10 (optional) Remove domain stop words (ref, beleg, months) [OFF by default]",
+    "T11 Restore protected tokens",
+    "T12 Lower-case (configurable)",
+    "T13 Collapse whitespace; substitute placeholder if the result is empty"
+  ],
+  "config": {
+    "lowercase": true,
+    "strip_dates": true,
+    "strip_reference_numbers": true,
+    "strip_long_digit_runs": true,
+    "expand_abbreviations": true,
+    "remove_legal_forms": false,
+    "remove_domain_stopwords": false,
+    "protected_tokens": [
+      "b2b",
+      "b2c",
+      "p2p",
+      "24/7",
+      "365",
+      "4.0",
+      "5g",
+      "3d",
+      "o2",
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "h1",
+      "h2"
+    ],
+    "empty_placeholder": "nodescription"
+  },
+  "n_texts": 1968,
+  "unique_raw": 1427,
+  "unique_cleaned": 184,
+  "collapse_ratio": 7.755,
+  "empty_after_clean": 0,
+  "mean_tokens_raw": 3.583,
+  "mean_tokens_cleaned": 2.433,
+  "vocab_raw": 1083,
+  "vocab_cleaned": 175,
+  "n_token_types_removed": 911,
+  "removed_token_types_note": "A token type counts as removed only if no case-folded form of it survives cleaning; pure re-casing is not counted as removal.",
+  "most_removed_token_types": [
+    [
+      "2026-01",
+      75
+    ],
+    [
+      "2024-06",
+      74
+    ],
+    [
+      "2025-05",
+      71
+    ],
+    [
+      "2025-08",
+      70
+    ],
+    [
+      "2024-09",
+      69
+    ],
+    [
+      "2025-07",
+      69
+    ],
+    [
+      "2025-01",
+      67
+    ],
+    [
+      "2025-02",
+      67
+    ],
+    [
+      "2025-09",
+      67
+    ],
+    [
+      "2024-11",
+      65
+    ],
+    [
+      "2025-04",
+      62
+    ],
+    [
+      "2024-10",
+      60
+    ],
+    [
+      "2025-03",
+      56
+    ],
+    [
+      "2026-03",
+      56
+    ],
+    [
+      "2025-06",
+      55
+    ],
+    [
+      "2026-02",
+      55
+    ],
+    [
+      "2024-07",
+      54
+    ],
+    [
+      "2026-04",
+      54
+    ],
+    [
+      "2024-12",
+      51
+    ],
+    [
+      "2025-12",
+      50
+    ],
+    [
+      "2025-10",
+      46
+    ],
+    [
+      "2024-08",
+      45
+    ],
+    [
+      "2025-11",
+      44
+    ],
+    [
+      "2026-05",
+      44
+    ],
+    [
+      "Shop-Auszahlung",
+      32
+    ],
+    [
+      "ERP-Migration",
+      28
+    ],
+    [
+      "RE-2024-2570",
+      2
+    ],
+    [
+      "RE-2024-4508",
+      2
+    ],
+    [
+      "RE-2024-1887",
+      2
+    ],
+    [
+      "RE-2025-2836",
+      2
+    ]
+  ]
+}

@@ -1,0 +1,620 @@
+{
+  "probabilities": "uncalibrated (raw softmax)",
+  "row_level": {
+    "n": 647,
+    "n_classes_present": 33,
+    "accuracy": 0.42813,
+    "macro_f1": 0.5602,
+    "weighted_f1": 0.37599,
+    "top_2_accuracy": 0.62906,
+    "per_class": {
+      "Abonnements": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.66667,
+        "support": 53
+      },
+      "Beratung & Dienstleistungen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "Boni / Provisionen": {
+        "precision": 0.08333,
+        "recall": 1.0,
+        "f1": 0.15385,
+        "support": 2
+      },
+      "Boni / Prämien": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 7
+      },
+      "Büromaterial": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 16
+      },
+      "Dienstleistungen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "Dividenden / Ausschüttungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 7
+      },
+      "Energie": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 24
+      },
+      "Fahrzeuge": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "Gesellschaftereinlagen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Handelswaren": {
+        "precision": 0.48,
+        "recall": 1.0,
+        "f1": 0.64865,
+        "support": 36
+      },
+      "IT & Software": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 53
+      },
+      "IT / Hardware": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "Immobilien / Umbauten": {
+        "precision": 0.07407,
+        "recall": 1.0,
+        "f1": 0.13793,
+        "support": 2
+      },
+      "Instandhaltung": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 10
+      },
+      "Leasingraten": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 29
+      },
+      "Lizenzen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 29
+      },
+      "Löhne & Gehälter": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 78
+      },
+      "Marketing & Vertrieb": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 38
+      },
+      "Maschinen & Anlagen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Miete & Nebenkosten": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 25
+      },
+      "Produktverkäufe": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 39
+      },
+      "Projektumsätze": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "Reisekosten": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 5
+      },
+      "Rohstoffe": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 20
+      },
+      "Rückvergütungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 15
+      },
+      "Software (CapEx)": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "Sozialabgaben": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 51
+      },
+      "Tilgungen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 7
+      },
+      "Verkauf von Anlagevermögen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 4
+      },
+      "Versicherungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 28
+      },
+      "Versicherungsleistungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Wartungsverträge": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 34
+      },
+      "Zinsen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 5
+      },
+      "Zuschüsse / Förderungen für Investitionen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 2
+      }
+    },
+    "classification_report_text": "                                           precision    recall  f1-score   support\n\n                              Abonnements     0.5000    1.0000    0.6667        53\n              Beratung & Dienstleistungen     1.0000    1.0000    1.0000         3\n                       Boni / Provisionen     0.0833    1.0000    0.1538         2\n                           Boni / Prämien     0.0000    0.0000    0.0000         7\n                             Büromaterial     1.0000    1.0000    1.0000        16\n                         Dienstleistungen     1.0000    1.0000    1.0000         3\n              Dividenden / Ausschüttungen     0.0000    0.0000    0.0000         7\n                                  Energie     1.0000    1.0000    1.0000        24\n                                Fahrzeuge     1.0000    1.0000    1.0000         6\n                   Gesellschaftereinlagen     0.0000    0.0000    0.0000         0\n                             Handelswaren     0.4800    1.0000    0.6486        36\n                            IT & Software     0.0000    0.0000    0.0000        53\n                            IT / Hardware     1.0000    1.0000    1.0000         6\n                    Immobilien / Umbauten     0.0741    1.0000    0.1379         2\n                           Instandhaltung     1.0000    1.0000    1.0000        10\n                             Leasingraten     1.0000    1.0000    1.0000        29\n                                 Lizenzen     0.0000    0.0000    0.0000        29\n                         Löhne & Gehälter     0.0000    0.0000    0.0000        78\n                     Marketing & Vertrieb     0.0000    0.0000    0.0000        38\n                      Maschinen & Anlagen     1.0000    1.0000    1.0000         1\n                      Miete & Nebenkosten     0.0000    0.0000    0.0000        25\n                          Produktverkäufe     0.0000    0.0000    0.0000        39\n                           Projektumsätze     1.0000    1.0000    1.0000         3\n                              Reisekosten     1.0000    1.0000    1.0000         5\n                                Rohstoffe     1.0000    1.0000    1.0000        20\n                          Rückvergütungen     0.0000    0.0000    0.0000        15\n                         Software (CapEx)     1.0000    1.0000    1.0000         6\n                            Sozialabgaben     0.0000    0.0000    0.0000        51\n                                Tilgungen     1.0000    1.0000    1.0000         7\n               Verkauf von Anlagevermögen     1.0000    1.0000    1.0000         4\n                           Versicherungen     0.0000    0.0000    0.0000        28\n                  Versicherungsleistungen     0.0000    0.0000    0.0000         0\n                         Wartungsverträge     1.0000    1.0000    1.0000        34\n                                   Zinsen     1.0000    1.0000    1.0000         5\nZuschüsse / Förderungen für Investitionen     1.0000    1.0000    1.0000         2\n\n                                 accuracy                         0.4281       647\n                                macro avg     0.5468    0.6286    0.5602       647\n                             weighted avg     0.3525    0.4281    0.3760       647\n",
+    "confidence_statistics": {
+      "mean": 0.63447,
+      "median": 0.76834,
+      "std": 0.30729,
+      "min": 0.09626,
+      "max": 0.92535,
+      "p25": 0.28457,
+      "p75": 0.87846
+    },
+    "confidence_workflow": {
+      "threshold": 0.8,
+      "n_total": 647,
+      "n_auto": 292,
+      "pct_auto": 45.131,
+      "accuracy_auto": 0.62329,
+      "n_errors_in_auto": 110,
+      "n_manual_review": 355,
+      "pct_manual_review": 54.869,
+      "accuracy_manual_review": 0.26761,
+      "overall_accuracy": 0.42813,
+      "interpretation": "292/647 predictions (45.1%) reach confidence >= 0.8 and would be auto-processed; of those, 110 are wrong. This is an observed conditional accuracy on this test set, NOT a guarantee for an individual prediction."
+    },
+    "threshold_sweep": [
+      {
+        "threshold": 0.5,
+        "n_auto": 479,
+        "coverage_pct": 74.03,
+        "accuracy_auto": 0.52818,
+        "n_manual_review": 168,
+        "manual_review_pct": 25.97
+      },
+      {
+        "threshold": 0.6,
+        "n_auto": 431,
+        "coverage_pct": 66.62,
+        "accuracy_auto": 0.56381,
+        "n_manual_review": 216,
+        "manual_review_pct": 33.38
+      },
+      {
+        "threshold": 0.7,
+        "n_auto": 376,
+        "coverage_pct": 58.11,
+        "accuracy_auto": 0.5,
+        "n_manual_review": 271,
+        "manual_review_pct": 41.89
+      },
+      {
+        "threshold": 0.75,
+        "n_auto": 376,
+        "coverage_pct": 58.11,
+        "accuracy_auto": 0.5,
+        "n_manual_review": 271,
+        "manual_review_pct": 41.89
+      },
+      {
+        "threshold": 0.8,
+        "n_auto": 292,
+        "coverage_pct": 45.13,
+        "accuracy_auto": 0.62329,
+        "n_manual_review": 355,
+        "manual_review_pct": 54.87
+      },
+      {
+        "threshold": 0.85,
+        "n_auto": 247,
+        "coverage_pct": 38.18,
+        "accuracy_auto": 0.71255,
+        "n_manual_review": 400,
+        "manual_review_pct": 61.82
+      },
+      {
+        "threshold": 0.9,
+        "n_auto": 88,
+        "coverage_pct": 13.6,
+        "accuracy_auto": 1.0,
+        "n_manual_review": 559,
+        "manual_review_pct": 86.4
+      },
+      {
+        "threshold": 0.95,
+        "n_auto": 0,
+        "coverage_pct": 0.0,
+        "accuracy_auto": NaN,
+        "n_manual_review": 647,
+        "manual_review_pct": 100.0
+      }
+    ]
+  },
+  "group_level": {
+    "n": 33,
+    "n_classes_present": 33,
+    "accuracy": 0.66667,
+    "macro_f1": 0.58571,
+    "weighted_f1": 0.62121,
+    "top_2_accuracy": 0.75758,
+    "per_class": {
+      "Abonnements": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.66667,
+        "support": 1
+      },
+      "Beratung & Dienstleistungen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Boni / Provisionen": {
+        "precision": 0.33333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "support": 1
+      },
+      "Boni / Prämien": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Büromaterial": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Dienstleistungen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Dividenden / Ausschüttungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Energie": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Fahrzeuge": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Gesellschaftereinlagen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Handelswaren": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.66667,
+        "support": 1
+      },
+      "IT & Software": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "IT / Hardware": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Immobilien / Umbauten": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.66667,
+        "support": 1
+      },
+      "Instandhaltung": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Leasingraten": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Lizenzen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Löhne & Gehälter": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Marketing & Vertrieb": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Maschinen & Anlagen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Miete & Nebenkosten": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Produktverkäufe": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Projektumsätze": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Reisekosten": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Rohstoffe": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Rückvergütungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Software (CapEx)": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Sozialabgaben": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Tilgungen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Verkauf von Anlagevermögen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Versicherungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Versicherungsleistungen": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Wartungsverträge": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Zinsen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Zuschüsse / Förderungen für Investitionen": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      }
+    },
+    "classification_report_text": "                                           precision    recall  f1-score   support\n\n                              Abonnements     0.5000    1.0000    0.6667         1\n              Beratung & Dienstleistungen     1.0000    1.0000    1.0000         1\n                       Boni / Provisionen     0.3333    1.0000    0.5000         1\n                           Boni / Prämien     0.0000    0.0000    0.0000         1\n                             Büromaterial     1.0000    1.0000    1.0000         1\n                         Dienstleistungen     1.0000    1.0000    1.0000         1\n              Dividenden / Ausschüttungen     0.0000    0.0000    0.0000         1\n                                  Energie     1.0000    1.0000    1.0000         1\n                                Fahrzeuge     1.0000    1.0000    1.0000         1\n                   Gesellschaftereinlagen     0.0000    0.0000    0.0000         0\n                             Handelswaren     0.5000    1.0000    0.6667         1\n                            IT & Software     0.0000    0.0000    0.0000         1\n                            IT / Hardware     1.0000    1.0000    1.0000         1\n                    Immobilien / Umbauten     0.5000    1.0000    0.6667         1\n                           Instandhaltung     1.0000    1.0000    1.0000         1\n                             Leasingraten     1.0000    1.0000    1.0000         1\n                                 Lizenzen     0.0000    0.0000    0.0000         1\n                         Löhne & Gehälter     0.0000    0.0000    0.0000         1\n                     Marketing & Vertrieb     0.0000    0.0000    0.0000         1\n                      Maschinen & Anlagen     1.0000    1.0000    1.0000         1\n                      Miete & Nebenkosten     0.0000    0.0000    0.0000         1\n                          Produktverkäufe     0.0000    0.0000    0.0000         1\n                           Projektumsätze     1.0000    1.0000    1.0000         1\n                              Reisekosten     1.0000    1.0000    1.0000         1\n                                Rohstoffe     1.0000    1.0000    1.0000         1\n                          Rückvergütungen     0.0000    0.0000    0.0000         1\n                         Software (CapEx)     1.0000    1.0000    1.0000         1\n                            Sozialabgaben     0.0000    0.0000    0.0000         1\n                                Tilgungen     1.0000    1.0000    1.0000         1\n               Verkauf von Anlagevermögen     1.0000    1.0000    1.0000         1\n                           Versicherungen     0.0000    0.0000    0.0000         1\n                  Versicherungsleistungen     0.0000    0.0000    0.0000         0\n                         Wartungsverträge     1.0000    1.0000    1.0000         1\n                                   Zinsen     1.0000    1.0000    1.0000         1\nZuschüsse / Förderungen für Investitionen     1.0000    1.0000    1.0000         1\n\n                                 accuracy                         0.6667        33\n                                macro avg     0.5667    0.6286    0.5857        33\n                             weighted avg     0.6010    0.6667    0.6212        33\n",
+    "n_independent_groups": 33,
+    "confidence_statistics": {
+      "mean": 0.75969,
+      "median": 0.8589,
+      "std": 0.23999,
+      "min": 0.09626,
+      "max": 0.92535
+    },
+    "confidence_workflow": {
+      "threshold": 0.8,
+      "n_total": 33,
+      "n_auto": 22,
+      "pct_auto": 66.667,
+      "accuracy_auto": 0.77273,
+      "n_errors_in_auto": 5,
+      "n_manual_review": 11,
+      "pct_manual_review": 33.333,
+      "accuracy_manual_review": 0.45455,
+      "overall_accuracy": 0.66667,
+      "interpretation": "22/33 predictions (66.7%) reach confidence >= 0.8 and would be auto-processed; of those, 5 are wrong. This is an observed conditional accuracy on this test set, NOT a guarantee for an individual prediction."
+    },
+    "threshold_sweep": [
+      {
+        "threshold": 0.5,
+        "n_auto": 29,
+        "coverage_pct": 87.88,
+        "accuracy_auto": 0.72414,
+        "n_manual_review": 4,
+        "manual_review_pct": 12.12
+      },
+      {
+        "threshold": 0.6,
+        "n_auto": 27,
+        "coverage_pct": 81.82,
+        "accuracy_auto": 0.74074,
+        "n_manual_review": 6,
+        "manual_review_pct": 18.18
+      },
+      {
+        "threshold": 0.7,
+        "n_auto": 25,
+        "coverage_pct": 75.76,
+        "accuracy_auto": 0.72,
+        "n_manual_review": 8,
+        "manual_review_pct": 24.24
+      },
+      {
+        "threshold": 0.75,
+        "n_auto": 25,
+        "coverage_pct": 75.76,
+        "accuracy_auto": 0.72,
+        "n_manual_review": 8,
+        "manual_review_pct": 24.24
+      },
+      {
+        "threshold": 0.8,
+        "n_auto": 22,
+        "coverage_pct": 66.67,
+        "accuracy_auto": 0.77273,
+        "n_manual_review": 11,
+        "manual_review_pct": 33.33
+      },
+      {
+        "threshold": 0.85,
+        "n_auto": 20,
+        "coverage_pct": 60.61,
+        "accuracy_auto": 0.8,
+        "n_manual_review": 13,
+        "manual_review_pct": 39.39
+      },
+      {
+        "threshold": 0.9,
+        "n_auto": 10,
+        "coverage_pct": 30.3,
+        "accuracy_auto": 1.0,
+        "n_manual_review": 23,
+        "manual_review_pct": 69.7
+      },
+      {
+        "threshold": 0.95,
+        "n_auto": 0,
+        "coverage_pct": 0.0,
+        "accuracy_auto": NaN,
+        "n_manual_review": 33,
+        "manual_review_pct": 100.0
+      }
+    ]
+  }
+}

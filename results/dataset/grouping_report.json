@@ -1,0 +1,156 @@
+{
+  "n_rows": 1968,
+  "n_groups": 152,
+  "n_unique_cleaned_texts": 184,
+  "group_size_min": 1,
+  "group_size_mean": 12.95,
+  "group_size_median": 5,
+  "group_size_max": 78,
+  "effective_sample_size_note": "1968 rows correspond to only 152 independent groups (12.9x overstatement if rows are treated as independent)",
+  "groups_per_category": {
+    "Darlehensaufnahmen": 1,
+    "Gesellschaftereinlagen": 1,
+    "Kapitalerhöhungen": 1,
+    "Versicherungsleistungen": 1,
+    "Dividenden / Ausschüttungen": 2,
+    "Büromaterial": 2,
+    "Handelswaren": 2,
+    "Boni / Prämien": 2,
+    "Rückvergütungen": 2,
+    "Rohstoffe": 2,
+    "Tilgungen": 2,
+    "Produktverkäufe": 2,
+    "Löhne & Gehälter": 2,
+    "Lizenzen": 2,
+    "Leasingraten": 2,
+    "Abonnements": 2,
+    "Sozialabgaben": 2,
+    "Wartungsverträge": 2,
+    "Versicherungen": 2,
+    "Boni / Provisionen": 2,
+    "Zinsen": 2,
+    "Marketing & Vertrieb": 3,
+    "Miete & Nebenkosten": 3,
+    "Energie": 3,
+    "Fahrzeuge": 4,
+    "IT & Software": 4,
+    "Verkauf von Anlagevermögen": 4,
+    "Immobilien / Umbauten": 5,
+    "Maschinen & Anlagen": 6,
+    "Instandhaltung": 6,
+    "Zuschüsse / Förderungen für Investitionen": 6,
+    "IT / Hardware": 8,
+    "Software (CapEx)": 8,
+    "Reisekosten": 11,
+    "Dienstleistungen": 12,
+    "Beratung & Dienstleistungen": 13,
+    "Projektumsätze": 18
+  },
+  "rows_per_category": {
+    "IT & Software": 235,
+    "Löhne & Gehälter": 156,
+    "Dienstleistungen": 149,
+    "Marketing & Vertrieb": 118,
+    "Abonnements": 104,
+    "Sozialabgaben": 98,
+    "Projektumsätze": 93,
+    "Handelswaren": 84,
+    "Beratung & Dienstleistungen": 78,
+    "Wartungsverträge": 74,
+    "Energie": 71,
+    "Produktverkäufe": 71,
+    "Lizenzen": 63,
+    "Leasingraten": 62,
+    "Miete & Nebenkosten": 61,
+    "Versicherungen": 55,
+    "Reisekosten": 51,
+    "Instandhaltung": 38,
+    "Rohstoffe": 38,
+    "IT / Hardware": 35,
+    "Rückvergütungen": 33,
+    "Büromaterial": 26,
+    "Software (CapEx)": 18,
+    "Kapitalerhöhungen": 15,
+    "Tilgungen": 15,
+    "Dividenden / Ausschüttungen": 14,
+    "Zinsen": 13,
+    "Zuschüsse / Förderungen für Investitionen": 13,
+    "Maschinen & Anlagen": 13,
+    "Fahrzeuge": 11,
+    "Boni / Prämien": 10,
+    "Versicherungsleistungen": 9,
+    "Darlehensaufnahmen": 9,
+    "Verkauf von Anlagevermögen": 9,
+    "Boni / Provisionen": 9,
+    "Gesellschaftereinlagen": 9,
+    "Immobilien / Umbauten": 8
+  },
+  "categories_with_1_group": 4,
+  "categories_with_lt3_groups": 21,
+  "categories_with_lt4_groups": 24,
+  "median_groups_per_category": 2,
+  "largest_groups": [
+    {
+      "group_key": "gehaltslauf",
+      "n_rows": 78
+    },
+    {
+      "group_key": "payroll sammelüberweisung",
+      "n_rows": 78
+    },
+    {
+      "group_key": "lizenz software",
+      "n_rows": 71
+    },
+    {
+      "group_key": "saas subscription",
+      "n_rows": 64
+    },
+    {
+      "group_key": "consulting retainer",
+      "n_rows": 54
+    },
+    {
+      "group_key": "cloud hosting",
+      "n_rows": 53
+    },
+    {
+      "group_key": "fee kunde subscription",
+      "n_rows": 53
+    },
+    {
+      "group_key": "abo monatlich saas",
+      "n_rows": 51
+    },
+    {
+      "group_key": "lohnabgaben",
+      "n_rows": 51
+    },
+    {
+      "group_key": "beratungsleistung rechnung",
+      "n_rows": 50
+    },
+    {
+      "group_key": "bestellung lieferantenrechnung",
+      "n_rows": 48
+    },
+    {
+      "group_key": "beiträge sozialversicherung",
+      "n_rows": 47
+    },
+    {
+      "group_key": "domain server und",
+      "n_rows": 47
+    },
+    {
+      "group_key": "ads budget google",
+      "n_rows": 42
+    },
+    {
+      "group_key": "level service wartungsvertrag",
+      "n_rows": 40
+    }
+  ],
+  "label_impure_groups": [],
+  "n_label_impure_groups": 0
+}

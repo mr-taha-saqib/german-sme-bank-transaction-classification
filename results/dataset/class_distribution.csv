@@ -1,0 +1,38 @@
+﻿categoryName,rows_test,rows_train,rows_validation,groups_test,groups_train,groups_validation
+IT & Software,53,135,47,1,2,1
+Dienstleistungen,3,96,50,1,10,1
+Projektumsätze,3,88,2,1,16,1
+Löhne & Gehälter,78,78,0,1,1,0
+Beratung & Dienstleistungen,3,57,18,1,11,1
+Abonnements,53,51,0,1,1,0
+Handelswaren,36,48,0,1,1,0
+Sozialabgaben,51,47,0,1,1,0
+Marketing & Vertrieb,38,42,38,1,1,1
+Wartungsverträge,34,40,0,1,1,0
+Lizenzen,29,34,0,1,1,0
+Leasingraten,29,33,0,1,1,0
+Produktverkäufe,39,32,0,1,1,0
+Reisekosten,5,32,14,1,9,1
+Versicherungen,28,27,0,1,1,0
+Instandhaltung,10,27,1,1,4,1
+IT / Hardware,6,26,3,1,6,1
+Miete & Nebenkosten,25,23,13,1,1,1
+Energie,24,19,28,1,1,1
+Rohstoffe,20,18,0,1,1,0
+Rückvergütungen,15,18,0,1,1,0
+Kapitalerhöhungen,0,15,0,0,1,0
+Maschinen & Anlagen,1,11,1,1,4,1
+Büromaterial,16,10,0,1,1,0
+Software (CapEx),6,10,2,1,6,1
+Versicherungsleistungen,0,9,0,0,1,0
+Darlehensaufnahmen,0,9,0,0,1,0
+Gesellschaftereinlagen,0,9,0,0,1,0
+Zinsen,5,8,0,1,1,0
+Zuschüsse / Förderungen für Investitionen,2,8,3,1,4,1
+Tilgungen,7,8,0,1,1,0
+Dividenden / Ausschüttungen,7,7,0,1,1,0
+Boni / Provisionen,2,7,0,1,1,0
+Immobilien / Umbauten,2,4,2,1,3,1
+Boni / Prämien,7,3,0,1,1,0
+Fahrzeuge,6,2,3,1,2,1
+Verkauf von Anlagevermögen,4,2,3,1,2,1

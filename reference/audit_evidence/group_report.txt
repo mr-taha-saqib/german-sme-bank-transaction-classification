@@ -1,0 +1,163 @@
+======================================================================
+GROUPING ANALYSIS (notebook clean_description, exact-match grouping)
+======================================================================
+transactions: 2000
+unique RAW descriptions: 1444
+unique CLEANED descriptions (= groups): 170
+categories: 37
+empty after cleaning: 0
+
+cleaned patterns mapping to >1 category: 0
+
+----------------------------------------------------------------------
+UNIQUE CLEANED PATTERNS PER CATEGORY  (rows | patterns)
+----------------------------------------------------------------------
+     10 |   1  Versicherungsleistungen
+     15 |   1  Kapitalerhöhungen
+      9 |   1  Darlehensaufnahmen
+      9 |   1  Gesellschaftereinlagen
+     56 |   2  Versicherungen
+    158 |   2  Löhne & Gehälter
+     65 |   2  Lizenzen
+    104 |   2  Abonnements
+     63 |   2  Leasingraten
+     76 |   2  Wartungsverträge
+     38 |   2  Rohstoffe
+     99 |   2  Sozialabgaben
+     13 |   2  Zinsen
+     73 |   2  Produktverkäufe
+     26 |   2  Büromaterial
+     84 |   2  Handelswaren
+     34 |   2  Rückvergütungen
+     15 |   2  Tilgungen
+      9 |   2  Boni / Provisionen
+     14 |   2  Dividenden / Ausschüttungen
+     10 |   2  Boni / Prämien
+     62 |   3  Miete & Nebenkosten
+    121 |   3  Marketing & Vertrieb
+     72 |   3  Energie
+    240 |   4  IT & Software
+     11 |   4  Fahrzeuge
+      9 |   5  Verkauf von Anlagevermögen
+      9 |   5  Immobilien / Umbauten
+     13 |   6  Maschinen & Anlagen
+     13 |   7  Zuschüsse / Förderungen für Investitionen
+     38 |   8  Instandhaltung
+     35 |   8  IT / Hardware
+     18 |   9  Software (CapEx)
+     51 |  11  Reisekosten
+    149 |  12  Dienstleistungen
+     81 |  13  Beratung & Dienstleistungen
+     98 |  31  Projektumsätze
+
+patterns/category  min=1  median=2  max=31  total=170
+categories with 1 pattern : 4
+categories with <3 patterns: 21
+categories with <5 patterns: 26
+
+group size: min=1 mean=11.76 max=79
+largest groups:
+     79  'payroll sammelüberweisung'
+     79  'gehaltslauf'
+     73  'software lizenz'
+     66  'saas subscription'
+     54  'consulting retainer'
+     54  'cloud hosting'
+     53  'subscription fee kunde'
+     51  'saas abo monatlich'
+     51  'lohnabgaben'
+     50  'rechnung beratungsleistung'
+     48  'sozialversicherung beiträge'
+     48  'lieferantenrechnung bestellung'
+     47  'domain und server'
+     43  'google ads budget'
+     40  'linkedin ads b b leadgen'
+
+======================================================================
+NOTEBOOK CELL-126 HOLDOUT SIMULATION (1 unseen pattern per category)
+======================================================================
+categories contributing a test pattern: 33
+categories fully kept in train (only 1 pattern): 4
+=> test set = 33 unique patterns; NO validation split at all
+
+======================================================================
+CLEANING SIDE EFFECTS (raw -> cleaned) where digits/tokens were destroyed
+======================================================================
+  RAW: 'Consulting Retainer 2024-06 RE-2024-8096'
+  CLN: 'consulting retainer'
+
+  RAW: 'Software License Revenue 2024-06 RE-2024-9874'
+  CLN: 'software license revenue'
+
+  RAW: 'SaaS Abo monatlich 2024-06 RE-2024-4710'
+  CLN: 'saas abo monatlich'
+
+  RAW: 'Consulting Retainer 2024-06 RE-2024-4382'
+  CLN: 'consulting retainer'
+
+  RAW: 'LinkedIn Ads B2B Leadgen 2024-06'
+  CLN: 'linkedin ads b b leadgen'
+
+  RAW: 'Maintenance Support 2024-06 RE-2024-8896'
+  CLN: 'maintenance support'
+
+  RAW: 'Projektabrechnung Onboarding Milestone 2 RE-2024-4442'
+  CLN: 'projektabrechnung onboarding milestone'
+
+  RAW: 'Wartungsvertrag 2024-06 Service Level RE-2024-6442'
+  CLN: 'wartungsvertrag service level'
+
+  RAW: 'Software License Revenue 2024-06 RE-2024-8646'
+  CLN: 'software license revenue'
+
+  RAW: 'Maintenance Support 2024-06 RE-2024-5967'
+  CLN: 'maintenance support'
+
+  RAW: 'Rechnung RE-2024-6278 Beratungsleistung 2024-06'
+  CLN: 'rechnung beratungsleistung'
+
+  RAW: 'Rechnung RE-2024-4206 Beratungsleistung 2024-06'
+  CLN: 'rechnung beratungsleistung'
+
+  RAW: 'Software License Revenue 2024-06 RE-2024-7154'
+  CLN: 'software license revenue'
+
+  RAW: 'Consulting Retainer 2024-06 RE-2024-2662'
+  CLN: 'consulting retainer'
+
+  RAW: 'SaaS Abo monatlich 2024-06 RE-2024-7557'
+  CLN: 'saas abo monatlich'
+
+  RAW: 'Rechnung RE-2024-2214 Beratungsleistung 2024-06'
+  CLN: 'rechnung beratungsleistung'
+
+  RAW: 'Shop-Auszahlung 2024-06 B2B Produktverkauf RE-2024-7202'
+  CLN: 'shop auszahlung b b produktverkauf'
+
+  RAW: 'Projektabrechnung Website Relaunch Milestone 1 RE-2024-4309'
+  CLN: 'projektabrechnung website relaunch milestone'
+
+  RAW: 'Consulting Retainer 2024-06 RE-2024-6378'
+  CLN: 'consulting retainer'
+
+  RAW: 'Rechnung RE-2024-9400 Beratungsleistung 2024-06'
+  CLN: 'rechnung beratungsleistung'
+
+  RAW: 'Rechnung RE-2024-3225 Beratungsleistung 2024-06'
+  CLN: 'rechnung beratungsleistung'
+
+  RAW: 'Rechnung RE-2024-3771 Beratungsleistung 2024-06'
+  CLN: 'rechnung beratungsleistung'
+
+  RAW: 'Lizenzgebühr 2024-06 Nutzungsrechte RE-2024-4677'
+  CLN: 'lizenzgebühr nutzungsrechte'
+
+  RAW: 'Maintenance Support 2024-06 RE-2024-2635'
+  CLN: 'maintenance support'
+
+  RAW: 'SaaS Abo monatlich 2024-07 RE-2024-3449'
+  CLN: 'saas abo monatlich'
+
+  RAW: 'Shop-Auszahlung 2024-07 B2B Produktverkauf RE-2024-6373'
+  CLN: 'shop auszahlung b b produktverkauf'
+

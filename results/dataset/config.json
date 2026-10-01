@@ -1,0 +1,120 @@
+{
+  "run_name": "main",
+  "output_dir": "results",
+  "models": [
+    "germanfinbert",
+    "finbert"
+  ],
+  "seeds": [
+    42
+  ],
+  "data": {
+    "raw_xlsx": "data/synthetic_b2b_transactions_2000.xlsx",
+    "synthetic_csvs": [
+      "data/final_synthetic_clean_7033.csv"
+    ],
+    "text_column": "description",
+    "label_column": "categoryName",
+    "parent_label_column": "parentCategoryName",
+    "drop_empty_after_clean": true,
+    "drop_source_flagged_duplicates": true,
+    "drop_fingerprint_duplicates": true
+  },
+  "preprocessing": {
+    "lowercase": true,
+    "strip_dates": true,
+    "strip_reference_numbers": true,
+    "strip_long_digit_runs": true,
+    "expand_abbreviations": true,
+    "remove_legal_forms": false,
+    "remove_domain_stopwords": false,
+    "protected_tokens": [
+      "b2b",
+      "b2c",
+      "p2p",
+      "24/7",
+      "365",
+      "4.0",
+      "5g",
+      "3d",
+      "o2",
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "h1",
+      "h2"
+    ],
+    "empty_placeholder": "nodescription"
+  },
+  "grouping": {
+    "mode": "near_dup",
+    "near_duplicate_threshold": 0.6,
+    "audit_jaccard_threshold": 0.6,
+    "census_thresholds": [
+      0.9,
+      0.8,
+      0.7,
+      0.65,
+      0.6,
+      0.55,
+      0.5
+    ]
+  },
+  "split": {
+    "strategy": "category_balanced",
+    "seed": 42,
+    "min_groups_for_test": 2,
+    "min_groups_for_validation": 3,
+    "build_leaky_reference": true,
+    "leaky_test_size": 0.2
+  },
+  "augmentation": {
+    "enabled": true,
+    "require_source_in_train": true,
+    "drop_collisions_with_heldout": true,
+    "max_per_class": null
+  },
+  "training": {
+    "epochs": 3,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "gradient_accumulation_steps": 1,
+    "max_length": 128,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "warmup_mode": "ratio",
+    "warmup_ratio": 0.1,
+    "warmup_steps": 500,
+    "focal_gamma": 2.0,
+    "use_class_weights": true,
+    "model_selection": "fixed_epochs",
+    "synthetic_dev_fraction": 0.1,
+    "seed": 42,
+    "use_amp": true,
+    "num_workers": 0
+  },
+  "calibration": {
+    "method": "temperature",
+    "fit_on": "rows",
+    "lbfgs_lr": 0.05,
+    "lbfgs_max_iter": 500,
+    "ece_bins": 15,
+    "also_report_vector": true
+  },
+  "evaluation": {
+    "confidence_threshold": 0.8,
+    "threshold_sweep": [
+      0.5,
+      0.6,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "top_k": 2,
+    "make_plots": true
+  }
+}

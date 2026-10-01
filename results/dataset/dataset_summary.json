@@ -1,0 +1,1239 @@
+{
+  "config": {
+    "run_name": "main",
+    "output_dir": "results",
+    "models": [
+      "germanfinbert",
+      "finbert"
+    ],
+    "seeds": [
+      42
+    ],
+    "data": {
+      "raw_xlsx": "data/synthetic_b2b_transactions_2000.xlsx",
+      "synthetic_csvs": [
+        "data/final_synthetic_clean_7033.csv"
+      ],
+      "text_column": "description",
+      "label_column": "categoryName",
+      "parent_label_column": "parentCategoryName",
+      "drop_empty_after_clean": true,
+      "drop_source_flagged_duplicates": true,
+      "drop_fingerprint_duplicates": true
+    },
+    "preprocessing": {
+      "lowercase": true,
+      "strip_dates": true,
+      "strip_reference_numbers": true,
+      "strip_long_digit_runs": true,
+      "expand_abbreviations": true,
+      "remove_legal_forms": false,
+      "remove_domain_stopwords": false,
+      "protected_tokens": [
+        "b2b",
+        "b2c",
+        "p2p",
+        "24/7",
+        "365",
+        "4.0",
+        "5g",
+        "3d",
+        "o2",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "h1",
+        "h2"
+      ],
+      "empty_placeholder": "nodescription"
+    },
+    "grouping": {
+      "mode": "near_dup",
+      "near_duplicate_threshold": 0.6,
+      "audit_jaccard_threshold": 0.6,
+      "census_thresholds": [
+        0.9,
+        0.8,
+        0.7,
+        0.65,
+        0.6,
+        0.55,
+        0.5
+      ]
+    },
+    "split": {
+      "strategy": "category_balanced",
+      "seed": 42,
+      "min_groups_for_test": 2,
+      "min_groups_for_validation": 3,
+      "build_leaky_reference": true,
+      "leaky_test_size": 0.2
+    },
+    "augmentation": {
+      "enabled": true,
+      "require_source_in_train": true,
+      "drop_collisions_with_heldout": true,
+      "max_per_class": null
+    },
+    "training": {
+      "epochs": 3,
+      "learning_rate": 2e-05,
+      "batch_size": 16,
+      "gradient_accumulation_steps": 1,
+      "max_length": 128,
+      "weight_decay": 0.01,
+      "max_grad_norm": 1.0,
+      "warmup_mode": "ratio",
+      "warmup_ratio": 0.1,
+      "warmup_steps": 500,
+      "focal_gamma": 2.0,
+      "use_class_weights": true,
+      "model_selection": "fixed_epochs",
+      "synthetic_dev_fraction": 0.1,
+      "seed": 42,
+      "use_amp": true,
+      "num_workers": 0
+    },
+    "calibration": {
+      "method": "temperature",
+      "fit_on": "rows",
+      "lbfgs_lr": 0.05,
+      "lbfgs_max_iter": 500,
+      "ece_bins": 15,
+      "also_report_vector": true
+    },
+    "evaluation": {
+      "confidence_threshold": 0.8,
+      "threshold_sweep": [
+        0.5,
+        0.6,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95
+      ],
+      "top_k": 2,
+      "make_plots": true
+    }
+  },
+  "environment": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 151 Stepping 5, GenuineIntel",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.0",
+    "torch": "2.13.0+cu126",
+    "transformers": "5.16.1",
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3060",
+    "cuda_version": "12.6"
+  },
+  "source_inspection": {
+    "path": "data/synthetic_b2b_transactions_2000.xlsx",
+    "n_rows": 2000,
+    "n_columns": 65,
+    "n_informative_columns": 40,
+    "constant_columns": [
+      "createUser",
+      "deleted",
+      "bankConnectionId",
+      "updateDate",
+      "updateUser",
+      "organizationId",
+      "createDate",
+      "archived",
+      "note",
+      "fingerprintVersion",
+      "isSplit",
+      "categoryEnrichmentStatus",
+      "counterpartBlz",
+      "currency",
+      "synced",
+      "duplicateReviewStatus",
+      "vendorEnrichmentStatus",
+      "counterpartDebitorId",
+      "counterpartAccountNumber",
+      "deleteDate",
+      "vendorAccountNumber",
+      "parentCategoryIcon",
+      "parentTransactionId",
+      "duplicateReviewedBy",
+      "duplicateReviewedAt"
+    ],
+    "columns_with_missing_values": [
+      {
+        "column": "receiptId",
+        "missing": 1388,
+        "missing_pct": 69.4
+      },
+      {
+        "column": "counterpartCreditorId",
+        "missing": 1682,
+        "missing_pct": 84.1
+      },
+      {
+        "column": "duplicateOfTransactionId",
+        "missing": 1968,
+        "missing_pct": 98.4
+      },
+      {
+        "column": "duplicateGroupId",
+        "missing": 1936,
+        "missing_pct": 96.8
+      },
+      {
+        "column": "counterpartMandateReference",
+        "missing": 1682,
+        "missing_pct": 84.1
+      }
+    ],
+    "candidate_related_transaction_identifiers": {
+      "vendorName": {
+        "n_unique": 128,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 3,
+        "values_per_category_min": 2
+      },
+      "vendorGroupId": {
+        "n_unique": 115,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 3,
+        "values_per_category_min": 2
+      },
+      "vendorGroupName": {
+        "n_unique": 115,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 3,
+        "values_per_category_min": 2
+      },
+      "vendorId": {
+        "n_unique": 128,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 3,
+        "values_per_category_min": 2
+      },
+      "counterpartIban": {
+        "n_unique": 128,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 3,
+        "values_per_category_min": 2
+      },
+      "counterpartyNameRaw": {
+        "n_unique": 128,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 3,
+        "values_per_category_min": 2
+      },
+      "duplicateGroupId": {
+        "n_unique": 32,
+        "coverage_pct": 3.2,
+        "categories_per_value_max": 1,
+        "values_per_category_min": 1
+      },
+      "fingerprint": {
+        "n_unique": 1999,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 1,
+        "values_per_category_min": 9
+      },
+      "bankAccountId": {
+        "n_unique": 3,
+        "coverage_pct": 100.0,
+        "categories_per_value_max": 37,
+        "values_per_category_min": 1
+      },
+      "counterpartCreditorId": {
+        "n_unique": 286,
+        "coverage_pct": 15.9,
+        "categories_per_value_max": 1,
+        "values_per_category_min": 35
+      },
+      "counterpartMandateReference": {
+        "n_unique": 25,
+        "coverage_pct": 15.9,
+        "categories_per_value_max": 1,
+        "values_per_category_min": 3
+      }
+    }
+  },
+  "raw_label_summary": {
+    "n_rows": 2000,
+    "n_classes": 37,
+    "class_counts": {
+      "IT & Software": 240,
+      "Löhne & Gehälter": 158,
+      "Dienstleistungen": 149,
+      "Marketing & Vertrieb": 121,
+      "Abonnements": 104,
+      "Sozialabgaben": 99,
+      "Projektumsätze": 98,
+      "Handelswaren": 84,
+      "Beratung & Dienstleistungen": 81,
+      "Wartungsverträge": 76,
+      "Produktverkäufe": 73,
+      "Energie": 72,
+      "Lizenzen": 65,
+      "Leasingraten": 63,
+      "Miete & Nebenkosten": 62,
+      "Versicherungen": 56,
+      "Reisekosten": 51,
+      "Instandhaltung": 38,
+      "Rohstoffe": 38,
+      "IT / Hardware": 35,
+      "Rückvergütungen": 34,
+      "Büromaterial": 26,
+      "Software (CapEx)": 18,
+      "Kapitalerhöhungen": 15,
+      "Tilgungen": 15,
+      "Dividenden / Ausschüttungen": 14,
+      "Zinsen": 13,
+      "Zuschüsse / Förderungen für Investitionen": 13,
+      "Maschinen & Anlagen": 13,
+      "Fahrzeuge": 11,
+      "Versicherungsleistungen": 10,
+      "Boni / Prämien": 10,
+      "Darlehensaufnahmen": 9,
+      "Verkauf von Anlagevermögen": 9,
+      "Boni / Provisionen": 9,
+      "Immobilien / Umbauten": 9,
+      "Gesellschaftereinlagen": 9
+    },
+    "largest_class": [
+      "IT & Software",
+      240
+    ],
+    "smallest_class": [
+      "Gesellschaftereinlagen",
+      9
+    ],
+    "imbalance_ratio": 26.67
+  },
+  "raw_duplicate_descriptions": {
+    "n_rows": 2000,
+    "n_distinct_raw_descriptions": 1444,
+    "n_rows_whose_raw_description_repeats": 556
+  },
+  "deduplication": {
+    "n_input": 2000,
+    "n_flagged_duplicate_rows": 64,
+    "n_duplicate_groups": 32,
+    "n_duplicate_groups_spanning_multiple_texts": 26,
+    "n_dropped_source_flagged": 32,
+    "n_dropped_fingerprint_duplicates": 0,
+    "n_output": 1968,
+    "n_removed_total": 32
+  },
+  "preprocessing": {
+    "transformations_applied": [
+      "T0  Unicode NFKC normalisation and whitespace strip",
+      "T1  Protect configured alphanumeric tokens (B2B, 365, Q1 ...) behind placeholders",
+      "T2  Remove ISO-like dates: 2024-06, 2024/06, 2024.06.15",
+      "T3  Remove German dates: 01.06.2024, 1/6/24",
+      "T4  Remove IBAN-like tokens (2 letters + 2 digits + >=10 alphanumerics)",
+      "T5  Remove invoice/reference codes: RE-2024-8096, INV12345, ABC-99887",
+      "T6  Remove standalone digit runs of length >= 3 (account/reference fragments)",
+      "T7  Replace remaining punctuation with a space; keep letters, umlauts, digits",
+      "T8  Expand German banking abbreviations (ueberw -> ueberweisung, ...)",
+      "T9  (optional) Remove legal forms (GmbH, AG, KG ...)         [OFF by default]",
+      "T10 (optional) Remove domain stop words (ref, beleg, months) [OFF by default]",
+      "T11 Restore protected tokens",
+      "T12 Lower-case (configurable)",
+      "T13 Collapse whitespace; substitute placeholder if the result is empty"
+    ],
+    "config": {
+      "lowercase": true,
+      "strip_dates": true,
+      "strip_reference_numbers": true,
+      "strip_long_digit_runs": true,
+      "expand_abbreviations": true,
+      "remove_legal_forms": false,
+      "remove_domain_stopwords": false,
+      "protected_tokens": [
+        "b2b",
+        "b2c",
+        "p2p",
+        "24/7",
+        "365",
+        "4.0",
+        "5g",
+        "3d",
+        "o2",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "h1",
+        "h2"
+      ],
+      "empty_placeholder": "nodescription"
+    },
+    "n_texts": 1968,
+    "unique_raw": 1427,
+    "unique_cleaned": 184,
+    "collapse_ratio": 7.755,
+    "empty_after_clean": 0,
+    "mean_tokens_raw": 3.583,
+    "mean_tokens_cleaned": 2.433,
+    "vocab_raw": 1083,
+    "vocab_cleaned": 175,
+    "n_token_types_removed": 911,
+    "removed_token_types_note": "A token type counts as removed only if no case-folded form of it survives cleaning; pure re-casing is not counted as removal.",
+    "most_removed_token_types": [
+      [
+        "2026-01",
+        75
+      ],
+      [
+        "2024-06",
+        74
+      ],
+      [
+        "2025-05",
+        71
+      ],
+      [
+        "2025-08",
+        70
+      ],
+      [
+        "2024-09",
+        69
+      ],
+      [
+        "2025-07",
+        69
+      ],
+      [
+        "2025-01",
+        67
+      ],
+      [
+        "2025-02",
+        67
+      ],
+      [
+        "2025-09",
+        67
+      ],
+      [
+        "2024-11",
+        65
+      ],
+      [
+        "2025-04",
+        62
+      ],
+      [
+        "2024-10",
+        60
+      ],
+      [
+        "2025-03",
+        56
+      ],
+      [
+        "2026-03",
+        56
+      ],
+      [
+        "2025-06",
+        55
+      ],
+      [
+        "2026-02",
+        55
+      ],
+      [
+        "2024-07",
+        54
+      ],
+      [
+        "2026-04",
+        54
+      ],
+      [
+        "2024-12",
+        51
+      ],
+      [
+        "2025-12",
+        50
+      ],
+      [
+        "2025-10",
+        46
+      ],
+      [
+        "2024-08",
+        45
+      ],
+      [
+        "2025-11",
+        44
+      ],
+      [
+        "2026-05",
+        44
+      ],
+      [
+        "Shop-Auszahlung",
+        32
+      ],
+      [
+        "ERP-Migration",
+        28
+      ],
+      [
+        "RE-2024-2570",
+        2
+      ],
+      [
+        "RE-2024-4508",
+        2
+      ],
+      [
+        "RE-2024-1887",
+        2
+      ],
+      [
+        "RE-2025-2836",
+        2
+      ]
+    ]
+  },
+  "near_duplicate_census": [
+    {
+      "threshold": 0.9,
+      "n_pairs": 0,
+      "n_same_label": 0,
+      "n_cross_label": 0,
+      "cross_label_examples": []
+    },
+    {
+      "threshold": 0.8,
+      "n_pairs": 0,
+      "n_same_label": 0,
+      "n_cross_label": 0,
+      "cross_label_examples": []
+    },
+    {
+      "threshold": 0.7,
+      "n_pairs": 0,
+      "n_same_label": 0,
+      "n_cross_label": 0,
+      "cross_label_examples": []
+    },
+    {
+      "threshold": 0.65,
+      "n_pairs": 35,
+      "n_same_label": 35,
+      "n_cross_label": 0,
+      "cross_label_examples": []
+    },
+    {
+      "threshold": 0.6,
+      "n_pairs": 61,
+      "n_same_label": 61,
+      "n_cross_label": 0,
+      "cross_label_examples": []
+    },
+    {
+      "threshold": 0.55,
+      "n_pairs": 61,
+      "n_same_label": 61,
+      "n_cross_label": 0,
+      "cross_label_examples": []
+    },
+    {
+      "threshold": 0.5,
+      "n_pairs": 168,
+      "n_same_label": 161,
+      "n_cross_label": 7,
+      "cross_label_examples": [
+        {
+          "a": "b2b beratung portal projekt",
+          "b": "b2b förderung portal projekt zuschussbescheid",
+          "jaccard": 0.5,
+          "label_a": "Beratung & Dienstleistungen",
+          "label_b": "Zuschüsse / Förderungen für Investitionen"
+        },
+        {
+          "a": "b2b büroumbau portal",
+          "b": "b2b dienstreise portal",
+          "jaccard": 0.5,
+          "label_a": "Immobilien / Umbauten",
+          "label_b": "Reisekosten"
+        },
+        {
+          "a": "beratung cashflow dashboard projekt",
+          "b": "cashflow dashboard förderung projekt zuschussbescheid",
+          "jaccard": 0.5,
+          "label_a": "Beratung & Dienstleistungen",
+          "label_b": "Zuschüsse / Förderungen für Investitionen"
+        },
+        {
+          "a": "beratung erp migration projekt",
+          "b": "erp förderung migration projekt zuschussbescheid",
+          "jaccard": 0.5,
+          "label_a": "Beratung & Dienstleistungen",
+          "label_b": "Zuschüsse / Förderungen für Investitionen"
+        },
+        {
+          "a": "beratung projekt relaunch website",
+          "b": "förderung projekt relaunch website zuschussbescheid",
+          "jaccard": 0.5,
+          "label_a": "Beratung & Dienstleistungen",
+          "label_b": "Zuschüsse / Förderungen für Investitionen"
+        }
+      ]
+    }
+  ],
+  "grouping": {
+    "n_rows": 1968,
+    "n_groups": 152,
+    "n_unique_cleaned_texts": 184,
+    "group_size_min": 1,
+    "group_size_mean": 12.95,
+    "group_size_median": 5,
+    "group_size_max": 78,
+    "effective_sample_size_note": "1968 rows correspond to only 152 independent groups (12.9x overstatement if rows are treated as independent)",
+    "groups_per_category": {
+      "Darlehensaufnahmen": 1,
+      "Gesellschaftereinlagen": 1,
+      "Kapitalerhöhungen": 1,
+      "Versicherungsleistungen": 1,
+      "Dividenden / Ausschüttungen": 2,
+      "Büromaterial": 2,
+      "Handelswaren": 2,
+      "Boni / Prämien": 2,
+      "Rückvergütungen": 2,
+      "Rohstoffe": 2,
+      "Tilgungen": 2,
+      "Produktverkäufe": 2,
+      "Löhne & Gehälter": 2,
+      "Lizenzen": 2,
+      "Leasingraten": 2,
+      "Abonnements": 2,
+      "Sozialabgaben": 2,
+      "Wartungsverträge": 2,
+      "Versicherungen": 2,
+      "Boni / Provisionen": 2,
+      "Zinsen": 2,
+      "Marketing & Vertrieb": 3,
+      "Miete & Nebenkosten": 3,
+      "Energie": 3,
+      "Fahrzeuge": 4,
+      "IT & Software": 4,
+      "Verkauf von Anlagevermögen": 4,
+      "Immobilien / Umbauten": 5,
+      "Maschinen & Anlagen": 6,
+      "Instandhaltung": 6,
+      "Zuschüsse / Förderungen für Investitionen": 6,
+      "IT / Hardware": 8,
+      "Software (CapEx)": 8,
+      "Reisekosten": 11,
+      "Dienstleistungen": 12,
+      "Beratung & Dienstleistungen": 13,
+      "Projektumsätze": 18
+    },
+    "rows_per_category": {
+      "IT & Software": 235,
+      "Löhne & Gehälter": 156,
+      "Dienstleistungen": 149,
+      "Marketing & Vertrieb": 118,
+      "Abonnements": 104,
+      "Sozialabgaben": 98,
+      "Projektumsätze": 93,
+      "Handelswaren": 84,
+      "Beratung & Dienstleistungen": 78,
+      "Wartungsverträge": 74,
+      "Energie": 71,
+      "Produktverkäufe": 71,
+      "Lizenzen": 63,
+      "Leasingraten": 62,
+      "Miete & Nebenkosten": 61,
+      "Versicherungen": 55,
+      "Reisekosten": 51,
+      "Instandhaltung": 38,
+      "Rohstoffe": 38,
+      "IT / Hardware": 35,
+      "Rückvergütungen": 33,
+      "Büromaterial": 26,
+      "Software (CapEx)": 18,
+      "Kapitalerhöhungen": 15,
+      "Tilgungen": 15,
+      "Dividenden / Ausschüttungen": 14,
+      "Zinsen": 13,
+      "Zuschüsse / Förderungen für Investitionen": 13,
+      "Maschinen & Anlagen": 13,
+      "Fahrzeuge": 11,
+      "Boni / Prämien": 10,
+      "Versicherungsleistungen": 9,
+      "Darlehensaufnahmen": 9,
+      "Verkauf von Anlagevermögen": 9,
+      "Boni / Provisionen": 9,
+      "Gesellschaftereinlagen": 9,
+      "Immobilien / Umbauten": 8
+    },
+    "categories_with_1_group": 4,
+    "categories_with_lt3_groups": 21,
+    "categories_with_lt4_groups": 24,
+    "median_groups_per_category": 2,
+    "largest_groups": [
+      {
+        "group_key": "gehaltslauf",
+        "n_rows": 78
+      },
+      {
+        "group_key": "payroll sammelüberweisung",
+        "n_rows": 78
+      },
+      {
+        "group_key": "lizenz software",
+        "n_rows": 71
+      },
+      {
+        "group_key": "saas subscription",
+        "n_rows": 64
+      },
+      {
+        "group_key": "consulting retainer",
+        "n_rows": 54
+      },
+      {
+        "group_key": "cloud hosting",
+        "n_rows": 53
+      },
+      {
+        "group_key": "fee kunde subscription",
+        "n_rows": 53
+      },
+      {
+        "group_key": "abo monatlich saas",
+        "n_rows": 51
+      },
+      {
+        "group_key": "lohnabgaben",
+        "n_rows": 51
+      },
+      {
+        "group_key": "beratungsleistung rechnung",
+        "n_rows": 50
+      },
+      {
+        "group_key": "bestellung lieferantenrechnung",
+        "n_rows": 48
+      },
+      {
+        "group_key": "beiträge sozialversicherung",
+        "n_rows": 47
+      },
+      {
+        "group_key": "domain server und",
+        "n_rows": 47
+      },
+      {
+        "group_key": "ads budget google",
+        "n_rows": 42
+      },
+      {
+        "group_key": "level service wartungsvertrag",
+        "n_rows": 40
+      }
+    ],
+    "label_impure_groups": [],
+    "n_label_impure_groups": 0
+  },
+  "split_validation": {
+    "splits_present": [
+      "train",
+      "validation",
+      "test"
+    ],
+    "checks": {
+      "group_overlap": {
+        "train|validation": 0,
+        "train|test": 0,
+        "validation|test": 0
+      },
+      "exact_text_overlap": {
+        "train|validation": 0,
+        "train|test": 0,
+        "validation|test": 0
+      },
+      "near_duplicate": {
+        "train|validation": {
+          "n_pairs_total": 0,
+          "n_same_label": 0,
+          "n_cross_label": 0,
+          "same_label_examples": [],
+          "cross_label_examples": []
+        },
+        "train|test": {
+          "n_pairs_total": 0,
+          "n_same_label": 0,
+          "n_cross_label": 0,
+          "same_label_examples": [],
+          "cross_label_examples": []
+        },
+        "validation|test": {
+          "n_pairs_total": 0,
+          "n_same_label": 0,
+          "n_cross_label": 0,
+          "same_label_examples": [],
+          "cross_label_examples": []
+        }
+      }
+    },
+    "violations": [],
+    "split_stats": {
+      "train": {
+        "n_rows": 1093,
+        "n_groups": 103,
+        "n_unique_texts": 134,
+        "n_classes": 37,
+        "rows_per_class": {
+          "IT & Software": 135,
+          "Dienstleistungen": 96,
+          "Projektumsätze": 88,
+          "Löhne & Gehälter": 78,
+          "Beratung & Dienstleistungen": 57,
+          "Abonnements": 51,
+          "Handelswaren": 48,
+          "Sozialabgaben": 47,
+          "Marketing & Vertrieb": 42,
+          "Wartungsverträge": 40,
+          "Lizenzen": 34,
+          "Leasingraten": 33,
+          "Reisekosten": 32,
+          "Produktverkäufe": 32,
+          "Versicherungen": 27,
+          "Instandhaltung": 27,
+          "IT / Hardware": 26,
+          "Miete & Nebenkosten": 23,
+          "Energie": 19,
+          "Rohstoffe": 18,
+          "Rückvergütungen": 18,
+          "Kapitalerhöhungen": 15,
+          "Maschinen & Anlagen": 11,
+          "Software (CapEx)": 10,
+          "Büromaterial": 10,
+          "Versicherungsleistungen": 9,
+          "Darlehensaufnahmen": 9,
+          "Gesellschaftereinlagen": 9,
+          "Zinsen": 8,
+          "Tilgungen": 8,
+          "Zuschüsse / Förderungen für Investitionen": 8,
+          "Boni / Provisionen": 7,
+          "Dividenden / Ausschüttungen": 7,
+          "Immobilien / Umbauten": 4,
+          "Boni / Prämien": 3,
+          "Verkauf von Anlagevermögen": 2,
+          "Fahrzeuge": 2
+        },
+        "groups_per_class": {
+          "Abonnements": 1,
+          "Beratung & Dienstleistungen": 11,
+          "Boni / Provisionen": 1,
+          "Boni / Prämien": 1,
+          "Büromaterial": 1,
+          "Darlehensaufnahmen": 1,
+          "Dienstleistungen": 10,
+          "Dividenden / Ausschüttungen": 1,
+          "Energie": 1,
+          "Fahrzeuge": 2,
+          "Gesellschaftereinlagen": 1,
+          "Handelswaren": 1,
+          "IT & Software": 2,
+          "IT / Hardware": 6,
+          "Immobilien / Umbauten": 3,
+          "Instandhaltung": 4,
+          "Kapitalerhöhungen": 1,
+          "Leasingraten": 1,
+          "Lizenzen": 1,
+          "Löhne & Gehälter": 1,
+          "Marketing & Vertrieb": 1,
+          "Maschinen & Anlagen": 4,
+          "Miete & Nebenkosten": 1,
+          "Produktverkäufe": 1,
+          "Projektumsätze": 16,
+          "Reisekosten": 9,
+          "Rohstoffe": 1,
+          "Rückvergütungen": 1,
+          "Software (CapEx)": 6,
+          "Sozialabgaben": 1,
+          "Tilgungen": 1,
+          "Verkauf von Anlagevermögen": 2,
+          "Versicherungen": 1,
+          "Versicherungsleistungen": 1,
+          "Wartungsverträge": 1,
+          "Zinsen": 1,
+          "Zuschüsse / Förderungen für Investitionen": 4
+        }
+      },
+      "validation": {
+        "n_rows": 228,
+        "n_groups": 16,
+        "n_unique_texts": 16,
+        "n_classes": 16,
+        "rows_per_class": {
+          "Dienstleistungen": 50,
+          "IT & Software": 47,
+          "Marketing & Vertrieb": 38,
+          "Energie": 28,
+          "Beratung & Dienstleistungen": 18,
+          "Reisekosten": 14,
+          "Miete & Nebenkosten": 13,
+          "Zuschüsse / Förderungen für Investitionen": 3,
+          "IT / Hardware": 3,
+          "Verkauf von Anlagevermögen": 3,
+          "Fahrzeuge": 3,
+          "Software (CapEx)": 2,
+          "Immobilien / Umbauten": 2,
+          "Projektumsätze": 2,
+          "Instandhaltung": 1,
+          "Maschinen & Anlagen": 1
+        },
+        "groups_per_class": {
+          "Beratung & Dienstleistungen": 1,
+          "Dienstleistungen": 1,
+          "Energie": 1,
+          "Fahrzeuge": 1,
+          "IT & Software": 1,
+          "IT / Hardware": 1,
+          "Immobilien / Umbauten": 1,
+          "Instandhaltung": 1,
+          "Marketing & Vertrieb": 1,
+          "Maschinen & Anlagen": 1,
+          "Miete & Nebenkosten": 1,
+          "Projektumsätze": 1,
+          "Reisekosten": 1,
+          "Software (CapEx)": 1,
+          "Verkauf von Anlagevermögen": 1,
+          "Zuschüsse / Förderungen für Investitionen": 1
+        }
+      },
+      "test": {
+        "n_rows": 647,
+        "n_groups": 33,
+        "n_unique_texts": 34,
+        "n_classes": 33,
+        "rows_per_class": {
+          "Löhne & Gehälter": 78,
+          "Abonnements": 53,
+          "IT & Software": 53,
+          "Sozialabgaben": 51,
+          "Produktverkäufe": 39,
+          "Marketing & Vertrieb": 38,
+          "Handelswaren": 36,
+          "Wartungsverträge": 34,
+          "Lizenzen": 29,
+          "Leasingraten": 29,
+          "Versicherungen": 28,
+          "Miete & Nebenkosten": 25,
+          "Energie": 24,
+          "Rohstoffe": 20,
+          "Büromaterial": 16,
+          "Rückvergütungen": 15,
+          "Instandhaltung": 10,
+          "Tilgungen": 7,
+          "Dividenden / Ausschüttungen": 7,
+          "Boni / Prämien": 7,
+          "Fahrzeuge": 6,
+          "IT / Hardware": 6,
+          "Software (CapEx)": 6,
+          "Reisekosten": 5,
+          "Zinsen": 5,
+          "Verkauf von Anlagevermögen": 4,
+          "Projektumsätze": 3,
+          "Dienstleistungen": 3,
+          "Beratung & Dienstleistungen": 3,
+          "Boni / Provisionen": 2,
+          "Immobilien / Umbauten": 2,
+          "Zuschüsse / Förderungen für Investitionen": 2,
+          "Maschinen & Anlagen": 1
+        },
+        "groups_per_class": {
+          "Abonnements": 1,
+          "Beratung & Dienstleistungen": 1,
+          "Boni / Provisionen": 1,
+          "Boni / Prämien": 1,
+          "Büromaterial": 1,
+          "Dienstleistungen": 1,
+          "Dividenden / Ausschüttungen": 1,
+          "Energie": 1,
+          "Fahrzeuge": 1,
+          "Handelswaren": 1,
+          "IT & Software": 1,
+          "IT / Hardware": 1,
+          "Immobilien / Umbauten": 1,
+          "Instandhaltung": 1,
+          "Leasingraten": 1,
+          "Lizenzen": 1,
+          "Löhne & Gehälter": 1,
+          "Marketing & Vertrieb": 1,
+          "Maschinen & Anlagen": 1,
+          "Miete & Nebenkosten": 1,
+          "Produktverkäufe": 1,
+          "Projektumsätze": 1,
+          "Reisekosten": 1,
+          "Rohstoffe": 1,
+          "Rückvergütungen": 1,
+          "Software (CapEx)": 1,
+          "Sozialabgaben": 1,
+          "Tilgungen": 1,
+          "Verkauf von Anlagevermögen": 1,
+          "Versicherungen": 1,
+          "Wartungsverträge": 1,
+          "Zinsen": 1,
+          "Zuschüsse / Förderungen für Investitionen": 1
+        }
+      }
+    },
+    "classes_absent_from_test": [
+      "Darlehensaufnahmen",
+      "Gesellschaftereinlagen",
+      "Kapitalerhöhungen",
+      "Versicherungsleistungen"
+    ],
+    "test_classes_with_single_group": [
+      "Abonnements",
+      "Beratung & Dienstleistungen",
+      "Boni / Provisionen",
+      "Boni / Prämien",
+      "Büromaterial",
+      "Dienstleistungen",
+      "Dividenden / Ausschüttungen",
+      "Energie",
+      "Fahrzeuge",
+      "Handelswaren",
+      "IT & Software",
+      "IT / Hardware",
+      "Immobilien / Umbauten",
+      "Instandhaltung",
+      "Leasingraten",
+      "Lizenzen",
+      "Löhne & Gehälter",
+      "Marketing & Vertrieb",
+      "Maschinen & Anlagen",
+      "Miete & Nebenkosten",
+      "Produktverkäufe",
+      "Projektumsätze",
+      "Reisekosten",
+      "Rohstoffe",
+      "Rückvergütungen",
+      "Software (CapEx)",
+      "Sozialabgaben",
+      "Tilgungen",
+      "Verkauf von Anlagevermögen",
+      "Versicherungen",
+      "Wartungsverträge",
+      "Zinsen",
+      "Zuschüsse / Förderungen für Investitionen"
+    ],
+    "classes_absent_from_validation": [
+      "Abonnements",
+      "Boni / Provisionen",
+      "Boni / Prämien",
+      "Büromaterial",
+      "Darlehensaufnahmen",
+      "Dividenden / Ausschüttungen",
+      "Gesellschaftereinlagen",
+      "Handelswaren",
+      "Kapitalerhöhungen",
+      "Leasingraten",
+      "Lizenzen",
+      "Löhne & Gehälter",
+      "Produktverkäufe",
+      "Rohstoffe",
+      "Rückvergütungen",
+      "Sozialabgaben",
+      "Tilgungen",
+      "Versicherungen",
+      "Versicherungsleistungen",
+      "Wartungsverträge",
+      "Zinsen"
+    ],
+    "passed": true,
+    "n_violations": 0
+  },
+  "frozen_split": {
+    "split_file": "split_assignment.csv",
+    "n_rows": 1968,
+    "n_groups": 152,
+    "splits": {
+      "test": {
+        "n_rows": 647,
+        "n_groups": 33
+      },
+      "train": {
+        "n_rows": 1093,
+        "n_groups": 103
+      },
+      "validation": {
+        "n_rows": 228,
+        "n_groups": 16
+      }
+    },
+    "group_to_split": {
+      "0": "train",
+      "1": "train",
+      "2": "train",
+      "3": "train",
+      "4": "train",
+      "5": "train",
+      "6": "train",
+      "7": "train",
+      "8": "train",
+      "9": "test",
+      "10": "train",
+      "11": "train",
+      "12": "test",
+      "13": "train",
+      "14": "test",
+      "15": "validation",
+      "16": "train",
+      "17": "train",
+      "18": "train",
+      "19": "validation",
+      "20": "test",
+      "21": "train",
+      "22": "test",
+      "23": "train",
+      "24": "test",
+      "25": "train",
+      "26": "train",
+      "27": "train",
+      "28": "train",
+      "29": "train",
+      "30": "train",
+      "31": "train",
+      "32": "train",
+      "33": "train",
+      "34": "test",
+      "35": "validation",
+      "36": "train",
+      "37": "train",
+      "38": "train",
+      "39": "train",
+      "40": "validation",
+      "41": "train",
+      "42": "train",
+      "43": "train",
+      "44": "train",
+      "45": "train",
+      "46": "train",
+      "47": "train",
+      "48": "test",
+      "49": "train",
+      "50": "validation",
+      "51": "train",
+      "52": "train",
+      "53": "test",
+      "54": "train",
+      "55": "test",
+      "56": "train",
+      "57": "test",
+      "58": "test",
+      "59": "test",
+      "60": "validation",
+      "61": "train",
+      "62": "validation",
+      "63": "validation",
+      "64": "train",
+      "65": "train",
+      "66": "validation",
+      "67": "train",
+      "68": "train",
+      "69": "train",
+      "70": "train",
+      "71": "test",
+      "72": "train",
+      "73": "train",
+      "74": "test",
+      "75": "train",
+      "76": "train",
+      "77": "train",
+      "78": "test",
+      "79": "train",
+      "80": "train",
+      "81": "train",
+      "82": "train",
+      "83": "train",
+      "84": "train",
+      "85": "train",
+      "86": "train",
+      "87": "test",
+      "88": "train",
+      "89": "test",
+      "90": "train",
+      "91": "train",
+      "92": "train",
+      "93": "train",
+      "94": "train",
+      "95": "train",
+      "96": "validation",
+      "97": "train",
+      "98": "test",
+      "99": "train",
+      "100": "train",
+      "101": "train",
+      "102": "train",
+      "103": "train",
+      "104": "train",
+      "105": "train",
+      "106": "train",
+      "107": "validation",
+      "108": "validation",
+      "109": "train",
+      "110": "test",
+      "111": "train",
+      "112": "train",
+      "113": "train",
+      "114": "train",
+      "115": "validation",
+      "116": "test",
+      "117": "train",
+      "118": "train",
+      "119": "test",
+      "120": "validation",
+      "121": "train",
+      "122": "test",
+      "123": "test",
+      "124": "train",
+      "125": "validation",
+      "126": "train",
+      "127": "test",
+      "128": "train",
+      "129": "test",
+      "130": "train",
+      "131": "train",
+      "132": "test",
+      "133": "train",
+      "134": "test",
+      "135": "test",
+      "136": "validation",
+      "137": "train",
+      "138": "test",
+      "139": "test",
+      "140": "train",
+      "141": "train",
+      "142": "train",
+      "143": "train",
+      "144": "train",
+      "145": "train",
+      "146": "train",
+      "147": "train",
+      "148": "train",
+      "149": "test",
+      "150": "test",
+      "151": "train"
+    },
+    "sha256_row_uid_group_split": "f715f040d8a5daa621164ae8ddfbeae6870ca5fef1a36b06fb5261143233347a",
+    "usage": "Step 3 must load this file and assert the checksum matches, so that both models are trained and evaluated on identical data."
+  }
+}

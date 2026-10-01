@@ -1,0 +1,87 @@
+[
+  {
+    "threshold": 0.9,
+    "n_pairs": 0,
+    "n_same_label": 0,
+    "n_cross_label": 0,
+    "cross_label_examples": []
+  },
+  {
+    "threshold": 0.8,
+    "n_pairs": 0,
+    "n_same_label": 0,
+    "n_cross_label": 0,
+    "cross_label_examples": []
+  },
+  {
+    "threshold": 0.7,
+    "n_pairs": 0,
+    "n_same_label": 0,
+    "n_cross_label": 0,
+    "cross_label_examples": []
+  },
+  {
+    "threshold": 0.65,
+    "n_pairs": 35,
+    "n_same_label": 35,
+    "n_cross_label": 0,
+    "cross_label_examples": []
+  },
+  {
+    "threshold": 0.6,
+    "n_pairs": 61,
+    "n_same_label": 61,
+    "n_cross_label": 0,
+    "cross_label_examples": []
+  },
+  {
+    "threshold": 0.55,
+    "n_pairs": 61,
+    "n_same_label": 61,
+    "n_cross_label": 0,
+    "cross_label_examples": []
+  },
+  {
+    "threshold": 0.5,
+    "n_pairs": 168,
+    "n_same_label": 161,
+    "n_cross_label": 7,
+    "cross_label_examples": [
+      {
+        "a": "b2b beratung portal projekt",
+        "b": "b2b förderung portal projekt zuschussbescheid",
+        "jaccard": 0.5,
+        "label_a": "Beratung & Dienstleistungen",
+        "label_b": "Zuschüsse / Förderungen für Investitionen"
+      },
+      {
+        "a": "b2b büroumbau portal",
+        "b": "b2b dienstreise portal",
+        "jaccard": 0.5,
+        "label_a": "Immobilien / Umbauten",
+        "label_b": "Reisekosten"
+      },
+      {
+        "a": "beratung cashflow dashboard projekt",
+        "b": "cashflow dashboard förderung projekt zuschussbescheid",
+        "jaccard": 0.5,
+        "label_a": "Beratung & Dienstleistungen",
+        "label_b": "Zuschüsse / Förderungen für Investitionen"
+      },
+      {
+        "a": "beratung erp migration projekt",
+        "b": "erp förderung migration projekt zuschussbescheid",
+        "jaccard": 0.5,
+        "label_a": "Beratung & Dienstleistungen",
+        "label_b": "Zuschüsse / Förderungen für Investitionen"
+      },
+      {
+        "a": "beratung projekt relaunch website",
+        "b": "förderung projekt relaunch website zuschussbescheid",
+        "jaccard": 0.5,
+        "label_a": "Beratung & Dienstleistungen",
+        "label_b": "Zuschüsse / Förderungen für Investitionen"
+      }
+    ]
+  }
+]

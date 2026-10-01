@@ -1,0 +1,3 @@
+# Store every file byte-for-byte as delivered (no line-ending normalisation),
+# so datasets and results stay identical to the archived package.
+* -text

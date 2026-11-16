@@ -50,7 +50,7 @@ result are unchanged (verified at the end of the run, section 3).
 | 22 | Docker image build | `docker build --target base` | `german-sme-txclf-api:1.0.0`, 1.77 GB (CPU PyTorch) | `07_docker_api_session.log` | PASS |
 | 23 | Docker container startup | `docker compose up -d api` | `(healthy)` after ≈ 15 s, uid 10001, registry read-only, 296 MiB | same | PASS |
 | 24 | Inference inside Docker | curl to the container | real predictions, batch per-item errors, 422; state kept across restart | same | PASS |
-| 25 | GitHub Actions CI | push to `mlops-production-delivery` | @@CI@@ | Actions | PASS |
+| 25 | GitHub Actions CI | push to `mlops-production-delivery` | run [43969620094](https://github.com/mr-taha-saqib/german-sme-bank-transaction-classification/actions/runs/43969620094) and final run [43981230434](https://github.com/mr-taha-saqib/german-sme-bank-transaction-classification/actions/runs/43981230434): research integrity ✔ (19/11 checks, 12/12 + 120/120), lint + pytest ✔ (all passed: 57 tests in the first run, 59 in the final run), Docker build + in-container inference (tiny model) ✔ | Actions | PASS |
 
 Additional checks:
 

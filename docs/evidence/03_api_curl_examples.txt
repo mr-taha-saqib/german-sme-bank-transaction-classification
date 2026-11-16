@@ -1,0 +1,259 @@
+$ curl -s http://localhost:8000/health
+{"status":"ok","model_loaded":true,"model_version":"germanfinbert-seed42-40de860119","api_version":"1.0.0","detail":null}
+
+$ curl -s http://localhost:8000/model/info | python -c "import json,sys; d=json.load(sys.stdin); d[\"categories\"]=d[\"categories\"][:5]+[\"...\"]; print(json.dumps(d, indent=2, ensure_ascii=False))"
+{
+  "model_version": "germanfinbert-seed42-40de860119",
+  "model_name": "german-sme-transaction-classifier",
+  "base_checkpoint": "scherrmann/GermanFinBert_FP",
+  "base_revision": "0b3622dd589d2fc2f518b4be12a9dc306b903df2",
+  "n_classes": 37,
+  "categories": [
+    "Abonnements",
+    "Beratung & Dienstleistungen",
+    "Boni / Provisionen",
+    "Boni / Prämien",
+    "Büromaterial",
+    "..."
+  ],
+  "confidence_threshold": 0.8,
+  "calibrated": false,
+  "max_length": 128,
+  "seed": 42,
+  "created_at": "2026-11-16T23:21:13Z",
+  "status": "approved",
+  "data": {
+    "frozen_split_sha256": "f715f040d8a5daa621164ae8ddfbeae6870ca5fef1a36b06fb5261143233347a",
+    "augmentation_corpus_sha256": "4eb242d9f384041fc5ec67ce19aa5ab67eda09506f68e1c5d2330bbb1e58d02d",
+    "augmentation_version": "v2",
+    "n_train_rows": 5634
+  },
+  "metrics": {
+    "validation": {
+      "group_level": {
+        "n": 16,
+        "accuracy": 0.8125,
+        "macro_f1": 0.7037,
+        "weighted_f1": 0.79167,
+        "top_2_accuracy": 0.875,
+        "pct_auto": 75.0,
+        "accuracy_auto": 1.0,
+        "pct_manual_review": 25.0
+      },
+      "row_level": {
+        "n": 228,
+        "accuracy": 0.49123,
+        "macro_f1": 0.68992,
+        "weighted_f1": 0.44533,
+        "top_2_accuracy": 0.71053,
+        "pct_auto": 28.509,
+        "accuracy_auto": 1.0,
+        "pct_manual_review": 71.491
+      }
+    },
+    "test": {
+      "group_level": {
+        "n": 33,
+        "accuracy": 0.69697,
+        "macro_f1": 0.58796,
+        "weighted_f1": 0.64141,
+        "top_2_accuracy": 0.75758,
+        "pct_auto": 60.606,
+        "accuracy_auto": 0.8,
+        "pct_manual_review": 39.394
+      },
+      "row_level": {
+        "n": 647,
+        "accuracy": 0.53168,
+        "macro_f1": 0.55852,
+        "weighted_f1": 0.47683,
+        "top_2_accuracy": 0.62906,
+        "pct_auto": 41.886,
+        "accuracy_auto": 0.73801,
+        "pct_manual_review": 58.114
+      }
+    },
+    "note": "test metrics are those recorded by train_model.py after fixed-epoch training; 33 independent test groups (see README limitations)"
+  },
+  "training_device": "cpu (torch 2.13.0+cpu)",
+  "git_commit": "965fa7f642e4d2006491443a88dfd7777b858c6c",
+  "confidence_note": "confidence is the model's uncalibrated probability for the predicted category; it is a routing signal, not a guarantee of correctness",
+  "limits": {
+    "max_text_length": 512,
+    "max_batch_size": 256
+  }
+}
+
+
+$ curl -s -X POST http://localhost:8000/predict -H "content-type: application/json" -d '{"description": "Gehaltslauf 2026-01", "transaction_id": "tx-1001"}' | python -m json.tool --no-ensure-ascii
+{
+    "prediction_id": "7b40c566d49a4b2d85a14e9f7cf43b88",
+    "transaction_id": "tx-1001",
+    "category": "Boni / Provisionen",
+    "parent_category": "Sonstige operative Einnahmen",
+    "confidence": 0.18807,
+    "decision": "manual_review",
+    "threshold": 0.8,
+    "alternatives": [
+        {
+            "category": "Zinsen",
+            "probability": 0.09958
+        },
+        {
+            "category": "Kapitalerhöhungen",
+            "probability": 0.04625
+        }
+    ],
+    "calibrated": false,
+    "model_version": "germanfinbert-seed42-40de860119"
+}
+
+
+$ curl -s -X POST http://localhost:8000/predict -H "content-type: application/json" -d '{"description": "Miete Büro Juni 2026"}' | python -m json.tool --no-ensure-ascii
+{
+    "prediction_id": "670ced1d12494e08b9ef27703ba87984",
+    "transaction_id": null,
+    "category": "Miete & Nebenkosten",
+    "parent_category": "Betriebliche Aufwendungen",
+    "confidence": 0.85904,
+    "decision": "automatic",
+    "threshold": 0.8,
+    "alternatives": [
+        {
+            "category": "Immobilien / Umbauten",
+            "probability": 0.01808
+        },
+        {
+            "category": "Instandhaltung",
+            "probability": 0.00988
+        }
+    ],
+    "calibrated": false,
+    "model_version": "germanfinbert-seed42-40de860119"
+}
+
+
+$ curl -s -X POST http://localhost:8000/predict/batch -H "content-type: application/json" -d '{"items": [{"description": "SaaS Subscription 2025-04", "transaction_id": "a"}, {"description": "   ", "transaction_id": "b"}, {"description": "Stromabschlag Mai", "transaction_id": "c"}]}' | python -m json.tool --no-ensure-ascii
+{
+    "model_version": "germanfinbert-seed42-40de860119",
+    "n_items": 3,
+    "n_ok": 2,
+    "n_errors": 1,
+    "n_automatic": 1,
+    "n_manual_review": 1,
+    "results": [
+        {
+            "index": 0,
+            "status": "ok",
+            "transaction_id": "a",
+            "result": {
+                "prediction_id": "74dd77a935844988bc89ebc8d6205272",
+                "transaction_id": "a",
+                "category": "IT & Software",
+                "parent_category": "Betriebliche Aufwendungen",
+                "confidence": 0.86525,
+                "decision": "automatic",
+                "threshold": 0.8,
+                "alternatives": [
+                    {
+                        "category": "Abonnements",
+                        "probability": 0.07955
+                    },
+                    {
+                        "category": "Software (CapEx)",
+                        "probability": 0.00364
+                    }
+                ],
+                "calibrated": false,
+                "model_version": "germanfinbert-seed42-40de860119"
+            },
+            "error": null
+        },
+        {
+            "index": 1,
+            "status": "error",
+            "transaction_id": "b",
+            "result": null,
+            "error": "description is empty or whitespace"
+        },
+        {
+            "index": 2,
+            "status": "ok",
+            "transaction_id": "c",
+            "result": {
+                "prediction_id": "7a36958bb300413fad4d7202cfaa26dd",
+                "transaction_id": "c",
+                "category": "Energie",
+                "parent_category": "Betriebliche Aufwendungen",
+                "confidence": 0.66134,
+                "decision": "manual_review",
+                "threshold": 0.8,
+                "alternatives": [
+                    {
+                        "category": "Rohstoffe",
+                        "probability": 0.05374
+                    },
+                    {
+                        "category": "Verkauf von Anlagevermögen",
+                        "probability": 0.01911
+                    }
+                ],
+                "calibrated": false,
+                "model_version": "germanfinbert-seed42-40de860119"
+            },
+            "error": null
+        }
+    ]
+}
+
+
+$ curl -s -w "\nHTTP %{http_code}" -X POST http://localhost:8000/predict -H "content-type: application/json" -d '{"description": ""}'
+{"error":"validation_error","detail":[{"loc":["body","description"],"msg":"String should have at least 1 character","type":"string_too_short"}],"request_id":"8486ac395c45423e"}
+HTTP 422
+
+$ curl -s -w "\nHTTP %{http_code}" -X POST http://localhost:8000/predict -H "content-type: application/json" -d '{"text": "Gehalt"}'
+{"error":"validation_error","detail":[{"loc":["body","description"],"msg":"Field required","type":"missing"},{"loc":["body","text"],"msg":"Extra inputs are not permitted","type":"extra_forbidden"}],"request_id":"014c399766c3486a"}
+HTTP 422
+
+$ curl -s -w "\nHTTP %{http_code}" -X POST http://localhost:8000/predict -H "content-type: application/json" -d '{not json'
+{"error":"validation_error","detail":[{"loc":["body",1],"msg":"JSON decode error","type":"json_invalid"}],"request_id":"b365ce8e55364e44"}
+HTTP 422
+
+$ PID_=$(curl -s -X POST http://localhost:8000/predict -H "content-type: application/json" -d '{"description": "Gehaltslauf 2026-02"}' | python -c "import json,sys; print(json.load(sys.stdin)[\"prediction_id\"])"); curl -s -X POST http://localhost:8000/feedback -H "content-type: application/json" -d "{\"prediction_id\": \"$PID_\", \"true_category\": \"Löhne & Gehälter\"}"
+{"accepted":true,"model_version":"germanfinbert-seed42-40de860119"}
+
+$ curl -s -w "\nHTTP %{http_code}" -X POST http://localhost:8000/feedback -H "content-type: application/json" -d '{"prediction_id": "does-not-exist", "true_category": "Löhne & Gehälter"}'
+{"error":"unknown_prediction","detail":"prediction_id not found in the monitoring window","request_id":"c6b75d48787845a5"}
+HTTP 404
+
+$ curl -s http://localhost:8000/metrics | grep -E "^txclf_(predictions_total|requests_total|model_info)"
+txclf_requests_total{endpoint="/health",status="200"} 2.0
+txclf_requests_total{endpoint="/model/info",status="200"} 1.0
+txclf_requests_total{endpoint="/predict",status="200"} 3.0
+txclf_requests_total{endpoint="/predict/batch",status="200"} 1.0
+txclf_requests_total{endpoint="/predict",status="422"} 3.0
+txclf_requests_total{endpoint="/feedback",status="200"} 1.0
+txclf_requests_total{endpoint="/feedback",status="404"} 1.0
+txclf_predictions_total{decision="manual_review"} 3.0
+txclf_predictions_total{decision="automatic"} 2.0
+txclf_model_info{version="germanfinbert-seed42-40de860119"} 1.0
+
+
+$ python -m src.inference --run model_registry/versions/$(python -c "import json; print(json.load(open(\"model_registry/registry.json\"))[\"approved\"])") --csv reference/example_new_transactions.csv --column description 2>/dev/null | tail -16
+                                          input                             cleaned          predicted_category  confidence              second_choice  second_confidence  confidence_uncalibrated      decision
+         SaaS Subscription 2026-07 RE-2026-3311                   saas subscription               IT & Software     0.86525                Abonnements            0.07955                  0.86525     automatic
+                            Gehaltslauf 2026-07                         gehaltslauf          Boni / Provisionen     0.18807                     Zinsen            0.09958                  0.18807 manual_review
+           Sozialversicherung Beitraege 2026-07        sozialversicherung beitraege               Sozialabgaben     0.90046                    Energie            0.00572                  0.90046     automatic
+               LinkedIn Ads B2B Leadgen 2026-07            linkedin ads b2b leadgen        Marketing & Vertrieb     0.45807              IT & Software            0.17143                  0.45807 manual_review
+                    Betriebshaftpflicht 2026-07                 betriebshaftpflicht              Versicherungen     0.92332    Versicherungsleistungen            0.00452                  0.92332     automatic
+                        KFZ Leasingrate 2026-07                     kfz leasingrate                Leasingraten     0.90869                  Tilgungen            0.00656                  0.90869     automatic
+Rechnung RE-2026-8842 Beratungsleistung 2026-07          rechnung beratungsleistung Beratung & Dienstleistungen     0.44602           Dienstleistungen            0.38059                  0.44602 manual_review
+          Stromabschlag Betriebsstaette 2026-07       stromabschlag betriebsstaette                     Energie     0.54093 Verkauf von Anlagevermögen            0.05920                  0.54093 manual_review
+             Zinsabschluss Kontokorrent 2026-07          zinsabschluss kontokorrent                      Zinsen     0.91530              IT / Hardware            0.00504                  0.91530     automatic
+            Unklare Sammelbuchung Empfaenger XY unklare sammelbuchung empfaenger xy                Büromaterial     0.25950               Handelswaren            0.17186                  0.25950 manual_review
+
+Threshold 0.8: 5/10 automatic, 5 routed to manual review.
+Note: confidence >= threshold is a routing heuristic, not a correctness guarantee.
+Confidences are uncalibrated (the primary operational result). Pass --calibration to apply a fitted temperature.
+
+

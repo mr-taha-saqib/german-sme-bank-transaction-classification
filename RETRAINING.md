@@ -65,4 +65,17 @@ recorded; the same input is not retrained twice unless `--force`.
 
 ## Executed scenarios
 
-@@SCENARIOS@@
+On an **isolated copy** of the registry (the delivered `model_registry/` was not
+modified), with **synthetic** feedback (`scripts/generate_synthetic_feedback.py`):
+
+| # | Input | Outcome |
+|---|---|---|
+| 1 | 6 rows, all invalid | `rejected_data_requirements`; nothing trained |
+| 2 | 366 rows (training variants + held-out leaks + invalid), `--validate-only` | 74 accepted (34 classes). Dropped: 2 missing, 1 empty, 1 unknown label, 1 empty after cleaning, 264 duplicates, **23 held-out collisions caught by the leakage gate** |
+| 3 | same, live; real GermanFinBERT base, overrides `epochs=1`, `max_length=32` (10 min 53 s on CPU) | candidate `candidate-seed42-bdf512ef87` **rejected**: equal validation accuracy (0.49123) and macro-F1 (0.68992), but 0 % automatic decisions vs 28.5 % (under-confident after one epoch); MLflow run `024ef897f1d542a0b6f29a0ef031a50b` |
+| 4 | same file again | idempotent: earlier decision returned, nothing retrained |
+| 5 | rollback with no earlier approved version | clean error, exit code 1 |
+| 6 | **tiny test model** (not GermanFinBERT): approved = 1 epoch, candidate = 6 epochs | candidate **promoted** (all criteria passed), previous version kept, rollback restored it; MLflow run `41d367c7926d44c39bc6153dec650a7b` |
+
+Scenario 6 uses a deliberately weak tiny model so that the promotion path can be shown
+in minutes on a CPU; its metrics are meaningless by design.

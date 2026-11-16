@@ -134,7 +134,13 @@ class TransactionClassifier:
             if cal_path is not None:
                 self.calibrator = _load_calibration_file(cal_path)
 
-    def predict(self, texts: list[str], batch_size: int = 64) -> pd.DataFrame:
+    def predict_proba(self, texts: list[str], batch_size: int = 64
+                      ) -> tuple[list[str], np.ndarray, np.ndarray]:
+        """Cleaned texts, uncalibrated probabilities and served probabilities.
+
+        Same preprocessing, tokenisation and softmax as evaluation. The served
+        probabilities equal the uncalibrated ones unless a calibrator was loaded.
+        """
         import torch
 
         cleaned = [clean_description(t, self.pre_cfg) for t in texts]
@@ -147,9 +153,12 @@ class TransactionClassifier:
             with torch.no_grad():
                 logits.append(self.model(**enc).logits.float().cpu().numpy())
         z = np.concatenate(logits, axis=0)
-
         probs_u = softmax(z)
         probs = self.calibrator.predict_proba(z) if self.calibrator else probs_u
+        return cleaned, probs_u, probs
+
+    def predict(self, texts: list[str], batch_size: int = 64) -> pd.DataFrame:
+        cleaned, probs_u, probs = self.predict_proba(texts, batch_size)
 
         order = np.argsort(-probs, axis=1)
         conf = probs.max(axis=1)

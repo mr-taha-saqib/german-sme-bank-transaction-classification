@@ -1,0 +1,5 @@
+# Research pipeline + MLOps layer (API, MLflow, monitoring, retraining).
+# Install PyTorch first (see README "Setup"), then:  pip install -r requirements-mlops.txt
+-r requirements.txt
+-r requirements-api.txt
+mlflow==3.18.0

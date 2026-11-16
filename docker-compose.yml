@@ -1,0 +1,59 @@
+# docker compose up -d api                       serve the approved model from ./model_registry
+# docker compose --profile tools run --rm tools python -m src.retrain --feedback /data/feedback.csv
+# docker compose --profile mlflow up -d mlflow   MLflow UI on http://localhost:5000
+#
+# ./model_registry is produced on the host (python -m src.model_artifact ...) and
+# mounted read-only into the API. Monitoring and MLflow data live in named volumes.
+services:
+  api:
+    build:
+      context: .
+      target: base
+    image: german-sme-txclf-api:1.0.0
+    env_file:
+      - path: .env
+        required: false
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - ./model_registry:/app/model_registry:ro
+      - monitoring:/app/monitoring
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 3g
+
+  tools:
+    build:
+      context: .
+      target: tools
+    image: german-sme-txclf-tools:1.0.0
+    profiles: ["tools"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      TX_REGISTRY_DIR: /app/model_registry
+    volumes:
+      - ./model_registry:/app/model_registry
+      - mlflow-data:/mlflow-data
+      - hf-cache:/app/.cache
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v3.18.0
+    profiles: ["mlflow"]
+    command: >
+      mlflow server --host 0.0.0.0 --port 5000
+      --backend-store-uri sqlite:////mlflow-data/mlflow.db
+      --artifacts-destination /mlflow-data/mlartifacts
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-data:/mlflow-data
+    restart: unless-stopped
+
+volumes:
+  monitoring:
+  mlflow-data:
+  hf-cache:

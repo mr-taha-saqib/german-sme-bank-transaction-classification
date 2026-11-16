@@ -68,3 +68,16 @@ desktop.ini
 *.temp
 *.log
 ~$*
+
+# --- MLOps layer (local state; never committed) ---------------------------------
+artifacts/
+model_registry/
+mlflow.db
+mlflow-data/
+mlartifacts/
+mlruns/
+monitoring/
+reports/retraining/
+data/feedback/
+.coverage
+coverage.xml

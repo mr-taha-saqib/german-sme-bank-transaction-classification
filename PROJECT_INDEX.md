@@ -14,6 +14,20 @@ Documentation map for the academic proof of concept. Read in this order.
 | 7 | [`results/final_comparison.md`](results/final_comparison.md) | **Step 6, final comparison.** Integrity audit, final tables, per-seed results, the 0.8 workflow, calibration analysis, error analysis, conclusions, paper comparison |
 | 8 | [`FINAL_REPORT.md`](FINAL_REPORT.md) | **The complete written report.** Everything above in one continuous narrative, from objective to limitations |
 
+## MLOps layer (added Nov 2026)
+
+| Document | What it contains |
+|---|---|
+| [`DELIVERY_SUMMARY.md`](DELIVERY_SUMMARY.md) | One-page delivery status |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | Research + MLOps architecture, data and model flow |
+| [`API_DOCUMENTATION.md`](API_DOCUMENTATION.md) | Endpoints, schemas, real request/response examples |
+| [`MODEL_CARD.md`](MODEL_CARD.md) / [`DATA_CARD.md`](DATA_CARD.md) | Served model and data, limitations |
+| [`DEPLOYMENT.md`](DEPLOYMENT.md) | Weights, Docker, hardware |
+| [`MONITORING.md`](MONITORING.md) / [`RETRAINING.md`](RETRAINING.md) | Monitoring signals, retraining and promotion gate |
+| [`TESTING.md`](TESTING.md) / [`CONTRIBUTING.md`](CONTRIBUTING.md) / [`CHANGELOG.md`](CHANGELOG.md) | Tests, contribution rules, change log |
+| [`FINAL_E2E_ACCEPTANCE.md`](FINAL_E2E_ACCEPTANCE.md) | MLOps end-to-end acceptance report |
+| [`FINAL_E2E_ACCEPTANCE_RESEARCH.md`](FINAL_E2E_ACCEPTANCE_RESEARCH.md) | The original research acceptance report (unchanged) |
+
 ## Supporting documents
 
 | Document | Purpose |

@@ -1,8 +1,9 @@
 """Send controlled traffic to a running API and print /monitoring/summary.
 
-normal  : variants of TRAINING-split descriptions (new dates / reference numbers)
+normal  : real HELD-OUT descriptions (validation + test rows, sent as-is): new
+          patterns resembling production traffic, matching the monitoring reference
 drift   : long English free-text descriptions the model has never seen (input drift)
-labels  : predictions followed by POST /feedback with the true category (delayed labels)
+labels  : like normal, followed by POST /feedback with the true category (delayed labels)
 
 Descriptions are synthetic; nothing is logged by the API except numeric features.
 
@@ -21,7 +22,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.dataset_io import load_frozen_split, split_frame  # noqa: E402
+from src.dataset_io import load_frozen_split  # noqa: E402
 
 DRIFT_WORDS = ["payment", "transfer", "invoice", "customer", "refund", "subscription", "wire", "monthly",
                "international", "account", "settlement", "merchant", "card", "fee", "chargeback", "london"]
@@ -35,7 +36,8 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
     rng = np.random.default_rng(args.seed)
-    train = split_frame(load_frozen_split(ROOT / "results" / "dataset")[0], "train")
+    frozen = load_frozen_split(ROOT / "results" / "dataset")[0]
+    heldout = frozen[frozen["split"] != "train"]
     codes: dict[int, int] = {}
     with httpx.Client(base_url=args.url, timeout=30) as c:
         for i in range(0, args.n, 25):
@@ -45,8 +47,8 @@ def main() -> int:
                          for _ in range(k)]
                 labels = [None] * k
             else:
-                rows = train.sample(n=k, random_state=int(rng.integers(1e9)))
-                texts = [f"{t} {int(rng.integers(2026, 2028))}-{int(rng.integers(1, 13)):02d}" for t in rows["description"]]
+                rows = heldout.sample(n=k, random_state=int(rng.integers(1e9)))
+                texts = rows["description"].astype(str).tolist()
                 labels = rows["categoryName"].tolist()
             r = c.post("/predict/batch", json={"items": [{"description": t} for t in texts]})
             codes[r.status_code] = codes.get(r.status_code, 0) + 1

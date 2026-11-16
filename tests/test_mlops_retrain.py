@@ -133,3 +133,15 @@ def test_mlflow_tracking_of_candidate(tiny_run, approved_registry, mlops_cfg, tm
     run = mlflow.get_run(rep["mlflow_run_id"])
     assert run.data.tags["stage"] == "retraining" and "val_row_accuracy" in run.data.metrics
     assert "approved_val_row_accuracy" in run.data.metrics and run.data.params["max_length"] == "32"
+
+
+def test_back_to_back_runs_keep_separate_reports(approved_registry, mlops_cfg):
+    from pathlib import Path as _P
+    for _ in range(3):
+        rt.run_retraining(mlops_cfg, generate(["train_variants"], 200), validate_only=True)
+    assert len(list(_P(mlops_cfg["retraining"]["report_dir"]).glob("retraining-*.md"))) == 3
+
+
+def test_rollback_cli_without_history_exits_cleanly(approved_registry, mlops_cfg, monkeypatch):
+    monkeypatch.setenv("TX_REGISTRY_DIR", mlops_cfg["registry"]["dir"])
+    assert rt.main(["--rollback", "--reason", "test"]) == 1

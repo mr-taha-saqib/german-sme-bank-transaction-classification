@@ -109,5 +109,6 @@ def test_config_env_override(monkeypatch):
 def test_reference_profile_matches_validation(approved_registry):
     reg, _ = approved_registry
     ref = json.loads((reg.approved_dir() / "reference_profile.json").read_text(encoding="utf-8"))
-    assert ref["n"] == 228
+    assert ref["n"] == 228 + 647                               # held-out rows: validation + test
     assert np.isclose(sum(ref["category_distribution"]), 1.0)
+    assert "held-out" in ref["source"]["features_and_categories"]

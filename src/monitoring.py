@@ -87,16 +87,29 @@ def drift_status(value: float, n: int, min_n: int, warn: float, alert: float) ->
     return "alert" if value >= alert else "warning" if value >= warn else "ok"
 
 
-def build_reference_profile(raw_texts: list[str], cleaned: list[str], probs: np.ndarray,
-                            vocabulary: set[str], threshold: float) -> dict[str, Any]:
-    """Reference distributions from a held-out split (the validation split)."""
+def build_reference_profile(raw_texts: list[str], cleaned: list[str], label_idx: list[int], n_classes: int,
+                            heldout_probs: np.ndarray, vocabulary: set[str], threshold: float) -> dict[str, Any]:
+    """Reference distributions for drift checks, from HELD-OUT real data.
+
+    New production transactions are, by definition, patterns the model did not train
+    on, so the reference is the held-out population (validation + test rows of the
+    frozen split): their description features (input drift), this model's PREDICTED
+    category mix and uncalibrated confidence on them (prediction drift: predictions are
+    compared with predictions, never with true labels), and the true category mix
+    (stored for information). Training rows would be the wrong
+    reference (seen patterns, near-certain predictions); the validation split alone
+    (16 groups, 16 of 37 classes) is too narrow. This is a monitoring baseline only;
+    it is never used for model selection.
+    """
     feats = [text_features(r, c, vocabulary) for r, c in zip(raw_texts, cleaned)]
-    conf = probs.max(axis=1)
+    conf = heldout_probs.max(axis=1)
     return {
-        "source": "validation split, approved model's uncalibrated probabilities",
+        "source": {"features_and_categories": f"{len(raw_texts)} held-out real descriptions (validation + test)",
+                   "predictions_and_confidence": f"{len(conf)} held-out predictions of this model (uncalibrated)"},
         "n": len(raw_texts),
         "features": {k: histogram([f[k] for f in feats], n) for k, n in FEATURE_BINS.items()},
-        "category_distribution": histogram(probs.argmax(axis=1).tolist(), probs.shape[1]),
+        "category_distribution": histogram(heldout_probs.argmax(axis=1).tolist(), n_classes),
+        "true_category_distribution": histogram(list(label_idx), n_classes),
         "confidence_distribution": histogram([_bucket(c, CONF_EDGES) for c in conf], len(CONF_EDGES) - 1),
         "auto_rate": float((conf >= threshold).mean()),
         "edges": {"char": list(CHAR_EDGES[:-1]), "token": list(TOKEN_EDGES[:-1]),

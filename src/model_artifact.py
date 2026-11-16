@@ -115,14 +115,19 @@ def package_run(run_dir: str | Path, registry: ModelRegistry, cfg: dict[str, Any
     vocab = training_vocabulary(frozen, dataset_dir, aug.get("augmentation_version") if aug.get("augmentation_enabled") else None)
 
     val = split_frame(frozen, "validation")
-    # allow_pickle=False: only the numeric array is read (class_names is an object array we skip)
+    # allow_pickle=False: only numeric arrays are read (class_names is an object array we skip)
     with np.load(run / "logits.npz", allow_pickle=False) as z:
-        val_probs = np.asarray(z["validation_probabilities"], dtype=float)
-    if len(val_probs) != len(val):
+        probs = [np.asarray(z["validation_probabilities"], dtype=float)]
+        if "test_probabilities" in z.files:
+            probs.append(np.asarray(z["test_probabilities"], dtype=float))
+    if len(probs[0]) != len(val):
         raise ArtifactError("validation probabilities do not align with the frozen validation split")
-    raw = val["description"].astype(str).tolist()
+    heldout = pd.concat([val, split_frame(frozen, "test")], ignore_index=True)
+    raw = heldout["description"].astype(str).tolist()
     cleaned = [clean_description(t, pre) for t in raw]
-    reference = build_reference_profile(raw, cleaned, val_probs, vocab, threshold)
+    label_idx = [labels.index(c) for c in heldout["categoryName"].astype(str)]
+    reference = build_reference_profile(raw, cleaned, label_idx, len(labels), np.concatenate(probs),
+                                        vocab, threshold)
     parents = (frozen.drop_duplicates("categoryName").set_index("categoryName")["parentCategoryName"]
                .astype(str).to_dict())
 

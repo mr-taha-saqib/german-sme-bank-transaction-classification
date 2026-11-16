@@ -170,7 +170,8 @@ def run_retraining(cfg: dict[str, Any], feedback: pd.DataFrame, dry_run: bool = 
         raise RetrainingError(f"No approved model to compare against: {exc}") from exc
     appr_meta = reg.metadata(approved_id)
     report_dir = resolve_path(get(cfg, "retraining.report_dir", "reports/retraining"))
-    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    # microseconds: two runs in the same second must not overwrite each other's report
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
     dataset_dir = resolve_path(dataset_dir)
     frozen, manifest = load_frozen_split(dataset_dir, require_checksum=True)
     split_sha = manifest.get("sha256_row_uid_group_split")
@@ -311,7 +312,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.no_mlflow:
         cfg["mlflow"]["enabled"] = False
     if args.rollback:
-        print(json.dumps({"rolled_back_to": ModelRegistry(resolve_path(get(cfg, "registry.dir"))).rollback(args.reason)}))
+        try:
+            target = ModelRegistry(resolve_path(get(cfg, "registry.dir"))).rollback(args.reason)
+        except RegistryError as exc:
+            logger.error("Rollback not possible: %s", exc)
+            return 1
+        print(json.dumps({"rolled_back_to": target}))
         return 0
     if not args.feedback or not Path(args.feedback).exists():
         ap.error("--feedback must point to an existing CSV")

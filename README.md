@@ -1,5 +1,8 @@
 # German SME Bank Transaction Classification: Academic Proof of Concept
 
+**Client documentation starts at [CLIENT_README.md](CLIENT_README.md)** (installation, API, MLOps
+workflow, limitations). This README documents the research pipeline in full.
+
 A leakage-safe, locally reproducible implementation of the pipeline described in
 *"Categorising SME Bank Transactions with Machine Learning and Synthetic Data
 Generation"* (Aluffi et al., 2025, arXiv:2508.05425), adapted to German SME
@@ -11,7 +14,7 @@ transaction descriptions and a 37-class taxonomy.
 New here? Start with [`PROJECT_INDEX.md`](PROJECT_INDEX.md), then
 [`FINAL_REPORT.md`](FINAL_REPORT.md).
 
-> **Nov 2026: MLOps layer added** (branch `mlops-production-delivery`): a FastAPI
+> **Nov 2026: MLOps layer added** (developed on branch `mlops-production-delivery`, merged into `main`, release `v1.1.0-mlops`): a FastAPI
 > inference service with 0.8 confidence routing, a versioned model registry, MLflow
 > tracking, privacy-preserving monitoring with drift checks, a gated retraining
 > workflow, Docker images and GitHub Actions CI. The research pipeline, data, frozen

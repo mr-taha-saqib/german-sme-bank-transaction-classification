@@ -1,0 +1,10 @@
+{
+  "items": [
+    {"description": "Miete Buero Juli 2026 Hausverwaltung Muster GmbH", "transaction_id": "demo-001"},
+    {"description": "Gehaltslauf 2026-07", "transaction_id": "demo-002"},
+    {"description": "Betriebshaftpflicht Beitrag 2026", "transaction_id": "demo-003"},
+    {"description": "Telekom Rechnung Mobilfunk Juli", "transaction_id": "demo-004"},
+    {"description": "Kundenzahlung RE-2026-0815 Beispiel AG", "transaction_id": "demo-005"},
+    {"description": "   ", "transaction_id": "demo-006-invalid-empty"}
+  ]
+}

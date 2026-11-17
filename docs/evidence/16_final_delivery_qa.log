@@ -1,0 +1,262 @@
+# Final delivery QA log (tx). Commands and output as executed on 2026-11-17/18 (UTC) from a fresh clone of the
+# client-delivery commit. Environment-specific paths normalised: clone dir -> <clone>, proxy CA file -> <proxy-ca.pem>.
+# QA log, Project 1 (transaction classification), started 2026-11-17T19:06:48Z
+### [source] $ git log -1 --format='%H %s' && git describe --tags --always && git diff --stat v1.1.0-mlops HEAD | tail -1
+4b1f66d45cd5a4832b7191e424f2210120065741 Post-release delivery: client documentation, demo, MLflow alias on rollback
+v1.1.0-mlops-1-g4b1f66d
+ 20 files changed, 1973 insertions(+), 3 deletions(-)
+### [source] exit=0
+### [env-create] $ python3.12 -m venv .venv && .venv/bin/python --version && .venv/bin/python -m pip install -q --disable-pip-version-check --upgrade pip && .venv/bin/pip --version | cut -d' ' -f1-2
+Python 3.12.3
+pip 26.3
+### [env-create] exit=0
+### [deps-install-torch-cpu] $ .venv/bin/pip install -q --disable-pip-version-check --index-url https://download.pytorch.org/whl/cpu torch==2.13.0 && .venv/bin/python -c 'import torch;print("torch",torch.__version__,"cuda available:",torch.cuda.is_available())'
+<clone>/.venv/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:368: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+torch 2.13.0+cpu cuda available: False
+### [deps-install-torch-cpu] exit=0
+### [deps-install] $ .venv/bin/pip install -q --disable-pip-version-check -r requirements-dev.txt -r requirements.txt && echo installed $(.venv/bin/python -c 'import importlib.metadata as m;print(len(list(m.distributions())))') distributions
+installed 121 distributions
+### [deps-install] exit=0
+### [deps-check] $ .venv/bin/pip check --disable-pip-version-check
+No broken requirements found.
+### [deps-check] exit=0
+### [lint] $ .venv/bin/ruff check .
+All checks passed!
+### [lint] exit=0
+### [format-check] $ echo 'No formatter is configured (pyproject.toml has [tool.ruff.lint] only; CI runs ruff check). Not run.'
+No formatter is configured (pyproject.toml has [tool.ruff.lint] only; CI runs ruff check). Not run.
+### [format-check] exit=0
+### [tests-unit-components] $ .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_mlops_components.py
+..........                                                               [100%]
+10 passed in 14.55s
+### [tests-unit-components] exit=0
+### [tests-api] $ .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_mlops_api.py
+.....................                                                    [100%]
+21 passed in 9.76s
+### [tests-api] exit=0
+### [tests-retraining-integration] $ .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_mlops_retrain.py
+...................                                                      [100%]
+19 passed in 18.48s
+### [tests-retraining-integration] exit=0
+### [tests-all-coverage] $ .venv/bin/python -m pytest -q -p no:cacheprovider --cov=src --cov-report=term | grep -E 'TOTAL|passed|failed'
+TOTAL                        2647    553    79%
+60 passed in 35.06s
+### [tests-all-coverage] exit=0
+### [research-test-pipeline] $ .venv/bin/python tests/test_pipeline.py 2>&1 | grep -E 'passed|failed' | tail -2
+66 passed, 0 failed
+### [research-test-pipeline] exit=0
+### [research-verify-dataset] $ .venv/bin/python verify_dataset.py 2>&1 | grep -E 'checks passed' | tail -1
+19 checks passed, 0 failed
+### [research-verify-dataset] exit=0
+### [research-verify-augmentation] $ .venv/bin/python verify_augmentation.py 2>&1 | grep -iE 'passed|findings' | tail -1
+11 checks passed, 0 findings
+### [research-verify-augmentation] exit=0
+### [research-final-evaluation] $ .venv/bin/python final_evaluation.py 2>&1 | grep -E 'integrity checks|recomputations'
+00:09:21 | INFO    | 12/12 integrity checks passed
+00:09:21 | INFO    | 120 metric recomputations matched their saved values
+### [research-final-evaluation] exit=0
+### [research-results-vs-committed] $ for f in $(git diff --name-only); do .venv/bin/python -I - "$f" <<'PY'
+import sys,subprocess
+f=sys.argv[1]; old=subprocess.run(['git','show','HEAD:'+f],capture_output=True).stdout; new=open(f,'rb').read()
+n=lambda b: b.replace(b'\r\n',b'\n').lstrip(b'\xef\xbb\xbf').strip()
+print(' ',f,'content-identical' if n(old)==n(new) else ('binary (xlsx timestamp)' if f.endswith('.xlsx') else 'DIFFERS'))
+PY
+done; git checkout -q -- results/ && echo 'restored committed files'
+  results/dataset/augmentation_verification.json content-identical
+  results/final_error_analysis.csv DIFFERS
+  results/final_results.csv content-identical
+  results/final_results.json DIFFERS
+  results/final_summary.csv content-identical
+  results/final_summary.xlsx binary (xlsx timestamp)
+restored committed files
+### [research-results-vs-committed] exit=0
+### [dep-audit] $ pip-audit --path .venv/lib/python3.12/site-packages --progress-spinner off 2>&1 | grep -v WARNING; echo 'torch==2.13.0' > <tmp>/torch.txt; pip-audit -r <tmp>/torch.txt --no-deps --disable-pip --progress-spinner off 2>&1 | grep -v WARNING | sed 's/^/torch (PyPI version): /'
+filelock   3.32.3  CVE-2026-112911     4.2.1
+filelock   3.32.3  CVE-2026-112939     4.2.1
+filelock   3.32.3  CVE-2026-112915     4.2.1
+filelock   3.32.3  CVE-2026-112935     4.2.1
+filelock   3.32.3  CVE-2026-112908     4.2.1
+setuptools 78.1.0  PYSEC-2025-49       78.1.1
+setuptools 78.1.0  PYSEC-2025-49       78.1.1
+setuptools 78.1.0  PYSEC-2026-3447     83.0.0
+setuptools 78.1.0  PYSEC-2026-3447     83.0.0
+setuptools 78.1.0  GHSA-xmj3-9gf7-h52w 84.1.0
+
+Name  Skip Reason
+----- -------------------------------------------------------------------------
+torch Dependency not found on PyPI and could not be audited: torch (2.13.0+cpu)
+torch (PyPI version): No known vulnerabilities found
+### [dep-audit] exit=0
+### [research-final-results-json-detail] $ .venv/bin/python final_evaluation.py >/dev/null 2>&1; .venv/bin/python -I - <<'PY'
+import json,subprocess,math
+f='results/final_results.json'
+old=json.loads(subprocess.run(['git','show','HEAD:'+f],capture_output=True).stdout.decode('utf-8-sig')); new=json.load(open(f,encoding='utf-8-sig'))
+def same(a,b): return a==b or (isinstance(a,float) and isinstance(b,float) and math.isnan(a) and math.isnan(b))
+def walk(a,b,p=''):
+    if isinstance(a,dict) and isinstance(b,dict):
+        for k in sorted(set(a)|set(b)): yield from walk(a.get(k),b.get(k),p+'/'+str(k))
+    elif isinstance(a,list) and isinstance(b,list) and len(a)==len(b):
+        for i,(x,y) in enumerate(zip(a,b)): yield from walk(x,y,p+f'[{i}]')
+    elif not same(a,b): yield p,a,b
+d=list(walk(old,new)); print('final_results.json fields differing (NaN-aware):',len(d))
+for p,a,b in d: print(' ',p,':',a,'->',b)
+print('all differences inside error_analysis modal predictions:', all('/error_analysis/' in p for p,_,_ in d))
+PY
+git checkout -q -- results/
+final_results.json fields differing (NaN-aware): 0
+all differences inside error_analysis modal predictions: True
+### [research-final-results-json-detail] exit=0
+### [demo-model-build] $ .venv/bin/python scripts/build_demo_model.py --registry model_registry 2>&1 | tail -4; .venv/bin/python -c "from src.registry import ModelRegistry as R; r=R('model_registry'); print('approved:', r.approved_version()); print('versions:', r.list_versions())"
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 496.60it/s]
+Loading weights:   0%|          | 0/25 [00:00<?, ?it/s]Loading weights: 100%|██████████| 25/25 [00:00<00:00, 6780.76it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 730.71it/s]
+tinybert-demo-seed42-80ba659431
+approved: tinybert-demo-seed42-80ba659431
+versions: ['tinybert-demo-seed42-80ba659431']
+### [demo-model-build] exit=0
+### [api-local-health-demo-model] $ curl -s -w ' HTTP %{http_code}' http://127.0.0.1:8000/health
+{"status":"ok","model_loaded":true,"model_version":"tinybert-demo-seed42-80ba659431","api_version":"1.0.0","detail":null} HTTP 200
+### [api-local-health-demo-model] exit=0
+### [api-demo-script-demo-model] $ ./examples/demo/run_demo.sh 2>&1 | grep -E '===|HTTP|items|demo-0|ERROR|accepted|manual_review_rate|input drift|Demo finished'
+=== 1. Health
+=== 2. Model information (version, threshold, limits)
+=== 3. Classify one synthetic transaction
+=== 4. Classify a synthetic batch (one item is deliberately invalid)
+items 6  ok 5  errors 1  automatic 0  manual_review 5
+  demo-001                 Projektumsätze                         0.130  manual_review
+  demo-002                 Leasingraten                           0.045  manual_review
+  demo-003                 Leasingraten                           0.045  manual_review
+  demo-004                 Projektumsätze                         0.129  manual_review
+  demo-005                 Leasingraten                           0.045  manual_review
+  demo-006-invalid-empty   ERROR: description is empty or whitespace
+=== 5. Invalid input is rejected with HTTP 422 (input is never echoed)
+HTTP 422
+=== 6. Delayed ground truth: a reviewer confirms the category
+    "accepted": true,
+=== 7. Monitoring summary (decision rates, drift status)
+    "manual_review_rate": 1.0,
+input drift: {'signal': 'description characteristics vs validation reference (PSI)', 'char_bucket': 'insufficient_data', 'token_bucket': 'insufficient_data', 'unseen_bucket': 'insufficient_data', 'digit_bucket': 'insufficient_data'}
+=== 8. Prometheus metrics (first lines)
+Demo finished.
+### [api-demo-script-demo-model] exit=0
+### [retrain-validate-only] $ .venv/bin/python scripts/generate_synthetic_feedback.py --mode train_variants --mode heldout_leak --mode invalid --n 200 --out <clone>_fb.csv && .venv/bin/python -m src.retrain --feedback <clone>_fb.csv --validate-only --no-mlflow 2>&1 | grep -iE 'accepted|leak|rejected|rows|decision|valid' | head -10
+Wrote 246 SYNTHETIC labelled rows (train_variants+heldout_leak+invalid) to <clone>_fb.csv
+00:10:15  INFO      gfb  Loaded frozen split: 1968 rows | 152 groups | train 1093r/103g | validation 228r/16g | test 647r/33g
+00:10:15  INFO      gfb  Synthetic gate B (collision): kept 61/82 rows; dropped 21 colliding with a validation/test pattern
+00:10:15  INFO      gfb  Synthetic gate C (near-duplicate, Jaccard >= 0.60): kept 61/61 rows; dropped 0 that were near-copies of a validation/test pattern (max remaining similarity 0.5000)
+00:10:15  INFO      gfb  Synthetic corpus after filtering: 61 rows across 31 classes
+  "decision": "validated_only",
+### [retrain-validate-only] exit=0
+### [rollback-without-history] $ .venv/bin/python -m src.retrain --rollback --reason 'QA' --no-mlflow 2>&1 | tail -1; echo exit code $?
+00:10:16  ERROR     retrain  Rollback not possible: No previous approved version available for rollback
+exit code 0
+### [rollback-without-history] exit=0
+### [mlflow-server] $ curl -s 127.0.0.1:5000/health; echo; curl -s -X POST 127.0.0.1:5000/api/2.0/mlflow/experiments/search -H 'content-type: application/json' -d '{"max_results":10}' | python3 -c "import json,sys;print('experiments',[e['name'] for e in json.load(sys.stdin)['experiments']])"; curl -s -X POST 127.0.0.1:5000/api/2.0/mlflow/runs/search -H 'content-type: application/json' -d '{"experiment_ids":["1"],"max_results":100}' | python3 -c "import json,sys;r=json.load(sys.stdin).get('runs',[]);print('runs',len(r))"; curl -s '127.0.0.1:5000/api/2.0/mlflow/registered-models/alias?name=german-sme-transaction-classifier&alias=champion' | python3 -c "import json,sys;v=json.load(sys.stdin)['model_version'];print('champion -> version',v['version'],[t['value'] for t in v.get('tags',[]) if t['key']=='registry_version'])"
+OK
+experiments ['german-sme-transaction-classification', 'Default']
+runs 11
+champion -> version 1 ['germanfinbert-seed42-40de860119']
+### [mlflow-server] exit=0
+### [real-model-registry] $ du -sh model_registry | cut -f1; .venv/bin/python -c "from src.registry import ModelRegistry as R; r=R('model_registry'); print('approved:', r.approved_version())"
+421M
+approved: germanfinbert-seed42-40de860119
+### [real-model-registry] exit=0
+### [compose-config] $ docker compose config -q && echo 'compose file valid'; docker compose --profile tools --profile mlflow config --services | tr '\n' ' '
+compose file valid
+mlflow tools api 
+### [compose-config] exit=0
+### [docker-build-api] $ DOCKER_BUILDKIT=1 docker build -q --secret id=pip_ca,src=<proxy-ca.pem> --target base -t german-sme-txclf-api:1.0.0 . && docker images german-sme-txclf-api:1.0.0 --format '{{.ID}} {{.Size}}'
+sha256:7bb271b14f001fe051beb9c5dd41ee144bc0e627b43b912812c88529d517c0f3
+7bb271b14f00 1.78GB
+### [docker-build-api] exit=0
+### [docker-api-up] $ docker compose up -d api 2>&1 | tail -1; for i in $(seq 1 60); do s=$(docker inspect -f '{{.State.Health.Status}}' txqa-api-1); [ "$s" = healthy ] && break; sleep 3; done; echo health: $s; docker port txqa-api-1 8000; docker inspect -f 'User={{.Config.User}} CapDrop={{.HostConfig.CapDrop}} SecurityOpt={{.HostConfig.SecurityOpt}} Memory={{.HostConfig.Memory}}' txqa-api-1; docker inspect -f '{{range .Mounts}}{{.Destination}} rw={{.RW}}; {{end}}' txqa-api-1
+ Container txqa-api-1 Started 
+health: healthy
+127.0.0.1:8000
+User=app CapDrop=[ALL] SecurityOpt=[no-new-privileges:true] Memory=3221225472
+/app/model_registry rw=false; /app/monitoring rw=true; 
+### [docker-api-up] exit=0
+### [docker-health] $ curl -s -w ' HTTP %{http_code}' http://127.0.0.1:8000/health
+{"status":"ok","model_loaded":true,"model_version":"germanfinbert-seed42-40de860119","api_version":"1.0.0","detail":null} HTTP 200
+### [docker-health] exit=0
+### [docker-demo-script-real-model] $ ./examples/demo/run_demo.sh 2>&1 | grep -E '===|HTTP|items|demo-0|ERROR|"category"|"confidence"|"decision"|accepted|manual_review_rate|input drift|Demo finished'
+=== 1. Health
+=== 2. Model information (version, threshold, limits)
+=== 3. Classify one synthetic transaction
+    "category": "Versicherungen",
+    "confidence": 0.92332,
+    "decision": "automatic",
+            "category": "Versicherungsleistungen",
+            "category": "Miete & Nebenkosten",
+=== 4. Classify a synthetic batch (one item is deliberately invalid)
+items 6  ok 5  errors 1  automatic 0  manual_review 5
+  demo-001                 Miete & Nebenkosten                    0.779  manual_review
+  demo-002                 Boni / Provisionen                     0.188  manual_review
+  demo-003                 Versicherungen                         0.604  manual_review
+  demo-004                 Abonnements                            0.306  manual_review
+  demo-005                 Boni / Provisionen                     0.384  manual_review
+  demo-006-invalid-empty   ERROR: description is empty or whitespace
+=== 5. Invalid input is rejected with HTTP 422 (input is never echoed)
+HTTP 422
+=== 6. Delayed ground truth: a reviewer confirms the category
+    "accepted": true,
+=== 7. Monitoring summary (decision rates, drift status)
+    "manual_review_rate": 0.8333,
+input drift: {'signal': 'description characteristics vs validation reference (PSI)', 'char_bucket': 'insufficient_data', 'token_bucket': 'insufficient_data', 'unseen_bucket': 'insufficient_data', 'digit_bucket': 'insufficient_data'}
+=== 8. Prometheus metrics (first lines)
+Demo finished.
+### [docker-demo-script-real-model] exit=0
+### [docker-invalid-inputs] $ J='content-type: application/json'; echo "empty -> $(curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/predict -H "$J" -d '{"description":""}')"; echo "513 chars -> $(python3 -c "import json;print(json.dumps({'description':'a'*513}))" | curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/predict -H "$J" -d @-)"; echo "batch 257 -> $(python3 -c "import json;print(json.dumps({'items':[{'description':'Miete'}]*257}))" | curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/predict/batch -H "$J" -d @-)"; echo "unknown field -> $(curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/predict -H "$J" -d '{"description":"x","amount":1}')"; echo "reload without token config -> $(curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/model/reload)"
+empty -> 422
+513 chars -> 422
+batch 257 -> 422
+unknown field -> 422
+reload without token config -> 404
+### [docker-invalid-inputs] exit=0
+### [docker-readonly-and-nonroot] $ docker exec txqa-api-1 sh -c 'touch /app/model_registry/x 2>&1; touch /app/src/x 2>&1; id -u'
+touch: cannot touch '/app/model_registry/x': Read-only file system
+touch: cannot touch '/app/src/x': Permission denied
+10001
+### [docker-readonly-and-nonroot] exit=0
+### [docker-restart-persistence-privacy] $ docker compose restart api >/dev/null 2>&1; for i in $(seq 1 60); do s=$(docker inspect -f '{{.State.Health.Status}}' txqa-api-1); [ "$s" = healthy ] && break; sleep 3; done; echo after restart: $s; echo monitoring events persisted: $(docker exec txqa-api-1 sh -c 'cat /app/monitoring/*.jsonl | wc -l'); echo descriptions found in event log: $(docker exec txqa-api-1 sh -c 'grep -c -E "Betriebshaftpflicht|Gehaltslauf|Telekom|Miete" /app/monitoring/*.jsonl || true')
+after restart: healthy
+monitoring events persisted: 7
+descriptions found in event log: 1
+### [docker-restart-persistence-privacy] exit=0
+### [monitoring-drift-real-model] $ .venv/bin/python scripts/simulate_traffic.py --url http://127.0.0.1:8000 --mode drift --n 100 2>&1 | .venv/bin/python -c "import json,sys;t=sys.stdin.read();d=json.loads(t[t.index('{'):]);s=d.get('summary',d);print('input drift',{k:v.get('status') for k,v in s['input_drift'].items() if isinstance(v,dict)})"
+input drift {'char_bucket': 'alert', 'token_bucket': 'alert', 'unseen_bucket': 'alert', 'digit_bucket': 'alert'}
+### [monitoring-drift-real-model] exit=0
+### [privacy-event-log-check] $ docker exec txqa-api-1 sh -c 'grep -o "Miete[^\"]*" /app/monitoring/*.jsonl | sort | uniq -c'; echo description-only strings found: $(docker exec txqa-api-1 sh -c 'grep -c -E "Betriebshaftpflicht|Gehaltslauf|Telekom|Buero|Hausverwaltung|Kundenzahlung|RE-2026|Mobilfunk" /app/monitoring/*.jsonl || true'); docker exec txqa-api-1 sh -c 'head -c 400 /app/monitoring/events.jsonl'
+      1 Miete & Nebenkosten
+description-only strings found: 0
+{"ts": "2026-11-17T19:11:28+00:00", "event": "prediction", "prediction_id": "20e77beabca342df93fe0a74c666c108", "model_version": "germanfinbert-seed42-40de860119", "category": "Versicherungen", "confidence": 0.92332, "decision": "automatic", "char_bucket": 2, "token_bucket": 0, "unseen_bucket": 0, "digit_bucket": 3, "empty_after_cleaning": 0}
+{"ts": "2026-11-17T19:11:28+00:00", "event": "predictio
+### [privacy-event-log-check] exit=0
+### [docker-build-tools] $ DOCKER_BUILDKIT=1 docker build -q --secret id=pip_ca,src=<proxy-ca.pem> --target tools -t $(docker compose --profile tools config --images | grep -i tool | head -1) . && docker images --format '{{.Repository}}:{{.Tag}} {{.ID}} {{.Size}}' | grep -i tool
+sha256:f608e4c4be2dac58e403ceddebd072ee80f3f82a52903a22dce854b066b30371
+german-sme-txclf-tools:1.0.0 f608e4c4be2d 2.69GB
+### [docker-build-tools] exit=0
+### [docker-tools-verify-dataset] $ docker compose --profile tools run --rm tools python verify_dataset.py 2>&1 | grep -E 'checks passed|failed' | tail -1
+19 checks passed, 0 failed
+### [docker-tools-verify-dataset] exit=0
+### [docker-mlflow-profile] $ timeout 300 docker compose --profile mlflow up -d mlflow 2>&1 | tail -1; for i in $(seq 1 45); do curl -sf 127.0.0.1:5000/health >/dev/null && break; sleep 2; done; echo -n 'mlflow /health: '; curl -s -m 5 127.0.0.1:5000/health || echo 'no response'
+ Container txqa-mlflow-1 Started 
+mlflow /health: OK
+### [docker-mlflow-profile] exit=0
+### [doc-link-check] $ python3 <tmp>/linkcheck.py . <clone>_ext.txt
+markdown files 42, relative links checked 97, broken 6, external links 8
+  BROKEN INSTALLATION_AND_SETUP.md: missing file -> FINAL_DELIVERY_QA_REPORT.md
+  BROKEN CLIENT_README.md: missing file -> TESTING_AND_VALIDATION.md
+  BROKEN CLIENT_README.md: missing file -> FINAL_DELIVERY_QA_REPORT.md
+  BROKEN CLIENT_README.md: missing file -> CLIENT_HANDOVER.md
+  BROKEN CLIENT_README.md: missing file -> TESTING_AND_VALIDATION.md
+  BROKEN CLIENT_README.md: missing file -> FINAL_DELIVERY_QA_REPORT.md
+### [doc-link-check] exit=0
+### [cleanup] $ docker compose --profile tools --profile mlflow down -v 2>&1 | tail -2; echo remaining volumes: $(docker volume ls --format '{{.Name}}' | grep -c '^txqa_'); echo remaining containers: $(docker ps -a --format '{{.Names}}' | grep -c '^txqa')
+ Volume txqa_mlflow-data Removed 
+ Network txqa_default Removed 
+remaining volumes: 0
+remaining containers: 0
+### [cleanup] exit=0
+# finished 2026-11-17T19:17:08Z

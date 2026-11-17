@@ -1,5 +1,30 @@
 # Changelog
 
+## Post-release delivery additions to v1.1.0-mlops (2026-11-17, branch `client-delivery`)
+
+Not a new model or API version; the release tag `v1.1.0-mlops` is unchanged.
+
+### Fixed
+* `python -m src.retrain --rollback` now moves the MLflow `champion` alias back to the
+  rolled-back registry version (`Tracker.mirror_alias`); previously the alias kept pointing at the
+  rolled-back-from version while the file registry was correct. Test added (60 tests).
+* `SECURITY.md`: input limit stated as 1–512 characters (`api.max_text_length`); the schema's
+  2,000 is only an outer cap.
+* `CLIENT_DELIVERY_GUIDE.md`: install command referred to the merged delivery branch.
+* Documentation: `client-delivery` named as the Git ref that matches the client ZIP; `.env` is read
+  by Docker Compose only, local runs export it (`INSTALLATION_AND_SETUP.md`).
+* `SECURITY_AND_LIMITATIONS.md`: research scripts load `results/**/*.npz` with
+  `allow_pickle=True`; use only shipped or self-produced files.
+
+### Added (documentation and demo only)
+* `CLIENT_README.md`, `TECHNICAL_DOCUMENTATION.md`, `INSTALLATION_AND_SETUP.md`, `USER_GUIDE.md`,
+  `API_REFERENCE.md`, `TESTING_AND_VALIDATION.md`, `SECURITY_AND_LIMITATIONS.md`,
+  `CLIENT_HANDOVER.md`, `LICENSE_AND_DATA_ATTRIBUTION.md`, `FINAL_DELIVERY_QA_REPORT.md`.
+* `examples/demo/` synthetic API demo with a captured run; `docs/openapi.json`.
+
+### Unchanged
+* Research pipeline, data, split, corpus, seeds, threshold, model, API behaviour and all results.
+
 ## 1.1.0 additions (2026-11-17, session 3, PR #3)
 
 ### Security (see SECURITY.md)

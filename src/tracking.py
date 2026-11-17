@@ -152,6 +152,29 @@ class Tracker:
         logger.info("MLflow registry: %s version %s registered", self.model_name, mv.version)
         return str(mv.version)
 
+    def mirror_alias(self, alias: str, registry_version: str) -> str | None:
+        """Point ``alias`` at the MLflow model version tagged with ``registry_version``.
+
+        Used after a file-registry rollback so the MLflow alias keeps mirroring the
+        approved version. Best effort: returns the MLflow version, or None (with a
+        WARNING) when tracking is disabled or no matching version exists.
+        """
+        if not self.enabled:
+            return None
+        client = self._mlflow.MlflowClient()
+        try:
+            versions = client.search_model_versions(f"name='{self.model_name}'")
+        except self._mlflow.exceptions.MlflowException as exc:
+            logger.warning("MLflow alias '%s' not updated: %s", alias, exc)
+            return None
+        match = [v for v in versions if (v.tags or {}).get("registry_version") == registry_version]
+        if not match:
+            logger.warning("MLflow alias '%s' not updated: no model version tagged %s", alias, registry_version)
+            return None
+        mv = str(max(int(v.version) for v in match))
+        self.set_alias(alias, mv)
+        return mv
+
     def set_alias(self, alias: str, mlflow_version: str | None) -> None:
         """Point an MLflow alias (e.g. 'champion') at a registered model version."""
         if not (self.enabled and mlflow_version):

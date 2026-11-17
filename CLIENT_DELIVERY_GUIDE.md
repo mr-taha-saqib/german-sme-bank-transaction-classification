@@ -11,7 +11,9 @@ you review and merge.
 | Model | GermanFinBERT (`scherrmann/GermanFinBert_FP`), 37 categories, 0.80 routing threshold | truncated SVD, k = 20 (chosen on validation) |
 | Acceptance report | `FINAL_E2E_ACCEPTANCE.md` | `FINAL_E2E_ACCEPTANCE.md` |
 | One-page status | `DELIVERY_SUMMARY.md` | `DELIVERY_SUMMARY.md` |
-| Exact delivery status | All 25 mandated E2E steps PASS on CPU (GPU training not available in the acceptance environment; CPU path verified); research results unchanged | Acceptance PASS; one CI job (real-data run on `main`) not triggerable from the delivery session; executed locally |
+| Exact delivery status | All 25 mandated E2E steps PASS on CPU; research results unchanged; GPU re-verification not possible (no NVIDIA GPU in the delivery environment) | Acceptance PASS, including the real-data CI job on GitHub Actions |
+| Pull request | PR #1, open, **not merged** (awaiting your approval) | PR #1, open, **not merged** (awaiting your approval) |
+| Release tag | `v1.1.0-mlops`: notes ready, **not yet published** (section 15) | `v1.0.0-mlops`: notes ready, **not yet published** (section 15) |
 
 ## 1. What each project does
 
@@ -144,8 +146,11 @@ data; the test data is never used. The previous model always remains available.
 ## 12. Known limitations
 
 Project 1
-* Trained and evaluated on **synthetic** German transactions; the test set has only 33
-  independent groups (one group = 3 accuracy points). Real-world accuracy is unknown.
+* Trained and evaluated on **synthetic** German transactions only (no real banking data was
+  used; "real" rows in the research documents means the original template-generated
+  workbook rows). The test set has only 33 independent groups (one group = 3 accuracy
+  points). Real-world accuracy is unknown: **authorised, labelled real transaction data is
+  required before any business deployment.**
 * About one in five automatic (≥ 0.80) decisions was wrong in the research test set;
   confidence is not a guarantee.
 * Temperature scaling did not generalise; served confidences are uncalibrated.
@@ -153,7 +158,8 @@ Project 1
 * Not a production banking system: no authentication, ERP integration or cloud deployment.
 
 Project 2
-* **MovieLens licence: research use only; commercial use requires GroupLens permission.**
+* **MovieLens licence: research use only. Commercial use requires written permission from
+  GroupLens, or a commercially licensed / client-owned replacement dataset.**
 * Offline top-10 quality of the SVD model is far below a most-popular list
   (NDCG@10 0.011 vs 0.147); its strength is rating prediction.
 * Random per-user split (not temporal); popularity-only cold start.
@@ -176,3 +182,35 @@ Both
 Review the pull-request diff of `mlops-production-delivery` against `main` in each
 repository, then merge. CI runs on the merge to `main` (including Project 2's
 real-data pipeline job).
+
+## 15. Outstanding decisions and actions (not complete; need you or the client)
+
+| Item | Project | Why it is outstanding | What is needed |
+|---|---|---|---|
+| Merge PR #1 | both | merging needs your explicit approval | review, then merge |
+| Publish release tags | both | the delivery session may push branches only; tag pushes were refused (`only branch updates are permitted`) | run the commands below |
+| GPU re-verification | 1 | the delivery environment has no NVIDIA GPU / CUDA | optional: run `train_model.py --seed 42` on a CUDA machine and compare with `artifacts/runs/` |
+| Real-data validation | 1 | only synthetic data exists | authorised, labelled real transactions from the client; evaluate (and likely retrain) before business use |
+| Dataset licence | 2 | MovieLens is research-only | written GroupLens permission, or a commercially licensed / client-owned dataset |
+| Client acceptance | both | not given yet | client sign-off on the acceptance reports |
+
+Publishing the tags (from a machine with push rights to tags; release notes are in
+`docs/releases/`). Tag the commit you approve. If you **merge with a merge commit** or
+fast-forward, the delivery-branch commit is on `main` and you can tag it directly; if you
+**squash-merge**, tag the new squash commit on `main` instead (it has the same files).
+
+```bash
+# Project 1
+git fetch origin && git checkout main && git pull
+git tag -a v1.1.0-mlops <approved-commit> -F docs/releases/v1.1.0-mlops.md
+git push origin v1.1.0-mlops
+gh release create v1.1.0-mlops --verify-tag --title "v1.1.0-mlops" --notes-file docs/releases/v1.1.0-mlops.md
+
+# Project 2
+git tag -a v1.0.0-mlops <approved-commit> -F docs/releases/v1.0.0-mlops.md
+git push origin v1.0.0-mlops
+gh release create v1.0.0-mlops --verify-tag --title "v1.0.0-mlops" --notes-file docs/releases/v1.0.0-mlops.md
+```
+
+Neither project is commercially production-ready (no authentication, TLS or rate
+limiting; plus the data and licence items above).

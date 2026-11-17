@@ -68,6 +68,8 @@ desktop.ini
 *.temp
 *.log
 ~$*
+# acceptance evidence logs are part of the delivery
+!docs/evidence/*.log
 
 # --- MLOps layer (local state; never committed) ---------------------------------
 artifacts/

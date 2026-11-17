@@ -55,3 +55,11 @@ standalone runner still lists every check. No check was removed or loosened.
 
 `.github/workflows/ci.yml` runs three jobs: research integrity without a deep-learning
 stack, lint + pytest on CPU, Docker build + container inference with the tiny model.
+
+## Session-2 audit (2026-11-17)
+
+Re-run of all suites on the final branch: `docs/evidence/10_session2_acceptance_audit.log`
+(19 + 11 + 66 research checks, 12/12 integrity, 120/120 recomputations, regenerated
+results content-identical to the committed files, 59 pytest, ruff clean, CLI 5/10
+automatic) and `docs/evidence/11_session2_docker_audit.log` (container health, inference,
+422 on empty input, drift alert, restart, uid 10001).

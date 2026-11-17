@@ -18,7 +18,7 @@ the input. Request logs contain method, endpoint, status, latency and request id
 | Requests, latency, errors | `/metrics` (`txclf_requests_total`, `txclf_request_latency_seconds`, `txclf_errors_total`) | – |
 | Prediction count by decision, by category; confidence histogram | `/metrics`, summary | – |
 | Manual-review rate | summary `decisions` | validation auto-rate of the approved model |
-| **Input drift** | PSI of the four text-feature distributions | held-out real descriptions (validation + test, 875 rows) |
+| **Input drift** | PSI of the four text-feature distributions | held-out original descriptions (validation + test, 875 rows) |
 | **Prediction drift** | PSI of predicted-category and confidence distributions | this model's predictions on the held-out rows (predictions vs predictions) |
 | **Observed performance** | accuracy (overall, among automatic) from `POST /feedback` labels | shown only with ≥ 30 labels |
 | Data quality | empty-after-cleaning inputs, validation errors, batch item errors | – |
@@ -52,7 +52,7 @@ monitoring baseline only, never used for model selection.
 
 | Phase (fresh API process) | Input drift (4 signals) | Category / confidence drift | Manual review | Observed performance |
 |---|---|---|---|---|
-| 200 real held-out descriptions | all `ok` (PSI 0.007–0.018) | 0.156 `warning` / 0.013 `ok` | 64.5 % | insufficient labels |
+| 200 held-out original descriptions | all `ok` (PSI 0.007–0.018) | 0.156 `warning` / 0.013 `ok` | 64.5 % | insufficient labels |
 | + 100 more with delayed labels | all `ok` (≤ 0.011) | 0.055 `ok` / 0.014 `ok` | 62.7 % | **available**: accuracy 0.54, among automatic 0.83 |
 | 200 English free-text descriptions | all `alert` (PSI 6.8–17.1) | 7.51 `alert` / 4.25 `alert` | 98 % | insufficient labels |
 

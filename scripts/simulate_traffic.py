@@ -1,6 +1,6 @@
 """Send controlled traffic to a running API and print /monitoring/summary.
 
-normal  : real HELD-OUT descriptions (validation + test rows, sent as-is): new
+normal  : original HELD-OUT descriptions (validation + test rows, sent as-is): new
           patterns resembling production traffic, matching the monitoring reference
 drift   : long English free-text descriptions the model has never seen (input drift)
 labels  : like normal, followed by POST /feedback with the true category (delayed labels)

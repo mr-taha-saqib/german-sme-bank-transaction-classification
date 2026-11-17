@@ -1,7 +1,8 @@
 # Delivery summary: German SME transaction classification
 
-**Status: delivered on branch `mlops-production-delivery`; all 25 mandated end-to-end
-steps PASS (CPU; no GPU available for the acceptance run). Research results unchanged.**
+**Status: delivered on branch `mlops-production-delivery` (PR #1, open, not merged); all
+25 mandated end-to-end steps PASS (CPU; no GPU available for the acceptance run).
+Research results unchanged. Not a production banking system.**
 
 | Area | Delivered | Verified |
 |---|---|---|
@@ -15,8 +16,10 @@ steps PASS (CPU; no GPU available for the acceptance run). Research results unch
 | Retraining | leakage-gated, validation-only promotion gate, dry-run, rollback | real candidate rejected; promotion + rollback shown with tiny model |
 | CI | research integrity, lint + tests, Docker smoke test | green on GitHub Actions |
 | Tests | 59 pytest (incl. the fixed research checks) | 78 % coverage |
+| Release | notes in `docs/releases/v1.1.0-mlops.md` | tag/release **not published**: the delivery session may push branches only (see FINAL_E2E_ACCEPTANCE.md §9) |
 
-**Before any business use:** validate on real (non-synthetic) transactions; about one
+**Before any business use:** the model has seen only synthetic data; authorised, labelled
+real transactions from the client are required to validate (and likely retrain) it; about one
 in five automatic decisions was wrong on the research test set; a GPU is recommended
 for training (CPU ≈ 2 h per run).
 

@@ -19,6 +19,11 @@ New here? Start with [`PROJECT_INDEX.md`](PROJECT_INDEX.md), then
 > Jump to [section 13](#13-mlops-layer-api-registry-mlflow-monitoring-retraining).
 > It is a reference implementation for engineering hand-over, **not** a production
 > banking system.
+>
+> **Terminology:** in the research sections below, "real" rows means the original
+> template-generated workbook rows, as opposed to LLM-generated augmentation. **No real
+> bank data was used.** Authorised real transaction data is required to validate the
+> model before any business deployment (see `DATA_CARD.md`).
 
 ### What this repository contains
 

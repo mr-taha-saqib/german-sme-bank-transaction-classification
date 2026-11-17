@@ -104,7 +104,7 @@ def build_reference_profile(raw_texts: list[str], cleaned: list[str], label_idx:
     feats = [text_features(r, c, vocabulary) for r, c in zip(raw_texts, cleaned)]
     conf = heldout_probs.max(axis=1)
     return {
-        "source": {"features_and_categories": f"{len(raw_texts)} held-out real descriptions (validation + test)",
+        "source": {"features_and_categories": f"{len(raw_texts)} held-out original descriptions (validation + test)",
                    "predictions_and_confidence": f"{len(conf)} held-out predictions of this model (uncalibrated)"},
         "n": len(raw_texts),
         "features": {k: histogram([f[k] for f in feats], n) for k, n in FEATURE_BINS.items()},

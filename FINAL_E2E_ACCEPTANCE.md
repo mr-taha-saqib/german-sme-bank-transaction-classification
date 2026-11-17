@@ -109,3 +109,22 @@ All 25 mandated end-to-end steps passed in this environment (GPU training not
 available; the CPU path was verified). The project is ready for client **hand-over as a
 reproducible, tested, containerised reference implementation**. It is not a production
 banking system and must be validated on real transaction data before any business use.
+
+## 9. Follow-up verification, session 2 (2026-11-17)
+
+Re-inspected the remote state first (no assumptions carried over from session 1).
+
+| Item | Result | Evidence | Status |
+|---|---|---|---|
+| GPU training (GermanFinBERT seed 42) | Not run. The delivery container has no GPU (`nvidia-smi` absent, `torch.cuda.is_available()` = False, CPU-only PyTorch wheel). The only other reachable machine is the owner's Apple Silicon MacBook Pro (darwin/arm64): no NVIDIA GPU, no CUDA. The CPU-trained model and the published five-seed GPU result are unchanged | this section | BLOCKED (hardware) |
+| Research integrity re-run | 19/19 dataset, 11/11 augmentation, 12/12 integrity, 120/120 recomputations, 66/66 `test_pipeline.py`; regenerated split, corpus and result files content-identical to the committed ones | `docs/evidence/10_session2_acceptance_audit.log` | PASS |
+| pytest / ruff / CLI | 59 passed; ruff clean; CLI 5/10 automatic at 0.80 | same | PASS |
+| Docker | rebuilt image `ac088501aaae` (1.77 GB); healthy; `Betriebshaftpflicht 2026-07` → Versicherungen 0.92332 automatic; empty input → 422; normal traffic input drift ok, drift traffic alert; healthy after restart; uid 10001 | `docs/evidence/11_session2_docker_audit.log` | PASS |
+| Documentation defect | MLOps documents and one monitoring source string used "real" for the original template-generated workbook rows, which could be read as real banking data. Reworded to "original"; terminology note added to README and DATA_CARD; research documents unchanged | git diff | FIXED |
+| Evidence logs missing from git | `.gitignore` excluded `*.log`, so the session-1 evidence logs cited in this report (`docs/evidence/01`–`08_*.log`) were never committed. Added `!docs/evidence/*.log`; logs checked for credentials (none) and committed unchanged | `.gitignore`, `docs/evidence/` | FIXED |
+| Release tag + GitHub release | Tag push refused by the delivery session's Git proxy with the exact message `ERR push contains a ref outside refs/heads/*; only branch updates are permitted.` (diagnosed with `GIT_TRACE_CURL`; one attempt, not retried). The `gh` CLI has no usable token in this session. Creating the tag through the REST API was **not** attempted because it would bypass that policy. Release notes are ready in `docs/releases/v1.1.0-mlops.md`; publish commands are in `CLIENT_DELIVERY_GUIDE.md` §15 | this section | BLOCKED (permission: the session may update branches only, not tags or releases) |
+| PR #1 review | diff vs `main` re-reviewed: no secrets, no weights, no databases, no virtual environments or caches; original research / historical files byte-identical where they must be | `git diff origin/main` | PASS; PR left **open and unmerged** pending owner approval |
+| Commercial production readiness | not claimed | – | n/a |
+
+Outstanding external decisions (not completable by the delivery team): owner approval to
+merge PR #1; publishing the tag and release; GPU re-verification (optional); authorised, labelled real transaction data for validation before business use; client acceptance.

@@ -9,7 +9,7 @@ performed.** Evidence of the executed Docker run: `docs/evidence/`.
 |---|---|---|
 | CPU | 2 cores recommended | 2+ cores |
 | RAM | ≈ 1 GB in use; 3 GB limit in compose | ≈ 5 GB on CPU (GermanFinBERT, batch 16, max_length 128) |
-| GPU | not needed | optional; RTX 3060 12 GB: ≈ 2 min per run (research). CPU (2 cores): ≈ 2 h per run (measured) |
+| GPU | not needed | optional; RTX 3060 12 GB: ≈ 2 min per run (research). CPU (2 cores): ≈ 2 h per run (measured). The delivered model was trained on CPU; GPU training was not re-run during delivery (no NVIDIA GPU available) |
 | Disk | image 1.77 GB (CPU PyTorch) + model 420 MB | + 420 MB Hugging Face cache per base checkpoint |
 | Network | none at runtime (`HF_HUB_OFFLINE=1`) | Hugging Face download on first training run |
 

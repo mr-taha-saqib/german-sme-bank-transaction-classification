@@ -5,7 +5,7 @@
 | Served version | `germanfinbert-seed42-40de860119` (weights SHA-256 prefix `40de860119`) |
 | Architecture | `BertForSequenceClassification`, 110 M parameters, 37-class head |
 | Base checkpoint | `scherrmann/GermanFinBert_FP`, Hugging Face revision `0b3622dd589d2fc2f518b4be12a9dc306b903df2` |
-| Training | research configuration unchanged: corpus v2 (1,093 real + 4,541 synthetic rows), lr 2e-5, batch 16, max_length 128, 3 fixed epochs, class-weighted focal loss γ = 2, AdamW, seed 42 |
+| Training | research configuration unchanged: corpus v2 (1,093 original template-generated + 4,541 LLM-generated rows), lr 2e-5, batch 16, max_length 128, 3 fixed epochs, class-weighted focal loss γ = 2, AdamW, seed 42 |
 | Hardware | CPU (2 cores, fp32, torch 2.13.0+cpu), 6,818 s of training (≈ 1 h 54 min). The published runs used an RTX 3060 with mixed precision |
 | Calibration | none: uncalibrated softmax (temperature scaling did not generalise in the research) |
 | Decision rule | confidence ≥ 0.80 → `automatic`, else `manual_review` (research operating point, unchanged) |
@@ -40,10 +40,17 @@ run; the remainder differ because fp32 CPU and mixed-precision GPU arithmetic di
 during fine-tuning. The one-group difference in accuracy is within the research's
 seed-to-seed spread and must not be read as an improvement.
 
+**GPU re-verification (2026-11-17): not performed.** The only machines available to the
+delivery session were a CPU-only Linux container and an Apple Silicon Mac (no NVIDIA GPU,
+no CUDA). The published five-seed GPU result remains the authoritative research result;
+the CPU model above is the delivered model.
+
 ## Limitations
 
 * Trained on **synthetic**, template-generated data (2,000 rows → 184 distinct texts).
-  Accuracy on real bank descriptions is unknown and likely lower.
+  Accuracy on real bank descriptions is unknown and likely lower. **Authorised, labelled
+  real transaction data from the client is required to validate (and likely retrain) the
+  model before any business deployment; no such validation has been done.**
 * 33 test groups: one group = 3.03 accuracy points; 95 % CI ≈ ±0.16.
 * About one in five automatic decisions was wrong on the test set. Confidence is not a
   guarantee of correctness.

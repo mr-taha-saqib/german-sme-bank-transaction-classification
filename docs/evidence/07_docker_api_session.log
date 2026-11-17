@@ -1,0 +1,50 @@
+$ docker images german-sme-txclf-api
+german-sme-txclf-api:1.0.0 ae08ec83ba6b 1.77GB
+$ docker compose up -d api
+ Network german-sme-bank-transaction-classification_default Creating 
+ Network german-sme-bank-transaction-classification_default Creating 
+ Volume german-sme-bank-transaction-classification_monitoring Creating 
+ Volume german-sme-bank-transaction-classification_monitoring Creating 
+ Volume german-sme-bank-transaction-classification_monitoring Created 
+ Volume german-sme-bank-transaction-classification_monitoring Created 
+ Network german-sme-bank-transaction-classification_default Created 
+ Network german-sme-bank-transaction-classification_default Created 
+ Container german-sme-bank-transaction-classification-api-1 Creating 
+ Container german-sme-bank-transaction-classification-api-1 Created 
+ Container german-sme-bank-transaction-classification-api-1 Starting 
+ Container german-sme-bank-transaction-classification-api-1 Started 
+health status: healthy (after ~15 s)
+NAME                                               IMAGE                        COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+german-sme-bank-transaction-classification-api-1   german-sme-txclf-api:1.0.0   "uvicorn src.api:app…"   api       13 seconds ago   Up 12 seconds (healthy)   0.0.0.0:8000->8000/tcp
+$ curl -s localhost:8000/health
+{"status":"ok","model_loaded":true,"model_version":"germanfinbert-seed42-40de860119","api_version":"1.0.0","detail":null}
+$ curl -s -X POST localhost:8000/predict -d {"description": "Miete Büro Juni 2026"}
+{"prediction_id":"35d68d96ff3c4f868bdd1e7f58a93019","transaction_id":null,"category":"Miete & Nebenkosten","parent_category":"Betriebliche Aufwendungen","confidence":0.85904,"decision":"automatic","threshold":0.8,"alternatives":[{"category":"Immobilien / Umbauten","probability":0.01808},{"category":"Instandhaltung","probability":0.00988}],"calibrated":false,"model_version":"germanfinbert-seed42-40de860119"}
+$ curl -s -X POST localhost:8000/predict/batch (3 items, 1 invalid)
+{'n_items': 3, 'n_ok': 2, 'n_errors': 1, 'n_automatic': 1, 'n_manual_review': 1}
+0 ok IT & Software 0.86525 None
+1 error None None description is empty or whitespace
+2 ok Energie 0.66134 None
+$ curl -s -w " HTTP %{http_code}" -X POST localhost:8000/predict -d {"description": "  "}
+{"error":"validation_error","detail":"description is empty or whitespace","request_id":"5db31be1be894507"} HTTP 422
+$ docker compose restart api
+ Container german-sme-bank-transaction-classification-api-1 Restarting 
+ Container german-sme-bank-transaction-classification-api-1 Started 
+{"status":"ok","model_loaded":true,"model_version":"germanfinbert-seed42-40de860119","api_version":"1.0.0","detail":null}
+$ docker compose exec api sh -c "id; wc -l /app/monitoring/events.jsonl; ls -la /app/model_registry | head -3"
+uid=10001(app) gid=10001(app) groups=10001(app)
+3 /app/monitoring/events.jsonl
+touch: cannot touch '/app/model_registry/x': Read-only file system
+$ docker stats --no-stream
+german-sme-bank-transaction-classification-api-1 296.2MiB / 3GiB
+$ docker compose logs api | tail -3
+api-1  | {"ts": "2026-11-16T23:23:23.477+00:00", "level": "INFO", "logger": "api", "message": "request", "request_id": "6a50d1a816be4909", "method": "GET", "endpoint": "/health", "status": 200, "latency_ms": 2.57}
+api-1  | {"ts": "2026-11-16T23:23:43.184+00:00", "level": "INFO", "logger": "api", "message": "request", "request_id": "f1c0352e8f854586", "method": "GET", "endpoint": "/health", "status": 200, "latency_ms": 1.15}
+api-1  | {"ts": "2026-11-16T23:23:43.769+00:00", "level": "INFO", "logger": "api", "message": "request", "request_id": "0b583199329648b3", "method": "GET", "endpoint": "/health", "status": 200, "latency_ms": 0.86}
+$ docker compose down
+ Container german-sme-bank-transaction-classification-api-1 Stopping 
+ Container german-sme-bank-transaction-classification-api-1 Stopped 
+ Container german-sme-bank-transaction-classification-api-1 Removing 
+ Container german-sme-bank-transaction-classification-api-1 Removed 
+ Network german-sme-bank-transaction-classification_default Removing 
+ Network german-sme-bank-transaction-classification_default Removed 

@@ -1,0 +1,35 @@
+$ python prepare_dataset.py --out /tmp/tx_regen
+03:20:09 | INFO    | STAGE 5  LEAKAGE-SAFE GROUP-BASED SPLIT
+03:20:09 | INFO    | Group split (seed 42): train 1093 rows / 103 groups | validation 228 / 16 | test 647 / 33
+03:20:09 | INFO    | Leakage validation PASSED: no group overlap, no exact text overlap
+03:20:09 | INFO    | CHECK 1  no group in more than one split      : PASS
+03:20:09 | INFO    | CHECK 2  no exact duplicate text across splits: PASS
+03:20:09 | INFO    | CHECK 3  near-duplicate leakage (Jaccard>=0.60): 0 same-category pairs, 0 cross-category pairs
+03:20:09 | INFO    | CHECK 5  rows and groups per split:
+03:20:09 | INFO    |            train        1093 rows | 103 groups | 37 categories | 134 unique texts
+03:20:09 | INFO    |            validation    228 rows |  16 groups | 16 categories |  16 unique texts
+03:20:09 | INFO    |            test          647 rows |  33 groups | 33 categories |  34 unique texts
+03:20:09 | WARNING | 4 categories cannot appear in test (too few groups): ['Darlehensaufnahmen', 'Gesellschaftereinlagen', 'Kapitalerhöhungen', 'Versicherungsleistungen']
+03:20:09 | INFO    | STAGE 7  FREEZE THE SPLIT
+03:20:09 | INFO    | Frozen split written to /tmp/tx_regen/split_assignment.csv (sha256 f715f040d8a5daa6)
+03:20:09 | INFO    | Leakage validation passed: True
+03:20:09 | INFO    | No model was trained. Step 3 should load /tmp/tx_regen/split_assignment.csv
+
+$ python prepare_augmentation.py --dataset-dir /tmp/tx_regen --out /tmp/tx_regen --version v2
+03:20:12 | INFO    | POST-CONDITION: ZERO ROWS MAY VIOLATE THE JACCARD RULE
+03:20:12 | INFO    | Rows violating Jaccard >= 0.60: 0
+03:20:12 | INFO    | sha256 4eb242d9f384041fc5ec67ce
+03:20:12 | INFO    | Rows: 7033 raw -> 4541 kept (2492 removed)
+03:20:12 | INFO    |   gate A (source held out)   : 2483
+03:20:12 | INFO    |   gate B (exact collision)   : 0
+03:20:12 | INFO    |   gate C (near-duplicate)    : 9
+03:20:12 | INFO    | Combined training corpus: 5634 rows, imbalance 89.7x
+
+$ python verify_dataset.py --dataset /tmp/tx_regen
+19 checks passed, 0 failed
+==============================================================================
+
+# checksum comparison against the frozen artefacts
+split_manifest.json: frozen f715f040d8a5daa6  regenerated f715f040d8a5daa6  identical=True
+augmentation_manifest_v2.json: frozen 4eb242d9f384041f  regenerated 4eb242d9f384041f  identical=True
+split_assignment.csv content identical: True

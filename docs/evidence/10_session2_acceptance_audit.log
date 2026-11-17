@@ -1,0 +1,19 @@
+$ python verify_dataset.py
+19 checks passed, 0 failed
+$ python verify_augmentation.py
+11 checks passed, 0 findings
+$ python final_evaluation.py
+16:19:03 | INFO    | 12/12 integrity checks passed
+16:19:03 | INFO    | 120 metric recomputations matched their saved values
+results/final_results.csv: content identical to committed
+results/final_summary.csv: content identical to committed
+results/dataset/augmentation_verification.json: content identical to committed
+results/dataset/split_assignment.csv: content identical to committed
+$ python tests/test_pipeline.py
+66 passed, 0 failed
+$ pytest -q
+59 passed in 32.52s
+$ ruff check .
+All checks passed!
+$ python -m src.inference --run model_registry/versions/germanfinbert-seed42-40de860119 --csv reference/example_new_transactions.csv
+Threshold 0.8: 5/10 automatic, 5 routed to manual review.

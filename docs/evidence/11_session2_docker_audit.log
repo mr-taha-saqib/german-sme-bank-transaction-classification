@@ -1,0 +1,24 @@
+$ docker images german-sme-txclf-api
+german-sme-txclf-api:1.0.0 ac088501aaae 1.77GB
+$ docker compose up -d api
+ Container german-sme-bank-transaction-classification-api-1 Started 
+health: healthy after ~45 s
+$ curl -s localhost:8000/health
+{"status":"ok","model_loaded":true,"model_version":"germanfinbert-seed42-40de860119","api_version":"1.0.0","detail":null}
+$ curl -s -X POST localhost:8000/predict -d {"description":"Betriebshaftpflicht 2026-07"}
+{'category': 'Versicherungen', 'parent_category': 'Betriebliche Aufwendungen', 'confidence': 0.92332, 'decision': 'automatic', 'model_version': 'germanfinbert-seed42-40de860119'}
+$ curl -s -w " HTTP %{http_code}" -X POST localhost:8000/predict -d {"description":""}
+HTTP 422
+$ python scripts/simulate_traffic.py --mode normal --n 100   (against the container)
+manual_review_rate 0.5941 | input {'char_bucket': 'ok', 'token_bucket': 'ok', 'unseen_bucket': 'ok', 'digit_bucket': 'ok'}
+$ python scripts/simulate_traffic.py --mode drift --n 100
+input {'char_bucket': 'alert', 'token_bucket': 'alert', 'unseen_bucket': 'alert', 'digit_bucket': 'alert'}
+$ docker compose restart api && health
+{"status":"ok","model_loaded":true,"model_version":"germanfinbert-seed42-40de860119","api_version":"1.0.0","detail":null}
+10001
+204
+$ docker compose logs api | tail -2
+api-1  | INFO:     Application startup complete.
+api-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+$ docker compose down
+ Network german-sme-bank-transaction-classification_default Removed 

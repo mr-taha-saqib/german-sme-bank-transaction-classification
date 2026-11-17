@@ -457,7 +457,13 @@ Added in Nov 2026 around the unchanged research code. Documents:
 [ARCHITECTURE](ARCHITECTURE.md) · [API](API_DOCUMENTATION.md) ·
 [MODEL_CARD](MODEL_CARD.md) · [DATA_CARD](DATA_CARD.md) · [DEPLOYMENT](DEPLOYMENT.md) ·
 [MONITORING](MONITORING.md) · [RETRAINING](RETRAINING.md) · [TESTING](TESTING.md) ·
+[SECURITY](SECURITY.md) · [External validation data](docs/EXTERNAL_VALIDATION_DATA_ASSESSMENT.md) ·
 [FINAL_E2E_ACCEPTANCE](FINAL_E2E_ACCEPTANCE.md).
+
+> **Not production-ready.** The API has no authentication, TLS or rate limiting (deployment
+> prerequisites, see SECURITY.md), and the model has never been validated on real transactions:
+> no suitable public German SME dataset exists, so authorised labelled data from the client is
+> required (docs/EXTERNAL_VALIDATION_DATA_ASSESSMENT.md).
 
 ```mermaid
 flowchart LR

@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.0 additions (2026-11-17, session 3, PR #3)
+
+### Security (see SECURITY.md)
+* Constant-time admin-token comparison for `/model/reload`.
+* API image upgrades pip 26.3 / setuptools 84.2.1 (base-image versions had advisories).
+* `requirements.txt`: pillow 12.3.0 → 13.0.0 (advisories; plotting only; research checks re-run,
+  results unchanged).
+* Compose: API and MLflow published on 127.0.0.1 by default (`API_BIND`), `cap_drop: ALL`,
+  `no-new-privileges`.
+
+### Added
+* `SECURITY.md`, `docs/EXTERNAL_VALIDATION_DATA_ASSESSMENT.md`.
+
+### Unchanged
+* Research pipeline, data, frozen split, corpus v2, seeds, threshold, published results, model.
+
 ## 1.1.0 (2026-11-17), branch `mlops-production-delivery`
 
 MLOps layer added around the unchanged research pipeline. No research result,

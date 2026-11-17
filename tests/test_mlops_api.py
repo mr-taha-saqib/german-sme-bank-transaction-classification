@@ -144,6 +144,8 @@ def test_reload_protection(client, monkeypatch):
     assert client.post("/model/reload").status_code == 404
     monkeypatch.setenv("TX_ADMIN_TOKEN", "t0k")
     assert client.post("/model/reload", headers={"x-admin-token": "bad"}).status_code == 403
+    assert client.post("/model/reload").status_code == 403                      # header missing
+    assert client.post("/model/reload", headers={"x-admin-token": "t0k-"}).status_code == 403
     assert client.post("/model/reload", headers={"x-admin-token": "t0k"}).json()["reloaded"]
 
 

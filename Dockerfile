@@ -18,6 +18,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+# The base image ships pip/setuptools versions with published advisories (pip-audit,
+# 2026-11-17); upgrade them before anything else is installed.
+RUN --mount=type=secret,id=pip_ca,required=false \
+    if [ -s /run/secrets/pip_ca ]; then export PIP_CERT=/run/secrets/pip_ca; fi; \
+    pip install --upgrade pip==26.3 setuptools==84.2.1
+
 # Optional build secret for networks with a TLS-inspecting proxy:
 #   docker build --secret id=pip_ca,src=/path/to/ca.pem .
 # Without it these are plain pip installs; the CA never enters an image layer.

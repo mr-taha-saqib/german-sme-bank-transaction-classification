@@ -35,7 +35,7 @@ The Hugging Face checkpoint is cached in `~/.cache/huggingface` (override with
 
 ```bash
 docker compose build api                          # image german-sme-txclf-api:1.0.0 (target 'base')
-docker compose up -d api                          # mounts ./model_registry read-only
+docker compose up -d api                          # mounts ./model_registry read-only, publishes 127.0.0.1:8000
 docker compose ps                                 # (healthy) once the model is loaded (~10-20 s)
 docker compose logs -f api                        # JSON logs, no request bodies
 docker compose restart api
@@ -52,14 +52,23 @@ docker compose --profile tools run --rm -v "$PWD/new.csv:/data/new.csv:ro" tools
     python -m src.retrain --feedback /data/new.csv --dry-run
 ```
 
-Optional MLflow UI: `docker compose --profile mlflow up -d mlflow` → http://localhost:5000.
+Optional MLflow UI: `docker compose --profile mlflow up -d mlflow` → http://localhost:5000
+(bound to 127.0.0.1; MLflow has no authentication).
+
+Compose hardening (default): the API port is published on **127.0.0.1** only (`API_BIND`,
+`API_PORT`); the container runs as uid 10001, drops all Linux capabilities, sets
+`no-new-privileges`, cannot write its own code and mounts the registry read-only. The image
+upgrades the base image's pip/setuptools (pip-audit clean on 2026-11-17). Expose the API to
+other hosts only behind a TLS reverse proxy with authentication and rate limiting (SECURITY.md).
 
 Behind a TLS-inspecting proxy, pass its CA as a build secret (never stored in a layer):
 `docker build --secret id=pip_ca,src=/path/to/ca.pem --target base -t german-sme-txclf-api:1.0.0 .`
 
-## Hardening not included
+## Production prerequisites not included
 
-TLS termination, API authentication and authorisation, rate limiting, horizontal
-scaling (monitoring state is per process), external metrics storage, GPU serving.
+TLS termination, API authentication and authorisation, rate limiting and request-size limits
+at a gateway (SECURITY.md), log rotation and retention for `monitoring/`, horizontal
+scaling (monitoring state is per process), external metrics storage, GPU serving, and
+validation on authorised real transaction data.
 This is still not a production banking system: no ERP integration, receipt
 processing or audit-grade data retention.

@@ -14,6 +14,7 @@ written to the monitoring log and not stored for retraining.
 """
 from __future__ import annotations
 
+import hmac
 import json
 import logging
 import os
@@ -327,7 +328,7 @@ def create_app(cfg: dict[str, Any] | None = None, registry_dir: str | Path | Non
         expected = os.environ.get("TX_ADMIN_TOKEN")
         if not expected:
             raise HTTPException(status_code=404, detail={"error": "not_found", "detail": "reload endpoint disabled"})
-        if x_admin_token != expected:
+        if not hmac.compare_digest((x_admin_token or "").encode(), expected.encode()):
             raise HTTPException(status_code=403, detail={"error": "forbidden", "detail": "invalid admin token"})
         state.load()
         if state.classifier is None:

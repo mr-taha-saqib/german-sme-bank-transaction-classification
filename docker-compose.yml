@@ -13,8 +13,14 @@ services:
     env_file:
       - path: .env
         required: false
+    # Published on localhost only by default: the API has no built-in authentication or
+    # TLS. Put a reverse proxy in front (see SECURITY.md) or set API_BIND=0.0.0.0 knowingly.
     ports:
-      - "${API_PORT:-8000}:8000"
+      - "${API_BIND:-127.0.0.1}:${API_PORT:-8000}:8000"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
     volumes:
       - ./model_registry:/app/model_registry:ro
       - monitoring:/app/monitoring
@@ -48,7 +54,7 @@ services:
       --backend-store-uri sqlite:////mlflow-data/mlflow.db
       --artifacts-destination /mlflow-data/mlartifacts
     ports:
-      - "5000:5000"
+      - "127.0.0.1:5000:5000"        # MLflow has no authentication: localhost only
     volumes:
       - mlflow-data:/mlflow-data
     restart: unless-stopped

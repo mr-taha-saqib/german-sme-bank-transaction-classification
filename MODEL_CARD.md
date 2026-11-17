@@ -47,6 +47,8 @@ the CPU model above is the delivered model.
 
 ## Limitations
 
+* No public, licensed, labelled German SME transaction dataset could be found for external
+  validation (`docs/EXTERNAL_VALIDATION_DATA_ASSESSMENT.md`, 2026-11-17).
 * Trained on **synthetic**, template-generated data (2,000 rows → 184 distinct texts).
   Accuracy on real bank descriptions is unknown and likely lower. **Authorised, labelled
   real transaction data from the client is required to validate (and likely retrain) the

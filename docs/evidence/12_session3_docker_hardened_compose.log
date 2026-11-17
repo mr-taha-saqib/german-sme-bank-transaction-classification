@@ -1,0 +1,18 @@
+$ docker compose up -d api  (image a34bdc421909; hardened: 127.0.0.1 bind, cap_drop ALL, no-new-privileges; registry :ro)
+ Container german-sme-bank-transaction-classification-api-1 Started 
+health: healthy
+port binding: 127.0.0.1:8000
+CapDrop=[ALL] SecurityOpt=[no-new-privileges:true] User=app
+/app/model_registry rw=false; /app/monitoring rw=true; 
+{"status":"ok","model_loaded":true,"model_version":"germanfinbert-seed42-40de860119","api_version":"1.0.0","detail":null}
+predict -> Versicherungen 0.92332 automatic
+empty description -> HTTP 422
+2001-char description -> HTTP 422
+batch of 257 -> HTTP 422
+POST /model/reload (no token configured) -> HTTP 404
+write attempt into read-only registry: touch: cannot touch '/app/model_registry/x': Read-only file system
+write attempt into code: touch: cannot touch '/app/src/x': Permission denied
+after restart: healthy
+monitoring events persisted: 205
+raw description present in monitoring log: 0
+ Network german-sme-bank-transaction-classification_default Removed 

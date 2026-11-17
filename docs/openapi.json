@@ -1,0 +1,691 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "German SME Transaction Classification API",
+        "description": "Classifies German bank-transaction descriptions into 37 categories with GermanFinBERT and routes each prediction to automatic processing (confidence >= 0.80) or manual review. confidence is the model's uncalibrated probability for the predicted category; it is a routing signal, not a guarantee of correctness.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/health": {
+            "get": {
+                "tags": [
+                    "operations"
+                ],
+                "summary": "Health",
+                "operationId": "health_health_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HealthResponse"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HealthResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/model/info": {
+            "get": {
+                "tags": [
+                    "operations"
+                ],
+                "summary": "Model Info",
+                "operationId": "model_info_model_info_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": true,
+                                    "type": "object",
+                                    "title": "Response Model Info Model Info Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/predict": {
+            "post": {
+                "tags": [
+                    "classification"
+                ],
+                "summary": "Predict",
+                "operationId": "predict_predict_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PredictRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PredictionResult"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/predict/batch": {
+            "post": {
+                "tags": [
+                    "classification"
+                ],
+                "summary": "Predict Batch",
+                "operationId": "predict_batch_predict_batch_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BatchRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BatchResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/feedback": {
+            "post": {
+                "tags": [
+                    "monitoring"
+                ],
+                "summary": "Feedback",
+                "description": "Attach the confirmed category to an earlier prediction (delayed ground truth).",
+                "operationId": "feedback_feedback_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FeedbackRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": true,
+                                    "type": "object",
+                                    "title": "Response Feedback Feedback Post"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics": {
+            "get": {
+                "tags": [
+                    "monitoring"
+                ],
+                "summary": "Metrics",
+                "operationId": "metrics_metrics_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/monitoring/summary": {
+            "get": {
+                "tags": [
+                    "monitoring"
+                ],
+                "summary": "Monitoring Summary",
+                "operationId": "monitoring_summary_monitoring_summary_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": true,
+                                    "type": "object",
+                                    "title": "Response Monitoring Summary Monitoring Summary Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/model/reload": {
+            "post": {
+                "tags": [
+                    "operations"
+                ],
+                "summary": "Reload",
+                "description": "Reload the approved model after a promotion. Disabled unless TX_ADMIN_TOKEN is set.",
+                "operationId": "reload_model_reload_post",
+                "parameters": [
+                    {
+                        "name": "x-admin-token",
+                        "in": "header",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "title": "X-Admin-Token"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Alternative": {
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "title": "Category"
+                    },
+                    "probability": {
+                        "type": "number",
+                        "title": "Probability"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "category",
+                    "probability"
+                ],
+                "title": "Alternative"
+            },
+            "BatchItem": {
+                "properties": {
+                    "description": {
+                        "title": "Description",
+                        "description": "validated per item; invalid items are reported, not fatal"
+                    },
+                    "transaction_id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 128
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Transaction Id"
+                    }
+                },
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                    "description"
+                ],
+                "title": "BatchItem"
+            },
+            "BatchItemResult": {
+                "properties": {
+                    "index": {
+                        "type": "integer",
+                        "title": "Index"
+                    },
+                    "status": {
+                        "type": "string",
+                        "title": "Status",
+                        "description": "'ok' or 'error'"
+                    },
+                    "transaction_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Transaction Id"
+                    },
+                    "result": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PredictionResult"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Error"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "index",
+                    "status"
+                ],
+                "title": "BatchItemResult"
+            },
+            "BatchRequest": {
+                "properties": {
+                    "items": {
+                        "items": {
+                            "$ref": "#/components/schemas/BatchItem"
+                        },
+                        "type": "array",
+                        "minItems": 1,
+                        "title": "Items"
+                    }
+                },
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                    "items"
+                ],
+                "title": "BatchRequest",
+                "example": {
+                    "items": [
+                        {
+                            "description": "SaaS Subscription 2025-04",
+                            "transaction_id": "a"
+                        },
+                        {
+                            "description": "Miete Büro Juni",
+                            "transaction_id": "b"
+                        }
+                    ]
+                }
+            },
+            "BatchResponse": {
+                "properties": {
+                    "model_version": {
+                        "type": "string",
+                        "title": "Model Version"
+                    },
+                    "n_items": {
+                        "type": "integer",
+                        "title": "N Items"
+                    },
+                    "n_ok": {
+                        "type": "integer",
+                        "title": "N Ok"
+                    },
+                    "n_errors": {
+                        "type": "integer",
+                        "title": "N Errors"
+                    },
+                    "n_automatic": {
+                        "type": "integer",
+                        "title": "N Automatic"
+                    },
+                    "n_manual_review": {
+                        "type": "integer",
+                        "title": "N Manual Review"
+                    },
+                    "results": {
+                        "items": {
+                            "$ref": "#/components/schemas/BatchItemResult"
+                        },
+                        "type": "array",
+                        "title": "Results"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "model_version",
+                    "n_items",
+                    "n_ok",
+                    "n_errors",
+                    "n_automatic",
+                    "n_manual_review",
+                    "results"
+                ],
+                "title": "BatchResponse"
+            },
+            "FeedbackRequest": {
+                "properties": {
+                    "prediction_id": {
+                        "type": "string",
+                        "maxLength": 64,
+                        "minLength": 1,
+                        "title": "Prediction Id"
+                    },
+                    "true_category": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "minLength": 1,
+                        "title": "True Category"
+                    }
+                },
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                    "prediction_id",
+                    "true_category"
+                ],
+                "title": "FeedbackRequest",
+                "example": {
+                    "prediction_id": "3f6c...",
+                    "true_category": "Gehälter"
+                }
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "HealthResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "title": "Status"
+                    },
+                    "model_loaded": {
+                        "type": "boolean",
+                        "title": "Model Loaded"
+                    },
+                    "model_version": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Model Version"
+                    },
+                    "api_version": {
+                        "type": "string",
+                        "title": "Api Version",
+                        "default": "1.0.0"
+                    },
+                    "detail": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status",
+                    "model_loaded"
+                ],
+                "title": "HealthResponse"
+            },
+            "PredictRequest": {
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "maxLength": 2000,
+                        "minLength": 1,
+                        "title": "Description",
+                        "description": "German bank-transaction description (Verwendungszweck)"
+                    },
+                    "transaction_id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 128
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Transaction Id",
+                        "description": "optional client reference, echoed back"
+                    }
+                },
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                    "description"
+                ],
+                "title": "PredictRequest",
+                "example": {
+                    "description": "Gehaltslauf 2026-01",
+                    "transaction_id": "tx-0001"
+                }
+            },
+            "PredictionResult": {
+                "properties": {
+                    "prediction_id": {
+                        "type": "string",
+                        "title": "Prediction Id"
+                    },
+                    "transaction_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Transaction Id"
+                    },
+                    "category": {
+                        "type": "string",
+                        "title": "Category"
+                    },
+                    "parent_category": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Parent Category"
+                    },
+                    "confidence": {
+                        "type": "number",
+                        "title": "Confidence",
+                        "description": "confidence is the model's uncalibrated probability for the predicted category; it is a routing signal, not a guarantee of correctness"
+                    },
+                    "decision": {
+                        "type": "string",
+                        "title": "Decision",
+                        "description": "'automatic' (confidence >= threshold) or 'manual_review'"
+                    },
+                    "threshold": {
+                        "type": "number",
+                        "title": "Threshold"
+                    },
+                    "alternatives": {
+                        "items": {
+                            "$ref": "#/components/schemas/Alternative"
+                        },
+                        "type": "array",
+                        "title": "Alternatives"
+                    },
+                    "calibrated": {
+                        "type": "boolean",
+                        "title": "Calibrated"
+                    },
+                    "model_version": {
+                        "type": "string",
+                        "title": "Model Version"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "prediction_id",
+                    "category",
+                    "confidence",
+                    "decision",
+                    "threshold",
+                    "alternatives",
+                    "calibrated",
+                    "model_version"
+                ],
+                "title": "PredictionResult"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    },
+                    "input": {
+                        "title": "Input"
+                    },
+                    "ctx": {
+                        "type": "object",
+                        "title": "Context"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}

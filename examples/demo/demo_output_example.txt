@@ -1,0 +1,98 @@
+# Captured 2026-11-17T18:45:52Z against the real model germanfinbert-seed42-40de860119 (Docker, CPU). Synthetic inputs only.
+
+=== 1. Health
+$ GET /health
+{
+    "status": "ok",
+    "model_loaded": true,
+    "model_version": "germanfinbert-seed42-40de860119",
+    "api_version": "1.0.0",
+    "detail": null
+}
+
+=== 2. Model information (version, threshold, limits)
+$ GET /model/info
+{
+  "model_version": "germanfinbert-seed42-40de860119",
+  "base_checkpoint": "scherrmann/GermanFinBert_FP",
+  "n_classes": 37,
+  "confidence_threshold": 0.8,
+  "calibrated": false,
+  "limits": {
+    "max_text_length": 512,
+    "max_batch_size": 256
+  }
+}
+
+=== 3. Classify one synthetic transaction
+$ POST /predict
+{
+    "prediction_id": "9f5b0c8799dc49ea9db11bcd691e4250",
+    "transaction_id": "demo-single",
+    "category": "Versicherungen",
+    "parent_category": "Betriebliche Aufwendungen",
+    "confidence": 0.92332,
+    "decision": "automatic",
+    "threshold": 0.8,
+    "alternatives": [
+        {
+            "category": "Versicherungsleistungen",
+            "probability": 0.00452
+        },
+        {
+            "category": "Miete & Nebenkosten",
+            "probability": 0.00341
+        }
+    ],
+    "calibrated": false,
+    "model_version": "germanfinbert-seed42-40de860119"
+}
+
+=== 4. Classify a synthetic batch (one item is deliberately invalid)
+$ POST /predict/batch
+items 6  ok 5  errors 1  automatic 0  manual_review 5
+  demo-001                 Miete & Nebenkosten                    0.779  manual_review
+  demo-002                 Boni / Provisionen                     0.188  manual_review
+  demo-003                 Versicherungen                         0.604  manual_review
+  demo-004                 Abonnements                            0.306  manual_review
+  demo-005                 Boni / Provisionen                     0.384  manual_review
+  demo-006-invalid-empty   ERROR: description is empty or whitespace
+
+=== 5. Invalid input is rejected with HTTP 422 (input is never echoed)
+$ POST /predict {"description": ""}
+HTTP 422
+
+=== 6. Delayed ground truth: a reviewer confirms the category
+$ POST /feedback
+{
+    "accepted": true,
+    "model_version": "germanfinbert-seed42-40de860119"
+}
+
+=== 7. Monitoring summary (decision rates, drift status)
+$ GET /monitoring/summary
+{
+  "model_version": "germanfinbert-seed42-40de860119",
+  "predictions_in_window": 6,
+  "decisions": {
+    "threshold": 0.8,
+    "automatic": 1,
+    "manual_review": 5,
+    "manual_review_rate": 0.8333,
+    "reference_auto_rate": 0.384
+  }
+}
+input drift: {'signal': 'description characteristics vs validation reference (PSI)', 'char_bucket': 'insufficient_data', 'token_bucket': 'insufficient_data', 'unseen_bucket': 'insufficient_data', 'digit_bucket': 'insufficient_data'}
+
+=== 8. Prometheus metrics (first lines)
+$ GET /metrics
+txclf_requests_total{endpoint="/health",status="200"} 2.0
+txclf_requests_total{endpoint="/model/info",status="200"} 1.0
+txclf_requests_total{endpoint="/predict",status="200"} 1.0
+txclf_requests_total{endpoint="/predict/batch",status="200"} 1.0
+txclf_requests_total{endpoint="/predict",status="422"} 1.0
+txclf_requests_total{endpoint="/feedback",status="200"} 1.0
+txclf_requests_total{endpoint="/monitoring/summary",status="200"} 1.0
+txclf_predictions_total{decision="automatic"} 1.0
+
+Demo finished.

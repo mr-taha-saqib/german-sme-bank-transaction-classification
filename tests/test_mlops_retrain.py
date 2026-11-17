@@ -145,3 +145,34 @@ def test_back_to_back_runs_keep_separate_reports(approved_registry, mlops_cfg):
 def test_rollback_cli_without_history_exits_cleanly(approved_registry, mlops_cfg, monkeypatch):
     monkeypatch.setenv("TX_REGISTRY_DIR", mlops_cfg["registry"]["dir"])
     assert rt.main(["--rollback", "--reason", "test"]) == 1
+
+
+def test_mlflow_alias_follows_registry_rollback(mlops_cfg, tmp_path, monkeypatch):
+    """Rollback must move the MLflow 'champion' alias back with the file registry."""
+    mlflow = pytest.importorskip("mlflow")
+    from src.tracking import Tracker
+
+    mlops_cfg["mlflow"].update({"enabled": True, "tracking_uri": f"sqlite:///{tmp_path}/alias.db",
+                                "artifact_location": str(tmp_path / "art"), "register_models": True})
+    tr = Tracker(mlops_cfg)
+    for tag in ("reg-v1", "reg-v2"):
+        art = tmp_path / tag
+        art.mkdir()
+        (art / "metadata.json").write_text("{}")
+        with tr.run(tag):
+            tr.log_artifacts(art, "run")
+            tr.set_alias("champion", tr.register_model(tag))
+    client = mlflow.MlflowClient()
+
+    def champion():
+        return client.get_model_version_by_alias(tr.model_name, "champion").tags["registry_version"]
+
+    assert champion() == "reg-v2"
+    assert tr.mirror_alias("champion", "reg-v1") == "1" and champion() == "reg-v1"
+    assert tr.mirror_alias("champion", "unknown-version") is None and champion() == "reg-v1"
+
+    tr.set_alias("champion", "2")
+    monkeypatch.setattr(rt, "load_mlops_config", lambda *a, **k: mlops_cfg)
+    monkeypatch.setattr(rt.ModelRegistry, "rollback", lambda self, reason: "reg-v1")
+    assert rt.main(["--rollback", "--reason", "test"]) == 0
+    assert champion() == "reg-v1"

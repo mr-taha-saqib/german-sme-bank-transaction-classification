@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Release | `v1.1.0-mlops` → commit `27d27019dfc78839805fa71ed7830040215042cb` (annotated tag, GitHub release published) |
-| QA'd commit | `4b1f66d45cd5a4832b7191e424f2210120065741` (branch `client-delivery`, PR #4): the release plus a post-release delivery commit (documentation, synthetic demo, OpenAPI export, MLflow-alias rollback fix + test). The QA report, testing and handover documents were added afterwards in a documentation-only commit |
+| QA'd commit | `4b1f66d45cd5a4832b7191e424f2210120065741` (branch `client-delivery`, PR #4): the release plus a post-release delivery commit (documentation, synthetic demo, OpenAPI export, MLflow-alias rollback fix + test). The QA report, testing and handover documents and later documentation corrections were added afterwards in documentation-only commits |
 | Date | 2026-11-17/18 (UTC) |
 | Environment | Ubuntu 24.04.5, x86-64, Python 3.12.3, Docker (BuildKit), CPU only; outbound traffic via a TLS-inspecting proxy |
 | Method | fresh `git clone` of the QA'd commit, new virtual environment, documented commands; every command and its output: [`docs/evidence/16_final_delivery_qa.log`](docs/evidence/16_final_delivery_qa.log) |

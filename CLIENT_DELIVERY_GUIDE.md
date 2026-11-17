@@ -5,7 +5,8 @@ and `CLIENT_HANDOVER.md`.
 
 Two independent Data Science / MLOps projects, each in its own GitHub repository.
 All delivery work is merged into **`main`** in both repositories (PR #1 MLOps layer, PR #2 release
-instructions, PR #3 security review and dataset assessments).
+instructions, PR #3 security review and dataset assessments). The client packages add
+post-release documents, a demo and one fix on branch `client-delivery` (PR #4 in each repository).
 
 | | Project 1: Transaction classification | Project 2: Movie recommendation |
 |---|---|---|
@@ -49,7 +50,7 @@ MLflow 3.18 (SQLite), Docker / Compose, GitHub Actions, pytest, ruff.
 ## 4. Installation
 
 ```bash
-git clone <repository> && cd <repository> && git checkout <release tag>   # v1.1.0-mlops / v1.0.0-mlops, or stay on main
+git clone <repository> && cd <repository> && git checkout client-delivery   # = client ZIP; release tags v1.1.0-mlops / v1.0.0-mlops predate the client documents
 python -m venv .venv && source .venv/bin/activate          # Windows: .venv\Scripts\activate
 ```
 

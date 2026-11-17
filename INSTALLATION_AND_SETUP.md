@@ -28,8 +28,12 @@ From the release ZIP: unzip it and `cd` into the extracted folder. From GitHub *
 ```bash
 git clone https://github.com/mr-taha-saqib/german-sme-bank-transaction-classification.git
 cd german-sme-bank-transaction-classification
-git checkout v1.1.0-mlops          # the released version (or stay on main)
+git checkout client-delivery      # the delivered version = the client ZIP
 ```
+
+`client-delivery` (pull request #4) holds the release plus the client documents, demo and the
+MLflow rollback fix: the same source and documents as the ZIP (which adds `PACKAGE_MANIFEST.md`). The tag `v1.1.0-mlops` is the release
+before those additions; `main` matches `client-delivery` once pull request #4 is merged.
 
 ## 3. Virtual environment and dependencies **[Tested]**
 
@@ -51,7 +55,12 @@ pip check
 
 ```bash
 cp .env.example .env               # optional; every value has a safe default
+set -a; source .env; set +a       # local (venv) runs only: export the values to this shell
 ```
+
+Docker Compose reads `.env` automatically. A local `uvicorn` / `python` run does not, so export
+the values first (line above; PowerShell: `$env:NAME = "value"` per variable
+**[Not independently verified]**).
 
 Settings live in `configs/mlops.yaml`; environment variables override them (full list in
 [TECHNICAL_DOCUMENTATION.md §11](TECHNICAL_DOCUMENTATION.md#11-configuration-and-environment-variables)).

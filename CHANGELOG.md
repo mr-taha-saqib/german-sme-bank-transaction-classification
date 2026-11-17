@@ -11,6 +11,10 @@ Not a new model or API version; the release tag `v1.1.0-mlops` is unchanged.
 * `SECURITY.md`: input limit stated as 1–512 characters (`api.max_text_length`); the schema's
   2,000 is only an outer cap.
 * `CLIENT_DELIVERY_GUIDE.md`: install command referred to the merged delivery branch.
+* Documentation: `client-delivery` named as the Git ref that matches the client ZIP; `.env` is read
+  by Docker Compose only, local runs export it (`INSTALLATION_AND_SETUP.md`).
+* `SECURITY_AND_LIMITATIONS.md`: research scripts load `results/**/*.npz` with
+  `allow_pickle=True`; use only shipped or self-produced files.
 
 ### Added (documentation and demo only)
 * `CLIENT_README.md`, `TECHNICAL_DOCUMENTATION.md`, `INSTALLATION_AND_SETUP.md`, `USER_GUIDE.md`,

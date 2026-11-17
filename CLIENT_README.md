@@ -93,6 +93,7 @@ Full, tested instructions: [INSTALLATION_AND_SETUP.md](INSTALLATION_AND_SETUP.md
 ```bash
 git clone https://github.com/mr-taha-saqib/german-sme-bank-transaction-classification.git
 cd german-sme-bank-transaction-classification
+git checkout client-delivery     # = the delivered ZIP (main once PR #4 is merged)
 python3.12 -m venv .venv && source .venv/bin/activate
 pip install --index-url https://download.pytorch.org/whl/cpu torch==2.13.0
 pip install -r requirements-dev.txt -r requirements.txt

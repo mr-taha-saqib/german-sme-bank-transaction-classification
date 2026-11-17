@@ -195,23 +195,20 @@ A new GitHub Actions run is triggered on each merge commit. Check the `main` bra
 | Dataset licence | 2 | Required before commercial use: obtain written GroupLens permission or replace MovieLens with a commercially licensed/client-owned dataset. |
 | Client acceptance | both | Obtain client sign-off on the acceptance reports and agreed scope. |
 
-The release notes are in `docs/releases/`. After the merge-triggered `main` CI is green,
-run the following from a machine with Git and GitHub CLI (`gh`) authenticated with
-repository contents/tag/release write permissions. These commands tag the current
-`main` commit, which includes the squash merge and this updated delivery guide.
+The release notes are in `docs/releases/`. The approved squash-merged implementation and updated guide are on `main`. After the current `main` workflow is green, publish the release using Git and GitHub CLI (`gh`) from a session with tag/release write permissions. The pinned commit below is the verified current `main` commit at handover.
 
 ```bash
 # Project 1
 cd german-sme-bank-transaction-classification
 git fetch origin && git checkout main && git pull --ff-only origin main
-git tag -a v1.1.0-mlops HEAD -F docs/releases/v1.1.0-mlops.md
+git tag -a v1.1.0-mlops fa15261e575a7998aa7480fc602952d22ee03a3e --cleanup=verbatim -F docs/releases/v1.1.0-mlops.md
 git push origin v1.1.0-mlops
 gh release create v1.1.0-mlops --verify-tag --title "v1.1.0-mlops" --notes-file docs/releases/v1.1.0-mlops.md
 
 # Project 2
 cd ../SVD-Based-Collaborative-Filtering
 git fetch origin && git checkout main && git pull --ff-only origin main
-git tag -a v1.0.0-mlops HEAD -F docs/releases/v1.0.0-mlops.md
+git tag -a v1.0.0-mlops e72c0dafa87c988b57160db695bc39a099443a73 --cleanup=verbatim -F docs/releases/v1.0.0-mlops.md
 git push origin v1.0.0-mlops
 gh release create v1.0.0-mlops --verify-tag --title "v1.0.0-mlops" --notes-file docs/releases/v1.0.0-mlops.md
 ```

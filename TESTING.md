@@ -63,3 +63,12 @@ Re-run of all suites on the final branch: `docs/evidence/10_session2_acceptance_
 results content-identical to the committed files, 59 pytest, ruff clean, CLI 5/10
 automatic) and `docs/evidence/11_session2_docker_audit.log` (container health, inference,
 422 on empty input, drift alert, restart, uid 10001).
+
+## Session-3 checks (2026-11-17)
+
+Clean-install run from a fresh clone and a new virtual environment:
+`docs/evidence/15_session3_clean_install_tests.log` (ruff clean, 59 passed, research suites pass).
+Known reproducibility limitation: `results/final_error_analysis.csv` column `*_modal_prediction`
+depends on `PYTHONHASHSEED` for two tied groups (116, 132); metrics are unaffected
+(FINAL_E2E_ACCEPTANCE.md §10). Hardened container and drift checks:
+`docs/evidence/12_session3_docker_hardened_compose.log`, `14_session3_monitoring_drift.log`.

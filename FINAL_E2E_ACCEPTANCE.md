@@ -128,3 +128,28 @@ Re-inspected the remote state first (no assumptions carried over from session 1)
 
 Outstanding external decisions (not completable by the delivery team): owner approval to
 merge PR #1; publishing the tag and release; GPU re-verification (optional); authorised, labelled real transaction data for validation before business use; client acceptance.
+
+## 10. Final completion, session 3 (2026-11-17)
+
+Remote state re-inspected first: PR #1 merged; PR #2 (release-instruction fix, `CLIENT_DELIVERY_GUIDE.md`
+only) reviewed and squash-merged as `cfc6436`; no tags or releases existed. All work below is in
+PR #3 (`final-completion`).
+
+| Item | Result | Evidence | Status |
+|---|---|---|---|
+| Clean install | fresh clone, new Python 3.12.3 venv (CPU torch 2.13.0 + `requirements-dev.txt` + `requirements.txt`, 120 packages); ruff clean; **59 passed**, 78 % coverage | `docs/evidence/15_session3_clean_install_tests.log` | PASS |
+| Research checks (clean install) | 19/19 dataset, 11/11 augmentation, 12/12 integrity, 120/120 recomputations, 66/66 `test_pipeline.py`; regenerated split/corpus/result files content-identical to the committed ones, except one cell of `results/final_error_analysis.csv` (next row) | same | PASS |
+| Reproducibility finding | `final_evaluation.py` picks each group's `*_modal_prediction` with `max(set(preds), key=preds.count)`; on ties the result depends on `PYTHONHASHSEED`. Over seeds 0–9 exactly two cells vary: group 116 FinBERT (tie Rohstoffe / Büromaterial) and group 132 GermanFinBERT (five different labels in five seeds, so no meaningful mode). No metric is affected. **Not changed**, because any deterministic tie-break rewrites a cell of the published error analysis; suggested one-line fix for the research owner: `max(sorted(set(preds)), key=preds.count)` | `15_session3_clean_install_tests.log` | DOCUMENTED, owner decision |
+| PR #3 CI | research integrity, lint + tests, Docker smoke test: all success (run 44083762679) | GitHub Actions | PASS |
+| Security review | admin-token comparison fixed; base-image pip/setuptools and pillow advisories fixed (pip-audit clean for the rebuilt image); Compose hardened (127.0.0.1, `cap_drop: ALL`, `no-new-privileges`); remaining prerequisites listed | `SECURITY.md` | PASS (fixes) / PREREQUISITES OPEN |
+| Docker | rebuilt image `a34bdc421909` (1.78 GB): healthy, published on 127.0.0.1 only, uid 10001, CapDrop ALL, registry read-only and code not writable (both refused), `Betriebshaftpflicht 2026-07` → Versicherungen 0.92332 automatic, 422 for empty / 2,001-char / 257-item input, reload 404 without token, healthy after restart, 205 events persisted, 0 raw descriptions in the event log | `docs/evidence/12_session3_docker_hardened_compose.log` | PASS |
+| Monitoring / drift | normal traffic: all four input signals ok, manual-review rate 0.60; drift traffic (fresh process): all alert, manual-review rate 0.98 | `docs/evidence/14_session3_monitoring_drift.log` | PASS |
+| Retraining | unchanged code; 18 retraining tests pass (gates B/C, validation-only gate, rejection, promotion, rollback, dry run); end-to-end runs from session 1 remain the evidence (`05_*`, `06_*`) | pytest | PASS |
+| MLflow | experiment `german-sme-transaction-classification`: 11 runs (10 published research runs + delivered model run `6e5f29aa…`), registered model with alias `champion` | `docs/evidence/13_session3_mlflow_records.log` | PASS |
+| External validation data | 8 candidate datasets checked; none is real, German, SME, labelled and suitably licensed. No external evaluation was run; nothing was mixed into the frozen split | `docs/EXTERNAL_VALIDATION_DATA_ASSESSMENT.md` | CLIENT ACTION REQUIRED |
+| GPU | not available (unchanged from session 2) | §9 | BLOCKED (hardware) |
+| Research results | unchanged; restored any file the checks rewrote (line endings only) | git diff | PASS |
+| Release tag `v1.1.0-mlops` | must point at the final `main` commit containing this file; in session 2 the delivery session's Git proxy refused tag pushes (`only branch updates are permitted`). Commands: `CLIENT_DELIVERY_GUIDE.md` §15 | – | see handover report |
+
+Outstanding external decisions: authorised, labelled real transaction data for validation;
+gateway with TLS, authentication and rate limiting; the tie-break fix above; client acceptance.

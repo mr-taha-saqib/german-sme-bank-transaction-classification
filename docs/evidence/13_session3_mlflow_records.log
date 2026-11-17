@@ -1,0 +1,4 @@
+experiment german-sme-transaction-classification: 11 runs
+experiment Default: 0 runs
+registered model german-sme-transaction-classifier: 1 versions, aliases {'champion': 1}
+delivered model run: FINISHED {'val_group_accuracy': 0.8125, 'val_group_macro_f1': 0.7037, 'val_group_weighted_f1': 0.7917, 'val_group_top_2_accuracy': 0.875}

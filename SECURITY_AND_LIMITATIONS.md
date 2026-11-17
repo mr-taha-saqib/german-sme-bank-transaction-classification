@@ -60,6 +60,11 @@ Release `v1.1.0-mlops`. Summary for decision makers; the detailed review with ev
 * The default promotion gate accepts a candidate that ties the current model
   (`min_improvement` 0.0) and promotes automatically; configure a margin and human approval.
 * GPU training not re-verified in the delivery environment; CPU training takes ≈ 2 h.
+* The research scripts (`final_evaluation.py`, `calibrate_models.py`) read the saved research
+  outputs `results/**/*.npz` with `allow_pickle=True`, because each file stores the 37 class names
+  as an object array next to the numeric logits. Only run them on the files shipped in this
+  package or produced by your own runs; never on `.npz` files from untrusted sources. The MLOps
+  layer (packaging, API) reads numeric arrays only (`allow_pickle=False`).
 
 ## 6. Production deployment requirements
 

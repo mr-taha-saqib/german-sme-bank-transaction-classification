@@ -1,8 +1,9 @@
 # Delivery summary: German SME transaction classification
 
-**Status: delivered on branch `mlops-production-delivery` (PR #1, open, not merged); all
-25 mandated end-to-end steps PASS (CPU; no GPU available for the acceptance run).
-Research results unchanged. Not a production banking system.**
+**Status: merged into `main` (PR #1, PR #2, PR #3); all 25 mandated end-to-end steps PASS
+(CPU; no GPU available for the acceptance run). Research results unchanged. Not a production
+banking system: no real-data validation (no suitable public dataset; client data required) and
+deployment security prerequisites open (SECURITY.md).**
 
 | Area | Delivered | Verified |
 |---|---|---|
@@ -16,6 +17,8 @@ Research results unchanged. Not a production banking system.**
 | Retraining | leakage-gated, validation-only promotion gate, dry-run, rollback | real candidate rejected; promotion + rollback shown with tiny model |
 | CI | research integrity, lint + tests, Docker smoke test | green on GitHub Actions |
 | Tests | 59 pytest (incl. the fixed research checks) | 78 % coverage |
+| Security review | `SECURITY.md`: constant-time admin token, base-image pip/setuptools and pillow advisories fixed; localhost-only, capability-dropped Compose | yes, tests + container session |
+| External validation data | `docs/EXTERNAL_VALIDATION_DATA_ASSESSMENT.md`: 8 candidates checked, none suitable | client data required |
 | Release | notes in `docs/releases/v1.1.0-mlops.md` | tag/release **not published**: the delivery session may push branches only (see FINAL_E2E_ACCEPTANCE.md §9) |
 
 **Before any business use:** the model has seen only synthetic data; authorised, labelled

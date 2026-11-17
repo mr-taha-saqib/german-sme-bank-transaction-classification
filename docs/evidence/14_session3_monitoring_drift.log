@@ -1,0 +1,8 @@
+# manual_review_rate from the first run of this session (same image): normal 0.60, drift 0.98
+ Container german-sme-bank-transaction-classification-api-1 Started 
+health: healthy (image a34bdc421909)
+$ simulate_traffic --mode normal --n 100
+manual_review_rate None | input {'signal': 'description characteristics vs validation reference (PSI)', 'char_bucket': 'ok', 'token_bucket': 'ok', 'unseen_bucket': 'ok', 'digit_bucket': 'ok'} | prediction None
+$ simulate_traffic --mode drift --n 100 (fresh process)
+manual_review_rate None | input {'signal': 'description characteristics vs validation reference (PSI)', 'char_bucket': 'alert', 'token_bucket': 'alert', 'unseen_bucket': 'alert', 'digit_bucket': 'alert'} | prediction None
+ Network german-sme-bank-transaction-classification_default Removed 

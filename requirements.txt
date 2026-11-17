@@ -28,7 +28,7 @@ tqdm==4.70.0
 # --- pinned transitive dependencies (recorded from the verified environment) ---
 filelock==3.32.3
 joblib==1.5.3
-pillow==12.3.0
+pillow==13.0.0          # 12.3.0 had published advisories (pip-audit 2026-11-17); plotting only
 PyYAML==6.0.3
 regex==2026.8.31
 threadpoolctl==3.6.0

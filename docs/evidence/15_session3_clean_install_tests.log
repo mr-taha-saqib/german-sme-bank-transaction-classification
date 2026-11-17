@@ -1,0 +1,29 @@
+$ fresh clone 6ba895b52c840195f98604602b24321596c410d7 ; uv venv (python 3.12.3)
+installed 120 packages; torch 2.13.0+cpu; pillow 13.0.0
+$ ruff check .
+All checks passed!
+$ pytest -q --cov=src
+-----------------------------------------------
+TOTAL                        2629    568    78%
+59 passed in 42.59s
+$ python verify_dataset.py
+19 checks passed, 0 failed
+$ python verify_augmentation.py
+11 checks passed, 0 findings
+$ python final_evaluation.py
+17:32:59 | INFO    | 12/12 integrity checks passed
+17:32:59 | INFO    | 120 metric recomputations matched their saved values
+$ python tests/test_pipeline.py
+66 passed, 0 failed
+$ git status after research checks (content check of rewritten files)
+  results/dataset/augmentation_verification.json content-identical
+  results/final_error_analysis.csv DIFFERENT
+  results/final_results.csv content-identical
+  results/final_results.json content-identical
+  results/final_summary.csv content-identical
+  results/final_summary.xlsx binary/xlsx (timestamped)
+# Note: results/final_error_analysis.csv differs in one cell between runs. Cause: the
+# *_modal_prediction column uses max(set(preds), key=preds.count), whose tie-break depends on
+# PYTHONHASHSEED. Over PYTHONHASHSEED 0-9 exactly two cells vary (group 116 finbert: tie
+# Rohstoffe/Büromaterial; group 132 germanfinbert: five different labels over five seeds);
+# all other cells and all metrics match the committed file. Research code/results not changed.

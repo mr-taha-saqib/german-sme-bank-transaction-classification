@@ -1,18 +1,17 @@
 # Client delivery guide
 
 Two independent Data Science / MLOps projects, each in its own GitHub repository.
-All work is on the branch **`mlops-production-delivery`**; `main` is unchanged until
-you review and merge.
+The MLOps delivery work has been merged into **`main`** in both repositories. The pull requests are closed as merged.
 
 | | Project 1: Transaction classification | Project 2: Movie recommendation |
 |---|---|---|
 | Repository | https://github.com/mr-taha-saqib/german-sme-bank-transaction-classification | https://github.com/mr-taha-saqib/SVD-Based-Collaborative-Filtering |
-| Branch | `mlops-production-delivery` | `mlops-production-delivery` |
+| Delivered branch | `main` (merged from `mlops-production-delivery`) | `main` (merged from `mlops-production-delivery`) |
 | Model | GermanFinBERT (`scherrmann/GermanFinBert_FP`), 37 categories, 0.80 routing threshold | truncated SVD, k = 20 (chosen on validation) |
 | Acceptance report | `FINAL_E2E_ACCEPTANCE.md` | `FINAL_E2E_ACCEPTANCE.md` |
 | One-page status | `DELIVERY_SUMMARY.md` | `DELIVERY_SUMMARY.md` |
 | Exact delivery status | All 25 mandated E2E steps PASS on CPU; research results unchanged; GPU re-verification not possible (no NVIDIA GPU in the delivery environment) | Acceptance PASS, including the real-data CI job on GitHub Actions |
-| Pull request | PR #1, open, **not merged** (awaiting your approval) | PR #1, open, **not merged** (awaiting your approval) |
+| Pull request | [PR #1](https://github.com/mr-taha-saqib/german-sme-bank-transaction-classification/pull/1), **merged** | [PR #1](https://github.com/mr-taha-saqib/SVD-Based-Collaborative-Filtering/pull/1), **merged** |
 | Release tag | `v1.1.0-mlops`: notes ready, **not yet published** (section 15) | `v1.0.0-mlops`: notes ready, **not yet published** (section 15) |
 
 ## 1. What each project does
@@ -177,37 +176,42 @@ Both
 * Optional GPU (CUDA 12.x) for Project 1 training.
 * No API keys, accounts or paid services are required.
 
-## 14. Merging
+## 14. Merge status
 
-Review the pull-request diff of `mlops-production-delivery` against `main` in each
-repository, then merge. CI runs on the merge to `main` (including Project 2's
-real-data pipeline job).
+Both PR #1s have been squash-merged into `main`.
 
-## 15. Outstanding decisions and actions (not complete; need you or the client)
+* Project 1 merge commit: `18539bd97207ae8031f04b157652f05beccb9b1e`
+* Project 2 merge commit: `12a8100bdbebdeb598d093db4069d37ebcc7cdfc`
 
-| Item | Project | Why it is outstanding | What is needed |
-|---|---|---|---|
-| Merge PR #1 | both | merging needs your explicit approval | review, then merge |
-| Publish release tags | both | the delivery session may push branches only; tag pushes were refused (`only branch updates are permitted`) | run the commands below |
-| GPU re-verification | 1 | the delivery environment has no NVIDIA GPU / CUDA | optional: run `train_model.py --seed 42` on a CUDA machine and compare with `artifacts/runs/` |
-| Real-data validation | 1 | only synthetic data exists | authorised, labelled real transactions from the client; evaluate (and likely retrain) before business use |
-| Dataset licence | 2 | MovieLens is research-only | written GroupLens permission, or a commercially licensed / client-owned dataset |
-| Client acceptance | both | not given yet | client sign-off on the acceptance reports |
+A new GitHub Actions run is triggered on each merge commit. Check the `main` branch workflow status before creating the releases.
 
-Publishing the tags (from a machine with push rights to tags; release notes are in
-`docs/releases/`). Tag the commit you approve. If you **merge with a merge commit** or
-fast-forward, the delivery-branch commit is on `main` and you can tag it directly; if you
-**squash-merge**, tag the new squash commit on `main` instead (it has the same files).
+## 15. Remaining release and client requirements
+
+| Item | Project | Status / requirement |
+|---|---|---|
+| Publish Git tags and GitHub releases | both | Release notes are committed under `docs/releases/`; tags/releases are not yet published. Use a machine with GitHub tag/release permissions and tag the current approved `main` commit after its merge-triggered CI passes. |
+| GPU re-verification | 1 | Optional. The delivered CPU training path passed; no NVIDIA GPU/CUDA was available in the verification environment. |
+| Real-data validation | 1 | Required before business use: obtain authorised, labelled real transaction data from the client and evaluate/retrain with appropriate governance. |
+| Dataset licence | 2 | Required before commercial use: obtain written GroupLens permission or replace MovieLens with a commercially licensed/client-owned dataset. |
+| Client acceptance | both | Obtain client sign-off on the acceptance reports and agreed scope. |
+
+The release notes are in `docs/releases/`. After the merge-triggered `main` CI is green,
+run the following from a machine with Git and GitHub CLI (`gh`) authenticated with
+repository contents/tag/release write permissions. These commands tag the current
+`main` commit, which includes the squash merge and this updated delivery guide.
 
 ```bash
 # Project 1
-git fetch origin && git checkout main && git pull
-git tag -a v1.1.0-mlops <approved-commit> -F docs/releases/v1.1.0-mlops.md
+cd german-sme-bank-transaction-classification
+git fetch origin && git checkout main && git pull --ff-only origin main
+git tag -a v1.1.0-mlops HEAD -F docs/releases/v1.1.0-mlops.md
 git push origin v1.1.0-mlops
 gh release create v1.1.0-mlops --verify-tag --title "v1.1.0-mlops" --notes-file docs/releases/v1.1.0-mlops.md
 
 # Project 2
-git tag -a v1.0.0-mlops <approved-commit> -F docs/releases/v1.0.0-mlops.md
+cd ../SVD-Based-Collaborative-Filtering
+git fetch origin && git checkout main && git pull --ff-only origin main
+git tag -a v1.0.0-mlops HEAD -F docs/releases/v1.0.0-mlops.md
 git push origin v1.0.0-mlops
 gh release create v1.0.0-mlops --verify-tag --title "v1.0.0-mlops" --notes-file docs/releases/v1.0.0-mlops.md
 ```

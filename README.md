@@ -11,6 +11,20 @@ transaction descriptions and a 37-class taxonomy.
 New here? Start with [`PROJECT_INDEX.md`](PROJECT_INDEX.md), then
 [`FINAL_REPORT.md`](FINAL_REPORT.md).
 
+> **Nov 2026: MLOps layer added** (branch `mlops-production-delivery`): a FastAPI
+> inference service with 0.8 confidence routing, a versioned model registry, MLflow
+> tracking, privacy-preserving monitoring with drift checks, a gated retraining
+> workflow, Docker images and GitHub Actions CI. The research pipeline, data, frozen
+> split, corpus v2, seeds, threshold and every published result are unchanged.
+> Jump to [section 13](#13-mlops-layer-api-registry-mlflow-monitoring-retraining).
+> It is a reference implementation for engineering hand-over, **not** a production
+> banking system.
+>
+> **Terminology:** in the research sections below, "real" rows means the original
+> template-generated workbook rows, as opposed to LLM-generated augmentation. **No real
+> bank data was used.** Authorised real transaction data is required to validate the
+> model before any business deployment (see `DATA_CARD.md`).
+
 ### What this repository contains
 
 * German synthetic B2B transaction data (`data/`) and a gated LLM augmentation corpus
@@ -37,10 +51,12 @@ Classify short German bank-transaction descriptions into 37 categories, measure 
 reliable the model's confidence is, and route low-confidence predictions to human
 review at a 0.8 threshold.
 
-This is an academic proof of concept for a bachelor's thesis. It is deliberately
-not a production system: there is no ERP integration, receipt matching, web
-application, database, API or authentication. It runs locally, offline apart from the
-initial Hugging Face model download, and needs no credentials of any kind.
+This is an academic proof of concept for a bachelor's thesis. The research pipeline
+is deliberately not a production system: there is no ERP integration, receipt
+matching, web application, database or authentication. Since Nov 2026 an inference
+API and MLOps tooling wrap the research model (section 13); they do not change the
+research. It runs locally, offline apart from the initial Hugging Face model
+download, and needs no credentials of any kind.
 
 The project's purpose is a *scientifically defensible measurement*, not a good number.
 Where a result is unfavourable (and several are), it is reported as measured.
@@ -106,7 +122,13 @@ german-sme-bank-transaction-classification/   (delivered as GermanFinBERT_ProofO
 ├── notebooks/                       ORIGINAL prototype notebook, preserved
 ├── reference/                       prototype results + audit evidence
 ├── results/                         all generated outputs
-└── src/                             pipeline modules
+├── src/                             pipeline modules (+ MLOps: api, model_artifact, registry,
+│                                    tracking, monitoring, retrain, candidate_training)
+├── configs/mlops.yaml               MLOps settings (serving, MLflow, monitoring, retraining)
+├── scripts/                         MLflow import, demo model, traffic + feedback generators
+├── docs/evidence/                   logs from the Nov 2026 acceptance run
+├── Dockerfile, docker-compose.yml   API and tools images
+└── .github/workflows/ci.yml         CI
 ```
 
 The scripts listed above are the complete pipeline. Earlier phase-1 entry points
@@ -252,8 +274,10 @@ was not used to choose the operating threshold.
 
 ## 10. Setup
 
-Requires Python 3.10+. Verified on Python 3.13.2, Windows 11, NVIDIA RTX 3060
-(12 GB), CUDA 12.6.
+Requires Python 3.12+ (the pinned `numpy==2.5.2` has no release for older Pythons;
+the earlier "3.10+" statement was incorrect). Research results were produced on
+Python 3.13.2, Windows 11, NVIDIA RTX 3060 (12 GB), CUDA 12.6; the MLOps layer was
+verified on Python 3.12, Linux, CPU only.
 
 ```bash
 python -m venv .venv
@@ -421,5 +445,91 @@ defects in the implementation.
   `automatic` or `manual_review` only. An intermediate "suggested category, user
   verifies" level is not part of the delivered code or results; the threshold sweep
   (§9) is the evidence such a design could build on.
-* **Not a production banking system.** No production API, ERP integration, receipt
-  processing or deployment is included.
+* **Not a production banking system.** The API added in Nov 2026 is a reference
+  implementation (no authentication, no ERP integration, no receipt processing, no
+  cloud deployment); see section 13 and `DEPLOYMENT.md`.
+
+---
+
+## 13. MLOps layer: API, registry, MLflow, monitoring, retraining
+
+Added in Nov 2026 around the unchanged research code. Documents:
+[ARCHITECTURE](ARCHITECTURE.md) · [API](API_DOCUMENTATION.md) ·
+[MODEL_CARD](MODEL_CARD.md) · [DATA_CARD](DATA_CARD.md) · [DEPLOYMENT](DEPLOYMENT.md) ·
+[MONITORING](MONITORING.md) · [RETRAINING](RETRAINING.md) · [TESTING](TESTING.md) ·
+[FINAL_E2E_ACCEPTANCE](FINAL_E2E_ACCEPTANCE.md).
+
+```mermaid
+flowchart LR
+  TM[train_model.py run] --> PK[src.model_artifact<br/>package + checksum] --> REG[(model_registry)]
+  TM -. metrics .-> MLF[(MLflow)]
+  REG -->|approved| API[FastAPI src.api] --> MON[monitoring<br/>no raw text]
+  NEW[confirmed labelled CSV] --> RT[src.retrain<br/>leakage gates, validation-only gate] --> REG
+```
+
+### Install
+
+```bash
+pip install --index-url https://download.pytorch.org/whl/cpu torch==2.13.0   # or the CUDA build
+pip install -r requirements-mlops.txt          # research + API + MLflow
+pip install -r requirements-dev.txt            # + tests and lint
+```
+
+### Produce and register the model (weights are not in git)
+
+```bash
+python train_model.py --model germanfinbert --augment --augmentation-version v2 --seed 42 \
+    --output-dir artifacts/runs --run-name germanfinbert_seed42
+python -m src.model_artifact --run artifacts/runs/germanfinbert_seed42 --approve --reason "..."
+```
+
+### Serve
+
+```bash
+uvicorn src.api:app --host 0.0.0.0 --port 8000        # Swagger UI: http://localhost:8000/docs
+curl -s -X POST localhost:8000/predict -H 'content-type: application/json' \
+     -d '{"description": "Gehaltslauf 2026-01"}'
+```
+
+Endpoints: `GET /health`, `GET /model/info`, `POST /predict`, `POST /predict/batch`
+(per-item errors, up to 256 items), `POST /feedback` (delayed ground truth),
+`GET /metrics` (Prometheus), `GET /monitoring/summary`, `POST /model/reload`
+(token-protected). Every prediction returns category, parent category, confidence,
+`automatic` / `manual_review` at the unchanged 0.80 threshold, top alternatives and
+the model version. **Confidence is not a guarantee of correctness.** Descriptions are
+never logged or stored.
+
+### Docker
+
+```bash
+docker compose build api && docker compose up -d api     # mounts ./model_registry read-only
+docker compose logs -f api ; docker compose down
+```
+
+### MLflow
+
+```bash
+python scripts/import_research_runs_to_mlflow.py          # the 10 published runs, read-only
+mlflow ui --backend-store-uri sqlite:///mlflow.db --port 5000
+```
+
+### Retraining
+
+```bash
+python -m src.retrain --feedback confirmed.csv --validate-only
+python -m src.retrain --feedback confirmed.csv --dry-run
+python -m src.retrain --feedback confirmed.csv          # promotes only if the validation gate passes
+python -m src.retrain --rollback --reason "..."
+```
+
+### Tests and CI
+
+```bash
+python tests/test_pipeline.py      # 66 research checks (standalone runner)
+pytest                             # research checks + MLOps tests (tiny offline BERT, no download)
+ruff check .
+```
+
+`.github/workflows/ci.yml`: research integrity (verify scripts + final evaluation on
+saved logits, no deep-learning stack), lint + tests on CPU, Docker build and in-container
+inference with a tiny test model. GermanFinBERT is never downloaded in CI.

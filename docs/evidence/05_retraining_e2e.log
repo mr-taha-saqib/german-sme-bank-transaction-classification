@@ -1,0 +1,75 @@
+### 0. SYNTHETIC labelled feedback (demonstration only)
+Wrote 366 SYNTHETIC labelled rows (train_variants+heldout_leak+invalid) to /tmp/tx-e2e/fb_mixed.csv
+Wrote 6 SYNTHETIC labelled rows (invalid) to /tmp/tx-e2e/fb_tiny.csv
+### 1. too little valid data
+{
+  "decision": "rejected_data_requirements",
+  "promoted": false,
+  "approved_version": "germanfinbert-seed42-40de860119",
+  "candidate_version": null,
+  "approved_after": "germanfinbert-seed42-40de860119",
+  "mlflow_run_id": null
+}
+### 2. validate-only on mixed feedback (invalid rows + held-out leaks)
+{
+  "decision": "validated_only",
+  "promoted": false,
+  "approved_version": "germanfinbert-seed42-40de860119",
+  "candidate_version": null,
+  "approved_after": "germanfinbert-seed42-40de860119",
+  "mlflow_run_id": null
+}
+* Input rows: 366 | accepted: 74 | classes covered: 34
+* Dropped: missing 2, empty 1, too long 0, unknown label 1, empty after cleaning 1, duplicates 264, conflicting labels 0
+* Leakage gate: exact/group-key collisions with validation/test 23, near-duplicates (Jaccard >= 0.6) 0
+### 3. live retraining: GermanFinBERT candidate (1 epoch, max_length 32 = no truncation, max 19 tokens)
+04:34:44  INFO      src.model_artifact  Packaged /home/claude/german-sme-bank-transaction-classification/artifacts/candidates/candidate-20261116T232353Z as registry version candidate-seed42-bdf512ef87
+04:34:44  INFO      src.tracking  MLflow registry: german-sme-transaction-classifier version 1 registered
+04:34:44  INFO      src.tracking  MLflow run 024ef897f1d542a0b6f29a0ef031a50b finished (retrain-20261116T232353Z)
+04:34:45  INFO      retrain  Retraining decision: rejected_by_gate (approved now: germanfinbert-seed42-40de860119)
+{
+  "decision": "rejected_by_gate",
+  "promoted": false,
+  "approved_version": "germanfinbert-seed42-40de860119",
+  "candidate_version": "candidate-seed42-bdf512ef87",
+  "approved_after": "germanfinbert-seed42-40de860119",
+  "mlflow_run_id": "024ef897f1d542a0b6f29a0ef031a50b"
+}
+
+real	10m53.390s
+user	20m3.477s
+sys	0m57.363s
+### 4. same feedback again (idempotence)
+{
+  "decision": "rejected_by_gate",
+  "promoted": false,
+  "approved_version": "germanfinbert-seed42-40de860119",
+  "candidate_version": "candidate-seed42-bdf512ef87",
+  "approved_after": "germanfinbert-seed42-40de860119",
+  "mlflow_run_id": "024ef897f1d542a0b6f29a0ef031a50b"
+}
+### 5. registry state
+approved: germanfinbert-seed42-40de860119
+history: []
+2026-11-16T23:21:14Z registered germanfinbert-seed42-40de860119
+2026-11-16T23:21:14Z approved germanfinbert-seed42-40de860119
+2026-11-16T23:34:44Z registered candidate-seed42-bdf512ef87
+2026-11-16T23:34:44Z rejected candidate-seed42-bdf512ef87
+candidate-seed42-bdf512ef87
+germanfinbert-seed42-40de860119
+### 6. previous approved model preserved; rollback drill
+    raise RegistryError("No previous approved version available for rollback")
+src.registry.RegistryError: No previous approved version available for rollback
+
+### (re-run after fix) report filenames now unique; validate-only report regenerated
+{
+  "decision": "validated_only",
+  "promoted": false,
+  "approved_version": "germanfinbert-seed42-40de860119",
+  "candidate_version": null,
+  "approved_after": "germanfinbert-seed42-40de860119",
+  "mlflow_run_id": null
+}
+### (re-run after fix) rollback drill: no earlier approved version -> clean error, exit code
+04:37:54  ERROR     retrain  Rollback not possible: No previous approved version available for rollback
+exit code of python -m src.retrain --rollback (measured without a pipe): 1

@@ -1,0 +1,22 @@
+[project]
+name = "german-sme-transaction-classification"
+version = "1.0.0"
+description = "German SME bank-transaction classification (GermanFinBERT) with API, MLflow, monitoring and gated retraining"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: trains models (tiny BERT); still CPU-only and offline"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore:.*httpx2.*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+# Research scripts and notebooks are preserved as delivered; lint covers the MLOps layer and tests.
+include = ["src/api.py", "src/monitoring.py", "src/model_artifact.py", "src/registry.py", "src/retrain.py",
+           "src/tracking.py", "src/mlops_settings.py", "src/candidate_training.py", "src/logging_utils.py",
+           "tests/conftest.py", "tests/test_mlops_*.py", "scripts/**/*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I", "UP"]
+ignore = ["E501", "B008", "B905", "UP007", "UP045"]

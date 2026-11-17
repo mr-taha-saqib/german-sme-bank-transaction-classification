@@ -1,0 +1,175 @@
+### Phase 1 (fresh process): 200 normal descriptions + 100 with delayed labels
+{
+  "mode": "normal",
+  "batch_status_codes": {
+    "200": 8
+  },
+  "decisions": {
+    "threshold": 0.8,
+    "automatic": 71,
+    "manual_review": 129,
+    "manual_review_rate": 0.645,
+    "reference_auto_rate": 0.384
+  },
+  "input_drift": {
+    "signal": "description characteristics vs validation reference (PSI)",
+    "char_bucket": {
+      "psi": 0.0183,
+      "status": "ok"
+    },
+    "token_bucket": {
+      "psi": 0.0084,
+      "status": "ok"
+    },
+    "unseen_bucket": {
+      "psi": 0.013,
+      "status": "ok"
+    },
+    "digit_bucket": {
+      "psi": 0.0067,
+      "status": "ok"
+    }
+  },
+  "prediction_drift": {
+    "category": {
+      "psi": 0.1557,
+      "status": "warning"
+    },
+    "confidence": {
+      "psi": 0.0125,
+      "status": "ok"
+    }
+  },
+  "observed_performance": {
+    "status": "insufficient_labels",
+    "n_labelled": 0,
+    "required": 30,
+    "note": "No performance claim is made without enough labelled outcomes."
+  },
+  "latency_ms": {
+    "p50": 2429.43,
+    "p95": 2694.35,
+    "p99": 2773.48
+  }
+}
+{
+  "mode": "labels",
+  "batch_status_codes": {
+    "200": 4
+  },
+  "decisions": {
+    "threshold": 0.8,
+    "automatic": 112,
+    "manual_review": 188,
+    "manual_review_rate": 0.6267,
+    "reference_auto_rate": 0.384
+  },
+  "input_drift": {
+    "signal": "description characteristics vs validation reference (PSI)",
+    "char_bucket": {
+      "psi": 0.0046,
+      "status": "ok"
+    },
+    "token_bucket": {
+      "psi": 0.0038,
+      "status": "ok"
+    },
+    "unseen_bucket": {
+      "psi": 0.0049,
+      "status": "ok"
+    },
+    "digit_bucket": {
+      "psi": 0.0106,
+      "status": "ok"
+    }
+  },
+  "prediction_drift": {
+    "category": {
+      "psi": 0.0553,
+      "status": "ok"
+    },
+    "confidence": {
+      "psi": 0.0143,
+      "status": "ok"
+    }
+  },
+  "observed_performance": {
+    "status": "available",
+    "n_labelled": 100,
+    "accuracy": 0.54,
+    "accuracy_automatic": 0.8293,
+    "n_labelled_automatic": 41,
+    "note": "From delayed ground-truth labels. Labels may be a biased sample (e.g. mostly manual-review cases)."
+  },
+  "latency_ms": {
+    "p50": 1.11,
+    "p95": 2438.27,
+    "p99": 2601.23
+  }
+}
+### Phase 2 (fresh process): 200 English free-text descriptions (controlled input drift)
+{
+  "mode": "drift",
+  "batch_status_codes": {
+    "200": 8
+  },
+  "decisions": {
+    "threshold": 0.8,
+    "automatic": 4,
+    "manual_review": 196,
+    "manual_review_rate": 0.98,
+    "reference_auto_rate": 0.384
+  },
+  "input_drift": {
+    "signal": "description characteristics vs validation reference (PSI)",
+    "char_bucket": {
+      "psi": 10.4011,
+      "status": "alert"
+    },
+    "token_bucket": {
+      "psi": 17.1057,
+      "status": "alert"
+    },
+    "unseen_bucket": {
+      "psi": 6.8291,
+      "status": "alert"
+    },
+    "digit_bucket": {
+      "psi": 14.7788,
+      "status": "alert"
+    }
+  },
+  "prediction_drift": {
+    "category": {
+      "psi": 7.5121,
+      "status": "alert"
+    },
+    "confidence": {
+      "psi": 4.248,
+      "status": "alert"
+    }
+  },
+  "observed_performance": {
+    "status": "insufficient_labels",
+    "n_labelled": 0,
+    "required": 30,
+    "note": "No performance claim is made without enough labelled outcomes."
+  },
+  "latency_ms": {
+    "p50": 2415.42,
+    "p95": 2572.2,
+    "p99": 2591.07
+  }
+}
+### /metrics excerpt
+txclf_predictions_total{decision="manual_review"} 196.0
+txclf_predictions_total{decision="automatic"} 4.0
+txclf_drift_psi{signal="input_char_bucket"} 10.401077300401075
+txclf_drift_psi{signal="input_token_bucket"} 17.10568258084767
+txclf_drift_psi{signal="input_unseen_bucket"} 6.829051255747262
+txclf_drift_psi{signal="input_digit_bucket"} 14.778761669057594
+txclf_drift_psi{signal="prediction_category"} 7.512091927177463
+txclf_drift_psi{signal="prediction_confidence"} 4.248040019925229
+### event log privacy check: strict field allow-list, no description text
+events: 600 | schema violations: 0 | drift-traffic words found in log: []
+first event: {"ts": "2026-11-16T23:21:47+00:00", "event": "prediction", "prediction_id": "ad63579278a44be1a463f5c3216a488b", "model_version": "germanfinbert-seed42-40de860119", "category": "IT / Hardware", "confidence": 0.84053, "decision": "automatic", "char_bucket": 4, "token_bucket": 2, "unseen_bucket": 0, "digit_bucket": 3, "empty_after_cleaning": 0}

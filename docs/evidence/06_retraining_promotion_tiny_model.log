@@ -1,0 +1,24 @@
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 637.63it/s]
+Loading weights:   0%|          | 0/25 [00:00<?, ?it/s]Loading weights: 100%|██████████| 25/25 [00:00<00:00, 17286.12it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 1075.46it/s]
+approved (tiny, 1 epoch): tinybert-seed42-e6eee61ca5
+2026/11/17 03:21:47 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/17 03:21:47 INFO mlflow.store.db.utils: Updating database tables
+Loading weights:   0%|          | 0/25 [00:00<?, ?it/s]Loading weights: 100%|██████████| 25/25 [00:00<00:00, 30209.62it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 927.33it/s]
+{
+ "decision": "promoted",
+ "candidate_version": "candidate-seed42-d913325f46",
+ "approved_after": "candidate-seed42-d913325f46",
+ "mlflow_run_id": "41d367c7926d44c39bc6153dec650a7b",
+ "test_split_used": false
+}
+approved validation: {'row_accuracy': 0.00877, 'row_macro_f1': 0.00109, 'row_pct_auto': 0.0, 'row_accuracy_auto': None}
+candidate validation: {'row_accuracy': 0.0614, 'row_macro_f1': 0.00723, 'row_pct_auto': 0.0, 'row_accuracy_auto': None}
+  True candidate_metrics_present | candidate validation metrics were computed
+  True row_macro_f1_improves | candidate 0.00723 >= approved 0.00109 + 0.0
+  True row_accuracy_not_dropped | candidate 0.0614 >= approved 0.00877 - 0.01
+  True automation_coverage_not_dropped | candidate 0.0% >= approved 0.0% - 5.0 pp
+previous version still present: True | history: ['tinybert-seed42-e6eee61ca5']
+Rolled back from candidate-seed42-d913325f46 to tinybert-seed42-e6eee61ca5
+rollback -> tinybert-seed42-e6eee61ca5 | approved now: tinybert-seed42-e6eee61ca5

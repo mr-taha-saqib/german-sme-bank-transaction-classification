@@ -1,12 +1,19 @@
 """Self-contained checks for the properties the brief requires.
 
 Run with:  python tests/test_pipeline.py       (no pytest needed)
+      or:  python -m pytest tests/test_pipeline.py
+
+Review fix (2026-11): the test functions used to only *record* failed checks, so
+under pytest every function passed even when a check failed. ``@collect_checks``
+now makes each function raise if any of its own checks failed; the standalone
+runner still reports every check before exiting non-zero.
 
 These are correctness guards for the leakage-safety and calibration claims, not a
 substitute for reading the run artefacts.
 """
 from __future__ import annotations
 
+import functools
 import sys
 from pathlib import Path
 
@@ -49,7 +56,19 @@ def check(name: str, condition: bool, detail: str = "") -> None:
     print(f"  [{mark}] {name}" + (f"  -- {detail}" if detail and not condition else ""))
 
 
+def collect_checks(fn):
+    """Fail the wrapped test (under pytest) if any check inside it failed."""
+    @functools.wraps(fn)
+    def wrapper() -> None:
+        before = len(FAILED)
+        fn()
+        new_failures = FAILED[before:]
+        assert not new_failures, f"failed checks: {new_failures}"
+    return wrapper
+
+
 # --------------------------------------------------------------------------- #
+@collect_checks
 def test_preprocessing() -> None:
     print("\nPREPROCESSING")
     cfg = PreprocessingConfig()
@@ -97,6 +116,7 @@ def test_preprocessing() -> None:
           clean_description("AustroData GmbH Rechnung", cfg))
 
 
+@collect_checks
 def test_grouping() -> None:
     print("\nGROUPING")
     check("token_set is order-insensitive",
@@ -139,6 +159,7 @@ def _toy_dataset() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+@collect_checks
 def test_splitting() -> None:
     print("\nSPLITTING")
     df = assign_groups(_toy_dataset(), cfg=GroupingConfig(mode="token_set"))
@@ -176,6 +197,7 @@ def test_splitting() -> None:
     check("validator DETECTS an injected group overlap", not bad_rep["passed"])
 
 
+@collect_checks
 def test_augmentation_gates() -> None:
     print("\nAUGMENTATION GATES")
     df = assign_groups(_toy_dataset(), cfg=GroupingConfig(mode="token_set"))
@@ -211,6 +233,7 @@ def test_augmentation_gates() -> None:
           not (set(kept["clean_description"]) & heldout))
 
 
+@collect_checks
 def test_calibration() -> None:
     print("\nCALIBRATION")
     # A genuinely over-confident model: a weak signal (so accuracy is mediocre)
@@ -246,6 +269,7 @@ def test_calibration() -> None:
           scaler.fit_info["nll_after"] <= scaler.fit_info["nll_before"])
 
 
+@collect_checks
 def test_evaluation() -> None:
     print("\nEVALUATION")
     probs = np.array([[0.9, 0.05, 0.05], [0.4, 0.35, 0.25], [0.1, 0.85, 0.05],
@@ -268,6 +292,7 @@ def test_evaluation() -> None:
 
 
 
+@collect_checks
 def test_grouping_is_label_free() -> None:
     print("\nGROUPING IS LABEL-FREE (required by the brief)")
     # Two highly similar texts carrying DIFFERENT labels. A label-aware merger would
@@ -296,6 +321,7 @@ def test_grouping_is_label_free() -> None:
           g["group_id"].tolist() == g2["group_id"].tolist())
 
 
+@collect_checks
 def test_near_duplicate_census() -> None:
     print("\nNEAR-DUPLICATE CENSUS")
     keys = ["a b c d", "a b c e", "x y z"]
@@ -312,6 +338,7 @@ def test_near_duplicate_census() -> None:
           by_thr[0.5]["n_pairs"] >= by_thr[0.6]["n_pairs"] >= by_thr[0.9]["n_pairs"])
 
 
+@collect_checks
 def test_duplicate_removal() -> None:
     print("\nSOURCE-FLAGGED DUPLICATE REMOVAL")
     df = pd.DataFrame({
@@ -340,6 +367,7 @@ def test_duplicate_removal() -> None:
     check("removal is switchable off", rep2["n_removed_total"] == 0 and len(out2) == len(df))
 
 
+@collect_checks
 def test_frozen_split_is_stable() -> None:
     print("\nFROZEN SPLIT REPRODUCIBILITY")
     df = assign_groups(_toy_dataset(), cfg=GroupingConfig(mode="token_set"))
@@ -366,7 +394,10 @@ def main() -> int:
                test_near_duplicate_census, test_duplicate_removal, test_splitting,
                test_frozen_split_is_stable, test_augmentation_gates,
                test_calibration, test_evaluation):
-        fn()
+        try:
+            fn()
+        except AssertionError:
+            pass   # already recorded in FAILED; keep running the remaining checks
 
     print("\n" + "=" * 70)
     print(f"{len(PASSED)} passed, {len(FAILED)} failed")

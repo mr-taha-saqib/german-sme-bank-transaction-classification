@@ -1,0 +1,49 @@
+# MLOps configuration (serving, tracking, monitoring, retraining).
+# The RESEARCH configuration is unchanged and lives in src/config.py; nothing here
+# alters the frozen split, corpus v2, seeds, training hyperparameters or results.
+# Paths are relative to the repository root. Env overrides: see .env.example.
+
+model:
+  base_checkpoint: "scherrmann/GermanFinBert_FP"
+  # Hugging Face revision verified on 2026-11-17 (pin for reproducible downloads)
+  base_revision: "0b3622dd589d2fc2f518b4be12a9dc306b903df2"
+  confidence_threshold: 0.80     # research operating point; never tuned
+  top_k: 3                       # alternatives returned by the API
+
+registry:
+  dir: "model_registry"          # versions/<id>/ + registry.json (weights are NOT in git)
+  model_name: "german-sme-transaction-classifier"
+
+mlflow:
+  enabled: true
+  tracking_uri: "sqlite:///mlflow.db"
+  artifact_location: "mlartifacts"
+  experiment: "german-sme-transaction-classification"
+  register_models: true
+  log_weights: false             # ~420 MB per run; enable explicitly if wanted
+
+monitoring:
+  log_dir: "monitoring"
+  window_size: 5000
+  psi_warning: 0.10
+  psi_alert: 0.25
+  min_requests_for_drift: 50
+  min_labels_for_performance: 30
+
+retraining:
+  report_dir: "reports/retraining"
+  min_new_rows: 30
+  min_classes: 3
+  max_text_length: 512
+  near_duplicate_threshold: 0.60   # same value as the research grouping (do not change)
+  promotion:
+    # All criteria use the frozen VALIDATION split; the test split is never read.
+    primary_metric: "row_macro_f1"
+    min_improvement: 0.0           # candidate must reach approved + this on the primary metric
+    max_accuracy_drop: 0.01        # row-level validation accuracy
+    max_auto_accuracy_drop: 0.02   # accuracy among automatic (>= threshold) decisions
+    max_auto_coverage_drop: 5.0    # percentage points of automatic decisions
+
+api:
+  max_text_length: 512
+  max_batch_size: 256

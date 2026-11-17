@@ -1,0 +1,68 @@
+### training log (tail)
+03:37:52 | INFO    |   epoch 2/3  train_loss=0.17749  train_accuracy=0.96699  lr_end_of_epoch=7.400419287211741e-06  dev_loss=6.46602  dev_accuracy=0.49123  dev_macro_f1=0.71701
+04:12:01 | INFO    |   epoch 3/3  train_loss=0.10834  train_accuracy=0.98491  lr_end_of_epoch=0.0  dev_loss=6.85362  dev_accuracy=0.49123  dev_macro_f1=0.68992
+04:12:01 | INFO    | Training finished in 6817.5 s
+04:12:01 | INFO    | 
+04:12:01 | INFO    | ==============================================================================
+04:12:01 | INFO    | VALIDATION METRICS
+04:12:01 | INFO    | ==============================================================================
+04:12:23 | INFO    | validation | row-level acc 0.4912 macroF1 0.6899 | group-level acc 0.8125 macroF1 0.7037 (n=16 groups)
+04:12:23 | INFO    | 
+04:12:23 | INFO    | ==============================================================================
+04:12:23 | INFO    | TEST EVALUATION (AFTER TRAINING IS COMPLETE)
+04:12:23 | INFO    | ==============================================================================
+04:13:23 | INFO    | test group_level  | n=33   acc 0.6970 | macroF1 0.5880 | weightedF1 0.6414 | top-2 0.7576 | mean conf 0.7430 | >=0.80: 60.6% of predictions, acc 0.8000
+04:13:23 | INFO    | test row_level    | n=647  acc 0.5317 | macroF1 0.5585 | weightedF1 0.4768 | top-2 0.6291 | mean conf 0.6095 | >=0.80: 41.9% of predictions, acc 0.7380
+04:13:23 | INFO    | 
+04:13:23 | INFO    | ==============================================================================
+04:13:23 | INFO    | SAVING ARTEFACTS
+04:13:23 | INFO    | ==============================================================================
+04:13:25 | INFO    | Saved weights and tokenizer to artifacts/runs/germanfinbert_seed42_cpu/model
+04:13:25 | INFO    | 
+04:13:25 | INFO    | ==============================================================================
+04:13:25 | INFO    | STEP 3 COMPLETE
+04:13:25 | INFO    | ==============================================================================
+04:13:25 | INFO    | Artefacts in /home/claude/german-sme-bank-transaction-classification/artifacts/runs/germanfinbert_seed42_cpu
+04:13:25 | INFO    | No calibration was applied. No FinBERT comparison was run.
+
+### comparison with the published GPU run (same seed, data, config)
+test_metrics.json group_level (published GPU, this CPU run): {'accuracy': (0.66667, 0.69697), 'macro_f1': (0.56381, 0.58796), 'weighted_f1': (0.59798, 0.64141), 'top_2_accuracy': (0.75758, 0.75758), 'pct_auto': (63.636, 60.606), 'accuracy_auto': (0.80952, 0.8)}
+test_metrics.json row_level (published GPU, this CPU run): {'accuracy': (0.49459, 0.53168), 'macro_f1': (0.53751, 0.55852), 'weighted_f1': (0.43769, 0.47683), 'top_2_accuracy': (0.62906, 0.62906), 'pct_auto': (42.813, 41.886), 'accuracy_auto': (0.74368, 0.73801)}
+validation_metrics.json group_level (published GPU, this CPU run): {'accuracy': (0.8125, 0.8125), 'macro_f1': (0.7037, 0.7037), 'weighted_f1': (0.79167, 0.79167), 'top_2_accuracy': (0.875, 0.875), 'pct_auto': (68.75, 75.0), 'accuracy_auto': (1.0, 1.0)}
+validation_metrics.json row_level (published GPU, this CPU run): {'accuracy': (0.49123, 0.49123), 'macro_f1': (0.68992, 0.68992), 'weighted_f1': (0.44533, 0.44533), 'top_2_accuracy': (0.71053, 0.71053), 'pct_auto': (22.368, 28.509), 'accuracy_auto': (1.0, 1.0)}
+test prediction column: pred_id_uncal | identical predicted labels: 557 / 647
+
+### register + approve
+04:21:13  INFO      gfb  Frozen split verified (sha256 f715f040d8a5daa6)
+04:21:13  INFO      gfb  Loaded frozen split: 1968 rows | 152 groups | train 1093r/103g | validation 228r/16g | test 647r/33g
+04:21:14  INFO      src.registry  Registered model version germanfinbert-seed42-40de860119
+04:21:14  INFO      __main__  Packaged artifacts/runs/germanfinbert_seed42_cpu as registry version germanfinbert-seed42-40de860119
+04:21:14  INFO      src.registry  Approved model version germanfinbert-seed42-40de860119 (previous: None)
+{"version_id": "germanfinbert-seed42-40de860119", "approved": true}
+
+### MLflow: import the 10 published research runs (read-only) + log this run
+2026/11/17 04:21:16 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/17 04:21:16 INFO mlflow.store.db.utils: Updating database tables
+{"imported": 10, "already_present": 0}
+{"mlflow_run_id": "6e5f29aafc344bc5bf2386b2cb2c0de2", "mlflow_model_version": "1", "registry_version": "germanfinbert-seed42-40de860119"}
+{
+  "approved": "germanfinbert-seed42-40de860119",
+  "history": [],
+  "events": [
+    {
+      "time": "2026-11-16T23:21:14Z",
+      "event": "registered",
+      "version": "germanfinbert-seed42-40de860119"
+    },
+    {
+      "time": "2026-11-16T23:21:14Z",
+      "event": "approved",
+      "version": "germanfinbert-seed42-40de860119",
+      "previous": null,
+      "decision": {
+        "reason": "CPU reproduction of the published research configuration (GermanFinBERT, seed 42, corpus v2, fixed 3 epochs); validation/test metrics reviewed against the published GPU seed-42 run",
+        "type": "manual_approval"
+      }
+    }
+  ]
+}

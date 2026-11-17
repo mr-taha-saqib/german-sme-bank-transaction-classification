@@ -1,0 +1,44 @@
+$ python verify_dataset.py
+19 checks passed, 0 failed
+==============================================================================
+$ python verify_augmentation.py
+11 checks passed, 0 findings
+==============================================================================
+$ python final_evaluation.py
+04:38:13 | INFO    | 12/12 integrity checks passed
+04:38:13 | INFO    | 120 metric recomputations matched their saved values
+$ git diff --ignore-cr-at-eol --stat -- results/  (regenerated vs committed research results)
+results/final_results.csv content identical
+results/final_summary.csv content identical
+results/dataset/augmentation_verification.json content identical
+$ python tests/test_pipeline.py
+66 passed, 0 failed
+======================================================================
+$ pytest --junitxml ... --cov=src
+src/__init__.py                 1      0   100%
+src/api.py                    243      9    96%
+src/calibration.py            128     53    59%
+src/candidate_training.py      83      7    92%
+src/config.py                 107      0   100%
+src/data_preparation.py       106     62    42%
+src/dataset_io.py              48      8    83%
+src/evaluation.py             172    118    31%
+src/grouping.py                98      3    97%
+src/inference.py              121     56    54%
+src/logging_utils.py           35     12    66%
+src/mlops_settings.py          41      5    88%
+src/model_artifact.py         133     28    79%
+src/models.py                  30      0   100%
+src/monitoring.py             163      3    98%
+src/preprocessing.py          106     16    85%
+src/registry.py               159     20    87%
+src/retrain.py                216     19    91%
+src/splitting.py              229     54    76%
+src/tracking.py               144     29    80%
+src/training.py               165     18    89%
+src/utils.py                  100     48    52%
+-----------------------------------------------
+TOTAL                        2628    568    78%
+59 passed in 23.79s
+$ ruff check .
+All checks passed!

@@ -1,0 +1,12 @@
+# Serving-only dependencies (Docker image). Install CPU PyTorch FIRST:
+#   pip install --index-url https://download.pytorch.org/whl/cpu torch==2.13.0
+transformers==5.16.1
+tokenizers==0.23.1
+safetensors==0.8.0
+numpy==2.5.2
+pandas==3.0.5
+PyYAML==6.0.3
+fastapi==0.163.1
+uvicorn==0.54.0
+pydantic==2.14.3
+prometheus-client==0.26.0

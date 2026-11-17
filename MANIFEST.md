@@ -11,6 +11,8 @@ German SME Bank Transaction Classification, Academic Proof of Concept
 
 Start here: [`PROJECT_INDEX.md`](PROJECT_INDEX.md) → [`FINAL_REPORT.md`](FINAL_REPORT.md)
 
+> **Nov 2026:** an MLOps layer (API, registry, MLflow, monitoring, retraining, Docker, CI) was added on branch `mlops-production-delivery`. This manifest describes the research package; the new files are listed in [`CHANGELOG.md`](CHANGELOG.md) and [`DELIVERY_SUMMARY.md`](DELIVERY_SUMMARY.md).
+
 ---
 
 ## 1. Documentation (11 files)
@@ -26,7 +28,7 @@ Start here: [`PROJECT_INDEX.md`](PROJECT_INDEX.md) → [`FINAL_REPORT.md`](FINAL
 | `AUGMENTATION_DECISION.md` | Step 3A, leakage finding (9 near-duplicate rows), the three gates, corpus v2, and the honest outcome that the correction changed no prediction |
 | `STEP4_FINBERT.md` | Step 4, FinBERT verification, fairness preconditions, five-seed results, why the accuracy gap must not be over-claimed |
 | `STEP5_CALIBRATION.md` | Step 5, temperature scaling, the negative result, and its diagnosed cause |
-| `FINAL_E2E_ACCEPTANCE.md` | **Pre-delivery acceptance test.** End-to-end re-verification of every client requirement, the client-provided originals, the data pipeline, both models, calibration, the 0.8 workflow, an independent recomputation of all final numbers from raw logits, and a clean-environment run |
+| `FINAL_E2E_ACCEPTANCE_RESEARCH.md` | **Pre-delivery acceptance test of the research package** (renamed from `FINAL_E2E_ACCEPTANCE.md` in Nov 2026; content unchanged; the MLOps acceptance report now uses the original name). End-to-end re-verification of every client requirement, the client-provided originals, the data pipeline, both models, calibration, the 0.8 workflow, an independent recomputation of all final numbers from raw logits, and a clean-environment run |
 | `RESULTS_ARCHIVE_PLAN.md` | Inventory of the *working* project's `results/` tree and the cleanup carried out there. Informational. That tree is not part of this package |
 
 ---

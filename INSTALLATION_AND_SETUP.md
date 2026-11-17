@@ -36,6 +36,7 @@ git checkout v1.1.0-mlops          # the released version (or stay on main)
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.ps1  [Not independently verified]
+python -m pip install --upgrade pip   # the pip bundled with some Python builds (e.g. Ubuntu's 24.0) has published advisories
 pip install --index-url https://download.pytorch.org/whl/cpu torch==2.13.0
 pip install -r requirements-dev.txt -r requirements.txt
 pip check
@@ -122,7 +123,7 @@ DOCKER_BUILDKIT=1 docker build --secret id=pip_ca,src=/path/to/proxy-ca.pem --ta
     -t german-sme-txclf-api:1.0.0 .
 ```
 
-Research and retraining tools in a container **[Not independently verified in the final QA]**:
+Research and retraining tools in a container **[Tested]** (build + `verify_dataset.py`; the image is ≈ 2.7 GB):
 
 ```bash
 docker compose --profile tools build tools
